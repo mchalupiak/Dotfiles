@@ -139,3 +139,5 @@
 
 ;;(add-hook 'elfeed-new-entry-hook #'ime-elfeed-podcast-tagger)
 (setq emms-source-file-default-directory "/mnt/c/Users/mchalupi/Music")
+(global-tree-sitter-mode)
+(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)

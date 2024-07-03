@@ -1,0 +1,25 @@
+- kakoune (+config)
+- git
+- rust (tinty, kak-lsp, kak-tree-sitter)
+- fzf
+- bash (+config)
+- tmux (+config)
+- rg
+- fd (probably)
+- .scripts folder
+- ctags (for good measure)
+- bat
+
+preferred
+- lazygit
+- lsp and tooling for needed languages
+- eza
+
+entertainment
+- cmus (+music)
+- newsboat (+config)
+- sxiv (+wallpapers)
+- curl
+- mpv
+
+try to use latest version of tools when possible

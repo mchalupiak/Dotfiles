@@ -1,0 +1,26 @@
+# unbind keys
+# unbind-key ENTER
+unbind-key j
+unbind-key k
+unbind-key h
+unbind-key l
+unbind-key g
+unbind-key G
+
+# bind keys - vim style
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit
+bind-key g home
+bind-key G end
+
+podlist-format "%2i %b %> %S [%dMB / %tMB] [%p %%] [%K]"
+download-filename-format "%t | %n [%F].%e"
+download-path "~/podcasts/%n/"
+
+macro 1 set browser "curl %u --output /tmp/image && sxiv /tmp/image && rm /tmp/image"; one; set browser lynx;
+macro 2 set browser "mpv --vid=no -- %u"; one; set browser lynx;
+macro 3 set browser "curl %u --output /tmp/image && sxiv /tmp/image && rm /tmp/image";
+macro 4 set browser "mpv --vid=no -- %u";
+macro 5 set browser lynx;

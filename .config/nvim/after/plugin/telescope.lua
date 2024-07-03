@@ -1,0 +1,15 @@
+local builtin = require('telescope.builtin')
+local telescope = require('telescope')
+telescope.load_extension("workspaces")
+telescope.load_extension("recent_files")
+telescope.load_extension("telescope-tabs")
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fF', builtin.git_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>bb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>hh', builtin.help_tags, {})
+vim.keymap.set('n', '<leader>cc', builtin.colorscheme, {})
+vim.keymap.set('n', '<leader>wo', ":Telescope workspaces<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>fr",
+  [[<cmd>lua require('telescope').extensions.recent_files.pick()<CR>]],
+  {noremap = true, silent = true})

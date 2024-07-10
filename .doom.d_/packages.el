@@ -50,6 +50,3 @@
 ;; (unpin! t)
 (package! elfeed-summary)
 (package! vlf)
-(package! eat)
-(package! sam
-  :recipe (:local-repo "/home/mikec/doom-emacs/.local/straight/repos/sam.el/"))

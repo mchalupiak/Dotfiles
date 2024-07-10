@@ -9,6 +9,7 @@
 - .scripts folder
 - ctags (for good measure)
 - bat
+- emacs
 
 preferred
 - lazygit

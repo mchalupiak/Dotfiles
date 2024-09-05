@@ -1,0 +1,24 @@
+[user]
+	email = mikec@mchalupiak.com
+	name = Michael Chalupiak
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	editor = kak
+[init]
+	defaultBranch = master
+[sendemail]
+smtpserver = mchalupiak.com
+smtpuser = mikec
+smtpencryption = tls
+smtpserverport = 587
+[core] 
+    packedGitLimit = 512m 
+    packedGitWindowSize = 512m 
+[pack] 
+    deltaCacheSize = 2047m 
+    packSizeLimit = 2047m 
+    windowMemory = 2047m

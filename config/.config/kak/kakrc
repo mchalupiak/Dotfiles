@@ -1,0 +1,423 @@
+### Plugins ###
+evaluate-commands %sh{
+        plugins="$kak_config/plugins"
+            mkdir -p "$plugins"
+                [ ! -e "$plugins/plug.kak" ] && \
+                        git clone -q https://github.com/andreyorst/plug.kak.git "$plugins/plug.kak"
+                            printf "%s\n" "source '$plugins/plug.kak/rc/plug.kak'"
+}
+
+plug "andreyorst/plug.kak" noload
+
+plug "andreyorst/smarttab.kak" defer smarttab %{
+    set-option global softtabstop 4
+}
+
+plug "occivink/kakoune-sudo-write"
+
+plug "kak-lsp/kak-lsp" do %{
+        cargo install --locked --force --path .
+}
+
+# plug "gustavo-hms/luar" %{
+#     plug "gustavo-hms/peneira" %{
+#         require-module peneira
+#     }
+# }
+
+# # Color Themes
+plug "tinted-theming/base16-kakoune"
+
+### End Of Plugins ###
+
+# set-option global luar_interpreter luajit
+
+## Treesitter ##
+
+eval %sh{ kak-tree-sitter -dks --with-highlighting --with-text-objects --session $kak_session }
+#eval %sh{ kak-tree-sitter -dks --with-text-objects --session $kak_session }
+#eval %sh{ kak-tree-sitter -dks  --with-highlighting --session $kak_session }
+
+evaluate-commands %sh{
+    echo "colorscheme base16-$BASE16_THEME"
+}
+
+## Highlighting ##
+hook global WinCreate .* %{ add-highlighter window/number-lines number-lines -relative -hlcursor}
+add-highlighter global/ show-matching
+add-highlighter global/ column 80 MenuForeground
+add-highlighter global/ show-whitespaces
+
+## Formatting ##
+define-command enable-autofmt -docstring 'enable autoformatting of buffer' %{
+
+
+    hook global -group autofmt BufSetOption filetype=(zig) %{
+        set-option buffer formatcmd 'zig fmt --stdin'
+
+        hook -group autofmt buffer BufOpenFile .* %{
+            format
+        }
+
+        hook -group autofmt buffer BufWritePre .* %{
+            format
+        }
+    }
+
+    hook global -group autofmt BufSetOption filetype=(html) %{
+        set-option buffer formatcmd 'prettier --tab-width 4 --parser html'
+
+        hook -group autofmt buffer BufOpenFile .* %{
+            format
+        }
+
+        hook -group autofmt buffer BufWritePre .* %{
+            format
+        }
+    }
+
+    hook global -group autofmt BufSetOption filetype=(css) %{
+        set-option buffer formatcmd 'prettier --tab-width 4 --parser css'
+
+        hook -group autofmt buffer BufOpenFile .* %{
+            format
+        }
+
+        hook -group autofmt buffer BufWritePre .* %{
+            format
+        }
+    }
+
+    hook global -group autofmt BufSetOption filetype=(javascript) %{
+        set-option buffer formatcmd 'prettier --tab-width 4 --parser typescript'
+
+        hook -group autofmt buffer BufOpenFile .* %{
+            format
+        }
+
+        hook -group autofmt buffer BufWritePre .* %{
+            format
+        }
+    }
+
+    hook global -group autofmt BufSetOption filetype=(go) %{
+        set-option buffer formatcmd 'gofmt'
+
+        hook -group autofmt buffer BufOpenFile .* %{
+            format
+        }
+
+        hook -group autofmt buffer BufWritePre .* %{
+            format
+        }
+    }
+}
+
+define-command disable-autofmt -docstring 'disable autoformatting of buffer' %{
+    remove-hooks global autofmt
+}
+
+enable-autofmt
+
+
+## Indentation ##
+set global tabstop 4
+set global indentwidth 4
+hook global WinSetOption filetype=.* expandtab
+hook global WinSetOption filetype=(makefile|gas) noexpandtab
+hook global BufCreate .* %{
+    editorconfig-load
+    autoconfigtab
+}
+
+define-command sleuth -docstring 'Heuristically set buffer options' %{
+  try %{
+    evaluate-commands -draft %{
+      # Search the first indent level
+      execute-keys 'gg' '/' '^\h+' '<ret>'
+
+      # Tab vs. Space
+      # https://youtu.be/V7PLxL8jIl8
+      try %{
+        execute-keys '<a-k>' '\t' '<ret>'
+        #set-option buffer indentwidth 0
+        noexpandtab
+      } catch %{
+        set-option buffer indentwidth %val{selection_length}
+        expandtab
+      }
+    }
+  }
+}
+
+define-command git-status -docstring 'Show git diff' %{
+    hook -group git-status global BufOpenFile .* %{
+        git show-diff
+    }
+
+    hook -group git-status global BufWritePost .* %{
+        git show-diff
+    }
+}
+
+define-command disable-git-status -docstring 'Disable git diff gutter' %{
+    remove-hooks global git-status
+}
+
+define-command sleuth-enable -docstring 'Enable sleuth' %{
+  # Run sleuth when opening and saving files.
+  hook -group sleuth global BufOpenFile .* %{
+    sleuth
+  }
+
+  hook -group sleuth global BufWritePost .* %{
+    sleuth
+  }
+}
+
+define-command sleuth-disable -docstring 'Disable sleuth' %{
+  remove-hooks global sleuth
+}
+
+## LSP ##
+lsp-enable
+lsp-auto-hover-enable
+
+lsp-inlay-diagnostics-enable global
+hook global WinSetOption filetype=(c|zig|rust|python|ruby|lua|java|html|css) %{
+      hook window -group semantic-tokens BufReload .* lsp-semantic-tokens
+        hook window -group semantic-tokens NormalIdle .* lsp-semantic-tokens
+          hook window -group semantic-tokens InsertIdle .* lsp-semantic-tokens
+            hook -once -always window WinSetOption filetype=.* %{
+                    remove-hooks window semantic-tokens
+            }
+}
+
+face global InfoDefault               Information
+face global InfoBlock                 Information
+face global InfoBlockQuote            Information
+face global InfoBullet                Information
+face global InfoHeader                Information
+face global InfoLink                  Information
+face global InfoLinkMono              Information
+face global InfoMono                  Information
+face global InfoRule                  Information
+face global InfoDiagnosticError       Information
+face global InfoDiagnosticHint        Information
+face global InfoDiagnosticInformation Information
+face global InfoDiagnosticWarning     Information
+
+set-option global lsp_config %{
+}
+
+define-command -docstring 'Invoke fzf to select a buffer' fzf-buffer %{
+    evaluate-commands %sh{
+        BUFFER=$(
+            (
+                eval "set -- $kak_buflist"
+                while [ $# -gt 0 ]; do
+                    printf "%s\0" "$1"
+                    shift
+                done
+            ) |
+            fzf-tmux --cycle -p 80%,90% --read0 --preview='bat --theme=base16-256 --color=always {} 2>/dev/null'
+        )
+        BUFFER=${BUFFER/\'/\'\'}
+        if [ -n "$BUFFER" ]; then
+            printf "buffer %s" "${BUFFER}"
+        fi
+    }
+}
+
+define-command -docstring 'live grep' live-grep %{
+    evaluate-commands %sh{
+
+        if [ -z "${kak_client_env_TMUX}" ]; then
+            printf 'fail "client was not started under tmux"\n'
+        else
+            file="$(rfv.sh)"
+            if [ -n "$file" ]; then
+                printf "edit %s\n" "$file"
+            fi
+        fi
+	}
+}
+
+define-command -docstring 'exact grep' exact-grep %{
+    evaluate-commands %sh{
+
+        if [ -z "${kak_client_env_TMUX}" ]; then
+            printf 'fail "client was not started under tmux"\n'
+        else
+            file="$(rfve.sh)"
+            if [ -n "$file" ]; then
+                printf "edit %s\n" "$file"
+            fi
+        fi
+	}
+}
+
+define-command -docstring 'search contents of current file' file-search %{
+    evaluate-commands -save-regs '"' %{
+        set-register dquote %sh{ mktemp }
+        execute-keys -draft '%<a-|> cat > $kak_reg_dquote<ret>'
+        evaluate-commands %sh{
+            if [ -z "${kak_client_env_TMUX}" ]; then
+                printf 'fail "client was not started under tmux"\n'
+            else
+                file="$(rfs.sh ${kak_reg_dquote} ${kak_buffile})"
+                if [ -n "$file" ]; then
+                    printf "edit %s\n" "$file"
+                fi
+                rm $kak_reg_dquote
+            fi
+        }
+    }
+}
+
+define-command -docstring 'search contents of current file with regex' regex-file-search %{
+    evaluate-commands -save-regs '"' %{
+        set-register dquote %sh{ mktemp }
+        execute-keys -draft '%<a-|> cat > $kak_reg_dquote<ret>'
+        evaluate-commands %sh{
+            if [ -z "${kak_client_env_TMUX}" ]; then
+                printf 'fail "client was not started under tmux"\n'
+            else
+                file="$(rgrs.sh ${kak_reg_dquote} ${kak_buffile})"
+                if [ -n "$file" ]; then
+                    printf "edit %s\n" "$file"
+                fi
+                rm $kak_reg_dquote
+            fi
+        }
+    }
+}
+
+define-command -docstring 'Invoke fzf to open a file' -params 0 fzf-edit %{
+    evaluate-commands %sh{
+        if [ -z "${kak_client_env_TMUX}" ]; then
+            printf 'fail "client was not started under tmux"\n'
+        else
+            file="$(fd -t f . |TMUX="${kak_client_env_TMUX}" fzf-tmux --cycle -p 80%,90% --preview='bat --theme=base16-256 --color=always {} 2>/dev/null || cat {} 2>/dev/null')"
+            if [ -n "$file" ]; then
+                printf "edit %s\n" "$file"
+            fi
+        fi
+    }
+}
+
+define-command -docstring 'Invoke fzf to open a file local to the current file' -params 0 fzf-edit-local %{
+    evaluate-commands %sh{
+        if [ -z "${kak_client_env_TMUX}" ]; then
+            printf 'fail "client was not started under tmux"\n'
+        else
+            dir="$(get_local_path ${kak_buffile})"
+            if [ -n "$dir" ]; then
+                file="$(fd -u -t f . $dir |TMUX="${kak_client_env_TMUX}" fzf-tmux --cycle -p 80%,90% --preview='bat --theme=base16-256 --color=always {} 2>/dev/null || cat {} 2>/dev/null')"
+            fi
+            if [ -n "$file" ]; then
+                printf "edit %s\n" "$file"
+            fi
+        fi
+    }
+}
+
+define-command -docstring 'Pick project' -params 0 switch-project %{
+    evaluate-commands %sh{
+        if [ -z "${kak_client_env_TMUX}" ]; then
+            printf 'fail "client was not started under tmux"\n'
+        else
+            proj="$(cat ~/.scripts/projects | TMUX="${kak_client_env_TMUX}" fzf-tmux --cycle -p 80%,90% | cut -d' ' -f1)"
+            if [ -n "$proj" ]; then
+                printf "cd %s\n" "$proj"
+                printf 'fzf-edit\n'
+            fi
+        fi
+ 	}
+}
+
+define-command -docstring 'Project wide search' project-search %{
+    evaluate-commands %sh{
+
+        if [ -z "${kak_client_env_TMUX}" ]; then
+            printf 'fail "client was not started under tmux"\n'
+        else
+            file="$(rgfs.sh)"
+            if [ -n "$file" ]; then
+                printf "edit %s\n" "$file"
+            fi
+        fi
+	}
+}
+
+define-command -docstring 'Print Working Directory' -params 0 pwd %{
+    evaluate-commands echo %sh{ echo "$(pwd)"}
+}
+
+define-command -docstring 'copy to clipboard' xcopy %{
+    execute-keys '<a-|>xclip -selection clipboard -i<ret>'
+}
+
+define-command -docstring 'paste from clipboard' xpaste %{
+    evaluate-commands -save-regs '"' %{
+        set-register dquote %sh{ xclip -selection clipboard -o }
+        execute-keys 'p'
+    }
+}
+
+declare-user-mode config
+map -docstring 'enter config mode' global user e ':enter-user-mode config<ret>'
+map -docstring 'edit kakoune config' global config k ':cd ~/.config/kak/<ret>:e ./kakrc<ret>'
+map -docstring 'edit tmux config' global config t ':e ~/.tmux.conf<ret>'
+map -docstring 'edit bash config' global config b ':e ~/.bashrc<ret>'
+map -docstring 'edit scripts folder' global config s ':cd ~/.scripts<ret>:fzf-edit<ret>'
+map -docstring 'edit .config folder' global config c ':cd ~/.config<ret>:fzf-edit<ret>'
+
+declare-user-mode buffer
+map -docstring 'enter buffer mode' global user b ':enter-user-mode buffer<ret>'
+map -docstring 'next buffer' global buffer n ':buffer-next<ret>'
+map -docstring 'previous buffer' global buffer p ':buffer-previous<ret>'
+map -docstring 'close current buffer' global buffer d ':delete-buffer!<ret>'
+map -docstring 'write and close current buffer' global buffer w ':w<ret>:db<ret>'
+map -docstring 'list and select a buffer' global buffer b ':fzf-buffer<ret>'
+
+declare-user-mode find
+map -docstring 'enter find mode' global user f ':enter-user-mode find<ret>'
+map -docstring 'find files' global find f ':fzf-edit<ret>'
+map -docstring 'find tags for the current project' global find t ':ctags-search '
+map -docstring 'find line in current file' global find l ':file-search<ret>'
+map -docstring 'find line in current file with regex' global find L ':regex-file-search<ret>'
+map -docstring 'find files in current directory' global find F ':fzf-edit-local<ret>'
+map -docstring "grep file contents recursively" global find g ':live-grep<ret>'
+map -docstring "grep exact file contents recursively" global find e ':exact-grep<ret>'
+map -docstring 'project wide search' global find p ':project-search<ret>'
+
+map -docstring 'enter lsp mode' global user l ':enter-user-mode lsp<ret>'
+map -docstring 'goto definition (tag)' global lsp t '<a-i>w:ctags-search<ret>'
+
+map -docstring 'enter treesitter mode' global user t ':enter-user-mode tree-sitter<ret>'
+map -docstring 'enter treesitter search mode' global user s ':enter-user-mode tree-sitter-search<ret>'
+
+declare-user-mode tmux
+map -docstring 'enter tmux/window mode' global user w ':enter-user-mode tmux<ret>'
+map -docstring 'vertical split' global tmux v ':tmux-terminal-horizontal kak -c  %val{session}<ret>'
+map -docstring 'horizontal split' global tmux h ':tmux-terminal-vertical kak -c %val{session}<ret>'
+map -docstring 'new tab' global tmux t ':tmux-terminal-window kak -c %val{session}<ret>'
+map -docstring 'vertical terminal split' global tmux V ':tmux-repl-horizontal bash<ret>'
+map -docstring 'horizontal terminal split' global tmux H ':tmux-repl-vertical bash<ret>'
+map -docstring 'new terminal tab' global tmux T ':tmux-repl-window<ret>'
+map -docstring 'new git window' global tmux g ':tmux-terminal-window lazygit<ret>'
+
+declare-user-mode project
+map -docstring 'enter project mode' global user P ':enter-user-mode project<ret>'
+map -docstring 'open project' global project o ':switch-project<ret>'
+
+map -docstring 'enter man mode' global user m ':enter-user-mode man<ret>'
+
+#map -docstring 'clipboard yank' global user y '<a-|>clip.exe<ret>'
+map -docstring 'clipboard yank' global user y ':xcopy<ret>'
+#map -docstring 'clipboard paste' global user p '|powershell.exe -C Get-Clipboard | tr -d "\r"<ret>'
+map -docstring 'clipboard paste' global user p ':xpaste<ret>'
+
+map -docstring 'quit kakoune' global user q ':q<ret>'
+map -docstring 'toggle comments' global user c ':comment-line<ret>'

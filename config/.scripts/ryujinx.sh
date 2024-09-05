@@ -1,0 +1,1 @@
+/opt/ryujinx/Ryujinx.sh

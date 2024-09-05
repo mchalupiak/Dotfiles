@@ -1,0 +1,42 @@
+[[items]]
+path = "https://github.com/tinted-theming/tinted-shell"
+name = "base16-shell"
+themes-dir = "scripts"
+hook = ". %f"
+
+[[items]]
+path = "https://github.com/tinted-theming/tinted-tmux"
+name = "tinted-tmux"
+# Check if tmux is in use and if it is, reload the config file
+hook = "test -n \"$TMUX\" && tmux source-file ~/.tmux.conf"
+themes-dir = "colors"
+
+[[items]]
+path = "https://github.com/tinted-theming/tinted-fzf"
+name = "tinted-fzf"
+themes-dir = "sh"
+
+[[items]]
+path = "https://github.com/tinted-theming/base16-qutebrowser"
+name = "tinted-qutebrowser"
+themes-dir = "themes/default"
+hook = "cp -f %f ~/.config/qutebrowser/theme.py"
+theme-file-extension = ".config.py"
+
+[[items]]
+path = "https://github.com/HaoZeke/base16-zathura"
+name = "tinted-zathura"
+themes-dir = "build_schemes/colors"
+hook = "cat ~/.config/zathura/config > ~/.config/zathura/zathurarc && cat %f >> ~/.config/zathura/zathurarc"
+
+[[items]]
+path = "https://github.com/tinted-theming/base16-xresources"
+name = "tinted-xresources"
+themes-dir = "xresources"
+hook = "cp -f %f ~/.theme.xresources"
+
+#[[items]]
+#path = "https://github.com/kdrag0n/base16-kitty"
+#name = "tinted-kitty"
+#themes-dir = "colors"
+#hook = "cp -f %f ~/.config/kitty/theme.conf"

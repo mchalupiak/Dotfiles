@@ -1,0 +1,1 @@
+echo "$(pwd) $1" >> ~/.scripts/store/projects

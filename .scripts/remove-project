@@ -1,5 +1,0 @@
-proj="$(cat -n ~/.scripts/projects | fzf | cut -f 1 | tr -d ' ')"
-if [ -z "$proj" ]; then
-  exit
-fi
-sed -i "$proj"d ~/.scripts/projects

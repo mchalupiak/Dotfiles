@@ -1,7 +1,0 @@
-add ~/Music
-clear
-add Music/
-add /mnt/c/Users/mchalupi/Music/
-add ~/Music/
-add ./
-add ./*

@@ -1,1 +1,0 @@
-echo "$(pwd) $1" >> ~/.scripts/projects

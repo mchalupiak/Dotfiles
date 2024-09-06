@@ -1,5 +1,5 @@
 ! High DPI Settings for Window Managers
-!Xft.dpi: 192
+Xft.dpi: 192
 #include ".theme.xresources"
 
 font: monospace:12

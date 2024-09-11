@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/mikec/.cache/nvim/packer_hererocks/2.1.1723675123/share/lua/5.1/?.lua;/home/mikec/.cache/nvim/packer_hererocks/2.1.1723675123/share/lua/5.1/?/init.lua;/home/mikec/.cache/nvim/packer_hererocks/2.1.1723675123/lib/luarocks/rocks-5.1/?.lua;/home/mikec/.cache/nvim/packer_hererocks/2.1.1723675123/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/mikec/.cache/nvim/packer_hererocks/2.1.1723675123/lib/lua/5.1/?.so"
+local package_path_str = "/home/mikec/.cache/nvim/packer_hererocks/2.1.1725453128/share/lua/5.1/?.lua;/home/mikec/.cache/nvim/packer_hererocks/2.1.1725453128/share/lua/5.1/?/init.lua;/home/mikec/.cache/nvim/packer_hererocks/2.1.1725453128/lib/luarocks/rocks-5.1/?.lua;/home/mikec/.cache/nvim/packer_hererocks/2.1.1725453128/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/mikec/.cache/nvim/packer_hererocks/2.1.1725453128/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -236,7 +236,7 @@ _G.packer_plugins = {
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
   },
   ["lualine.nvim"] = {
-    config = { "\27LJ\2\nº\1\0\0\n\0\f\0\0254\0\0\0006\1\0\0006\3\1\0009\3\2\0039\3\3\0035\5\4\0B\3\2\0A\1\0\4H\4\5€6\6\5\0009\6\6\6\18\b\0\0009\t\a\5B\6\3\1F\4\3\3R\4ù\127'\1\b\0006\2\5\0009\2\t\2\18\4\0\0'\5\n\0B\2\3\2'\3\v\0&\1\3\1L\1\2\0\6]\6 \vconcat\nï£ [\tname\vinsert\ntable\1\0\1\nbufnr\3\0\23get_active_clients\blsp\bvim\npairsÈ\5\1\0\b\0\29\0'3\0\0\0006\1\1\0'\3\2\0B\1\2\0029\1\3\0015\3\t\0005\4\4\0005\5\5\0=\5\6\0045\5\a\0=\5\b\4=\4\n\0035\4\14\0004\5\3\0005\6\v\0005\a\f\0=\a\r\6>\6\1\5=\5\15\0044\5\0\0=\5\16\0045\5\17\0=\5\18\0045\5\20\0>\0\1\0055\6\19\0>\6\2\5=\5\21\0045\5\22\0=\5\23\0045\5\24\0005\6\25\0005\a\26\0=\a\r\6>\6\2\5=\5\27\4=\4\28\3B\1\2\1K\0\1\0\rsections\14lualine_z\1\0\2\nright\bî‚´\tleft\bî‚¶\1\2\1\0\rprogress\14separator\0\1\2\0\0\rlocation\14lualine_y\1\4\0\0\rencoding\15fileformat\rfiletype\14lualine_x\1\5\0\0\0\0\vbranch\tdiff\1\2\1\0\16diagnostics\18icons_enabled\2\14lualine_c\1\2\0\0\rfilename\14lualine_b\14lualine_a\1\0\6\14lualine_x\0\14lualine_z\0\14lualine_c\0\14lualine_b\0\14lualine_a\0\14lualine_y\0\14separator\1\0\2\nright\bî‚´\tleft\bî‚¶\1\2\1\0\tmode\14separator\0\foptions\1\0\2\rsections\0\foptions\0\25component_separators\1\0\2\nright\5\tleft\5\23section_separators\1\0\2\nright\bî‚¶\tleft\bî‚´\1\0\4\23section_separators\0\18icons_enabled\1\17globalstatus\2\25component_separators\0\nsetup\flualine\frequire\0\0" },
+    config = { "\27LJ\2\nº\1\0\0\n\0\f\0\0254\0\0\0006\1\0\0006\3\1\0009\3\2\0039\3\3\0035\5\4\0B\3\2\0A\1\0\4H\4\5€6\6\5\0009\6\6\6\18\b\0\0009\t\a\5B\6\3\1F\4\3\3R\4ù\127'\1\b\0006\2\5\0009\2\t\2\18\4\0\0'\5\n\0B\2\3\2'\3\v\0&\1\3\1L\1\2\0\6]\6 \vconcat\nï£ [\tname\vinsert\ntable\1\0\1\nbufnr\3\0\23get_active_clients\blsp\bvim\npairsÈ\5\1\0\b\0\29\0'3\0\0\0006\1\1\0'\3\2\0B\1\2\0029\1\3\0015\3\t\0005\4\4\0005\5\5\0=\5\6\0045\5\a\0=\5\b\4=\4\n\0035\4\14\0004\5\3\0005\6\v\0005\a\f\0=\a\r\6>\6\1\5=\5\15\0044\5\0\0=\5\16\0045\5\17\0=\5\18\0045\5\20\0>\0\1\0055\6\19\0>\6\2\5=\5\21\0045\5\22\0=\5\23\0045\5\24\0005\6\25\0005\a\26\0=\a\r\6>\6\2\5=\5\27\4=\4\28\3B\1\2\1K\0\1\0\rsections\14lualine_z\1\0\2\nright\bî‚´\tleft\bî‚¶\1\2\1\0\rprogress\14separator\0\1\2\0\0\rlocation\14lualine_y\1\4\0\0\rencoding\15fileformat\rfiletype\14lualine_x\1\5\0\0\0\0\vbranch\tdiff\1\2\1\0\16diagnostics\18icons_enabled\2\14lualine_c\1\2\0\0\rfilename\14lualine_b\14lualine_a\1\0\6\14lualine_z\0\14lualine_x\0\14lualine_c\0\14lualine_b\0\14lualine_a\0\14lualine_y\0\14separator\1\0\2\nright\bî‚´\tleft\bî‚¶\1\2\1\0\tmode\14separator\0\foptions\1\0\2\rsections\0\foptions\0\25component_separators\1\0\2\nright\5\tleft\5\23section_separators\1\0\2\nright\bî‚¶\tleft\bî‚´\1\0\4\23section_separators\0\18icons_enabled\1\17globalstatus\2\25component_separators\0\nsetup\flualine\frequire\0\0" },
     loaded = true,
     path = "/home/mikec/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
@@ -523,70 +523,70 @@ time([[Setup for nvim-unception]], false)
 time([[packadd for nvim-unception]], true)
 vim.cmd [[packadd nvim-unception]]
 time([[packadd for nvim-unception]], false)
--- Config for: LuaSnip
-time([[Config for LuaSnip]], true)
-try_loadstring("\27LJ\2\nM\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14lazy_load luasnip.loaders.from_vscode\frequire\0", "config", "LuaSnip")
-time([[Config for LuaSnip]], false)
--- Config for: twilight.nvim
-time([[Config for twilight.nvim]], true)
-try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rtwilight\frequire\0", "config", "twilight.nvim")
-time([[Config for twilight.nvim]], false)
--- Config for: alpha-nvim
-time([[Config for alpha-nvim]], true)
-try_loadstring("\27LJ\2\n`\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\vconfig\26alpha.themes.startify\nsetup\nalpha\frequire\0", "config", "alpha-nvim")
-time([[Config for alpha-nvim]], false)
--- Config for: nvim-ts-autotag
-time([[Config for nvim-ts-autotag]], true)
-try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20nvim-ts-autotag\frequire\0", "config", "nvim-ts-autotag")
-time([[Config for nvim-ts-autotag]], false)
--- Config for: indent-blankline.nvim
-time([[Config for indent-blankline.nvim]], true)
-try_loadstring("\27LJ\2\nY\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\nscope\1\0\1\nscope\0\1\0\1\fenabled\1\nsetup\bibl\frequire\0", "config", "indent-blankline.nvim")
-time([[Config for indent-blankline.nvim]], false)
--- Config for: web-tools.nvim
-time([[Config for web-tools.nvim]], true)
-try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14web-tools\frequire\0", "config", "web-tools.nvim")
-time([[Config for web-tools.nvim]], false)
--- Config for: leap.nvim
-time([[Config for leap.nvim]], true)
-try_loadstring("\27LJ\2\nA\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\25add_default_mappings\tleap\frequire\0", "config", "leap.nvim")
-time([[Config for leap.nvim]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
-time([[Config for Comment.nvim]], false)
--- Config for: nvim-surround
-time([[Config for nvim-surround]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
-time([[Config for nvim-surround]], false)
--- Config for: workspaces.nvim
-time([[Config for workspaces.nvim]], true)
-try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15workspaces\frequire\0", "config", "workspaces.nvim")
-time([[Config for workspaces.nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
-time([[Config for gitsigns.nvim]], false)
 -- Config for: compiler-explorer.nvim
 time([[Config for compiler-explorer.nvim]], true)
 try_loadstring("\27LJ\2\nx\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\fautocmd\1\0\1\fautocmd\0\1\0\2\ahl\15Cursorline\venable\2\nsetup\22compiler-explorer\frequire\0", "config", "compiler-explorer.nvim")
 time([[Config for compiler-explorer.nvim]], false)
--- Config for: range-highlight.nvim
-time([[Config for range-highlight.nvim]], true)
-try_loadstring("\27LJ\2\nA\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\20range-highlight\frequire\0", "config", "range-highlight.nvim")
-time([[Config for range-highlight.nvim]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-try_loadstring("\27LJ\2\nº\1\0\0\n\0\f\0\0254\0\0\0006\1\0\0006\3\1\0009\3\2\0039\3\3\0035\5\4\0B\3\2\0A\1\0\4H\4\5€6\6\5\0009\6\6\6\18\b\0\0009\t\a\5B\6\3\1F\4\3\3R\4ù\127'\1\b\0006\2\5\0009\2\t\2\18\4\0\0'\5\n\0B\2\3\2'\3\v\0&\1\3\1L\1\2\0\6]\6 \vconcat\nï£ [\tname\vinsert\ntable\1\0\1\nbufnr\3\0\23get_active_clients\blsp\bvim\npairsÈ\5\1\0\b\0\29\0'3\0\0\0006\1\1\0'\3\2\0B\1\2\0029\1\3\0015\3\t\0005\4\4\0005\5\5\0=\5\6\0045\5\a\0=\5\b\4=\4\n\0035\4\14\0004\5\3\0005\6\v\0005\a\f\0=\a\r\6>\6\1\5=\5\15\0044\5\0\0=\5\16\0045\5\17\0=\5\18\0045\5\20\0>\0\1\0055\6\19\0>\6\2\5=\5\21\0045\5\22\0=\5\23\0045\5\24\0005\6\25\0005\a\26\0=\a\r\6>\6\2\5=\5\27\4=\4\28\3B\1\2\1K\0\1\0\rsections\14lualine_z\1\0\2\nright\bî‚´\tleft\bî‚¶\1\2\1\0\rprogress\14separator\0\1\2\0\0\rlocation\14lualine_y\1\4\0\0\rencoding\15fileformat\rfiletype\14lualine_x\1\5\0\0\0\0\vbranch\tdiff\1\2\1\0\16diagnostics\18icons_enabled\2\14lualine_c\1\2\0\0\rfilename\14lualine_b\14lualine_a\1\0\6\14lualine_x\0\14lualine_z\0\14lualine_c\0\14lualine_b\0\14lualine_a\0\14lualine_y\0\14separator\1\0\2\nright\bî‚´\tleft\bî‚¶\1\2\1\0\tmode\14separator\0\foptions\1\0\2\rsections\0\foptions\0\25component_separators\1\0\2\nright\5\tleft\5\23section_separators\1\0\2\nright\bî‚¶\tleft\bî‚´\1\0\4\23section_separators\0\18icons_enabled\1\17globalstatus\2\25component_separators\0\nsetup\flualine\frequire\0\0", "config", "lualine.nvim")
-time([[Config for lualine.nvim]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
+time([[Config for Comment.nvim]], false)
 -- Config for: telescope-tabs
 time([[Config for telescope-tabs]], true)
 try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19telescope-tabs\frequire\0", "config", "telescope-tabs")
 time([[Config for telescope-tabs]], false)
+-- Config for: twilight.nvim
+time([[Config for twilight.nvim]], true)
+try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rtwilight\frequire\0", "config", "twilight.nvim")
+time([[Config for twilight.nvim]], false)
 -- Config for: dim.lua
 time([[Config for dim.lua]], true)
 try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\bdim\frequire\0", "config", "dim.lua")
 time([[Config for dim.lua]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+try_loadstring("\27LJ\2\nM\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14lazy_load luasnip.loaders.from_vscode\frequire\0", "config", "LuaSnip")
+time([[Config for LuaSnip]], false)
+-- Config for: alpha-nvim
+time([[Config for alpha-nvim]], true)
+try_loadstring("\27LJ\2\n`\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\vconfig\26alpha.themes.startify\nsetup\nalpha\frequire\0", "config", "alpha-nvim")
+time([[Config for alpha-nvim]], false)
+-- Config for: web-tools.nvim
+time([[Config for web-tools.nvim]], true)
+try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14web-tools\frequire\0", "config", "web-tools.nvim")
+time([[Config for web-tools.nvim]], false)
+-- Config for: nvim-surround
+time([[Config for nvim-surround]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
+time([[Config for nvim-surround]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+try_loadstring("\27LJ\2\nY\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\nscope\1\0\1\nscope\0\1\0\1\fenabled\1\nsetup\bibl\frequire\0", "config", "indent-blankline.nvim")
+time([[Config for indent-blankline.nvim]], false)
+-- Config for: nvim-ts-autotag
+time([[Config for nvim-ts-autotag]], true)
+try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20nvim-ts-autotag\frequire\0", "config", "nvim-ts-autotag")
+time([[Config for nvim-ts-autotag]], false)
+-- Config for: workspaces.nvim
+time([[Config for workspaces.nvim]], true)
+try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15workspaces\frequire\0", "config", "workspaces.nvim")
+time([[Config for workspaces.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+try_loadstring("\27LJ\2\nº\1\0\0\n\0\f\0\0254\0\0\0006\1\0\0006\3\1\0009\3\2\0039\3\3\0035\5\4\0B\3\2\0A\1\0\4H\4\5€6\6\5\0009\6\6\6\18\b\0\0009\t\a\5B\6\3\1F\4\3\3R\4ù\127'\1\b\0006\2\5\0009\2\t\2\18\4\0\0'\5\n\0B\2\3\2'\3\v\0&\1\3\1L\1\2\0\6]\6 \vconcat\nï£ [\tname\vinsert\ntable\1\0\1\nbufnr\3\0\23get_active_clients\blsp\bvim\npairsÈ\5\1\0\b\0\29\0'3\0\0\0006\1\1\0'\3\2\0B\1\2\0029\1\3\0015\3\t\0005\4\4\0005\5\5\0=\5\6\0045\5\a\0=\5\b\4=\4\n\0035\4\14\0004\5\3\0005\6\v\0005\a\f\0=\a\r\6>\6\1\5=\5\15\0044\5\0\0=\5\16\0045\5\17\0=\5\18\0045\5\20\0>\0\1\0055\6\19\0>\6\2\5=\5\21\0045\5\22\0=\5\23\0045\5\24\0005\6\25\0005\a\26\0=\a\r\6>\6\2\5=\5\27\4=\4\28\3B\1\2\1K\0\1\0\rsections\14lualine_z\1\0\2\nright\bî‚´\tleft\bî‚¶\1\2\1\0\rprogress\14separator\0\1\2\0\0\rlocation\14lualine_y\1\4\0\0\rencoding\15fileformat\rfiletype\14lualine_x\1\5\0\0\0\0\vbranch\tdiff\1\2\1\0\16diagnostics\18icons_enabled\2\14lualine_c\1\2\0\0\rfilename\14lualine_b\14lualine_a\1\0\6\14lualine_z\0\14lualine_x\0\14lualine_c\0\14lualine_b\0\14lualine_a\0\14lualine_y\0\14separator\1\0\2\nright\bî‚´\tleft\bî‚¶\1\2\1\0\tmode\14separator\0\foptions\1\0\2\rsections\0\foptions\0\25component_separators\1\0\2\nright\5\tleft\5\23section_separators\1\0\2\nright\bî‚¶\tleft\bî‚´\1\0\4\23section_separators\0\18icons_enabled\1\17globalstatus\2\25component_separators\0\nsetup\flualine\frequire\0\0", "config", "lualine.nvim")
+time([[Config for lualine.nvim]], false)
+-- Config for: leap.nvim
+time([[Config for leap.nvim]], true)
+try_loadstring("\27LJ\2\nA\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\25add_default_mappings\tleap\frequire\0", "config", "leap.nvim")
+time([[Config for leap.nvim]], false)
+-- Config for: range-highlight.nvim
+time([[Config for range-highlight.nvim]], true)
+try_loadstring("\27LJ\2\nA\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\20range-highlight\frequire\0", "config", "range-highlight.nvim")
+time([[Config for range-highlight.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-web-devicons ]]
@@ -599,13 +599,6 @@ time([[Sequenced loading]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.api.nvim_create_user_command, 'DBUI', function(cmdargs)
-          require('packer.load')({'vim-dadbod'}, { cmd = 'DBUI', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'vim-dadbod'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('DBUI ', 'cmdline')
-      end})
 pcall(vim.api.nvim_create_user_command, 'DBUIAddConnection', function(cmdargs)
           require('packer.load')({'vim-dadbod'}, { cmd = 'DBUIAddConnection', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
@@ -640,6 +633,13 @@ pcall(vim.api.nvim_create_user_command, 'DBUIToggle', function(cmdargs)
         {nargs = '*', range = true, bang = true, complete = function()
           require('packer.load')({'vim-dadbod'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('DBUIToggle ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'DBUI', function(cmdargs)
+          require('packer.load')({'vim-dadbod'}, { cmd = 'DBUI', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'vim-dadbod'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('DBUI ', 'cmdline')
       end})
 time([[Defining lazy-load commands]], false)
 

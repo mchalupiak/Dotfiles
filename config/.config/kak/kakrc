@@ -34,7 +34,7 @@ plug "tinted-theming/base16-kakoune"
 
 ## Treesitter ##
 
-eval %sh{ kak-tree-sitter -dks --with-highlighting --with-text-objects --session $kak_session }
+eval %sh{ kak-tree-sitter -dks --with-highlighting --with-text-objects --init $kak_session }
 #eval %sh{ kak-tree-sitter -dks --with-text-objects --session $kak_session }
 #eval %sh{ kak-tree-sitter -dks  --with-highlighting --session $kak_session }
 
@@ -48,6 +48,9 @@ add-highlighter global/ show-matching
 add-highlighter global/ column 80 MenuForeground
 add-highlighter global/ show-whitespaces
 
+## Wrapping ##
+
+add-highlighter global/ wrap -word -indent
 ## Formatting ##
 define-command enable-autofmt -docstring 'enable autoformatting of buffer' %{
 

@@ -170,3 +170,5 @@ alias enter-dev='. enter-dev.sh'
 alias ssh='TERM="xterm-256color" ssh'
 
 export DISABLE_TELEMETRY=YES
+
+[ -f "/home/mikec/.ghcup/env" ] && . "/home/mikec/.ghcup/env" # ghcup-env

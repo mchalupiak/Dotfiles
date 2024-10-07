@@ -8,3 +8,5 @@ fi
 # Added by Toolbox App
 export PATH="$PATH:/home/mikec/.local/share/JetBrains/Toolbox/scripts"
 
+
+[ -f "/home/mikec/.ghcup/env" ] && . "/home/mikec/.ghcup/env" # ghcup-env

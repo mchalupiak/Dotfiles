@@ -35,6 +35,11 @@ name = "tinted-xresources"
 themes-dir = "xresources"
 hook = "cp -f %f ~/.theme.xresources"
 
+[[items]]
+path = "https://github.com/aarowill/base16-alacritty"
+name = "tinted-alacitty"
+themes-dir = "colors"
+hook = "cp -f %f ~/.config/alacritty/colors"
 #[[items]]
 #path = "https://github.com/kdrag0n/base16-kitty"
 #name = "tinted-kitty"

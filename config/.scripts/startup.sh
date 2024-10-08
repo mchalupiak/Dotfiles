@@ -4,3 +4,4 @@ while true; do
     sleep 1
 done &
 xss-lock -- slock &
+##emacs --daemon &

@@ -88,10 +88,11 @@
 (setq mpc-browser-tags '(Artist Album|Playlist Title|File))
 (add-hook 'mpc-mode-hook
           (lambda ()
-            (keymap-local-set "M-p"        'windmove-up)
-            (keymap-local-set "M-n"        'windmove-down)
-            (keymap-local-set "M-b"        'windmove-left)
-            (keymap-local-set "M-f"        'windmove-right)
+            (keymap-local-set "C-k"        'windmove-up)
+            (keymap-local-set "C-j"        'windmove-down)
+            (keymap-local-set "C-h"        'windmove-left)
+            (keymap-local-set "C-l"        'windmove-right)
+            (keymap-local-set "C-q" 'mpc-quit)
             (keymap-local-set "a"   (lambda () (interactive) (mpc-select) (mpc-playlist-add)))
             (keymap-local-set "D"   (lambda () (interactive) (mpc-select) (mpc-playlist-delete)))))
 (add-hook 'mpc-songs-mode-hook
@@ -111,6 +112,35 @@
         message-sendmail-f-is-evil t
         message-sendmail-extra-arguments '("--read-envelope-from")
         message-send-mail-function #'message-send-mail-with-sendmail))
+(set-email-account! "mikec@mchalupiak.com"
+                    '((mu4e-sent-folder       . "/mikec@mchalupiak.com/Sent")
+                      (mu4e-drafts-folder     . "/mikec@mchalupiak.com/Drafts")
+                      (mu4e-trash-folder      . "/mikec@mchalupiak.com/Junk")
+                      (mu4e-refile-folder     . "/mikec@mchalupiak.com/INBOX"))
+                    ;;(smtpmail-smtp-user     . "foo@bar.com")
+                    ;;(user-mail-address      . "foo@bar.com")    ;; only needed for mu < 1.4
+                    ;;(mu4e-compose-signature . "---\nYours truly\nThe Baz"))
+                    t)
+(set-email-account! "mikecchalupiak@outlook.com"
+                    '((mu4e-sent-folder       . "/mikecchalupiak@outlook.com/Sent")
+                      (mu4e-drafts-folder     . "/mikecchalupiak@outlook.com/Drafts")
+                      (mu4e-trash-folder      . "/mikecchalupiak@outlook.com/Junk")
+                      (mu4e-refile-folder     . "/mikecchalupiak@outlook.com/INBOX"))
+                    ;;(smtpmail-smtp-user     . "foo@bar.com")
+                    ;;(user-mail-address      . "foo@bar.com")    ;; only needed for mu < 1.4
+                    ;;(mu4e-compose-signature . "---\nYours truly\nThe Baz"))
+                    t)
+
+(set-email-account! "chalupmc@rose-hulman.edu"
+                    '((mu4e-sent-folder       . "/chalupmc@rose-hulman.edu/Sent")
+                      (mu4e-drafts-folder     . "/chalupmc@rose-hulman.edu/Drafts")
+                      (mu4e-trash-folder      . "/chalupmc@rose-hulman.edu/Junk")
+                      (mu4e-refile-folder     . "/chalupmc@rose-hulman.edu/INBOX"))
+                    ;;(smtpmail-smtp-user     . "foo@bar.com")
+                    ;;(user-mail-address      . "foo@bar.com")    ;; only needed for mu < 1.4
+                    ;;(mu4e-compose-signature . "---\nYours truly\nThe Baz"))
+                    t)
+;;(setq +notmuch-sync-backend 'mbsync)
 
 (defun open-mpc () (interactive)
        (setq mpc-host (read-string "IP Address:"))

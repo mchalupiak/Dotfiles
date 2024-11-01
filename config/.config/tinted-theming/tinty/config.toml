@@ -27,7 +27,8 @@ theme-file-extension = ".config.py"
 path = "https://github.com/HaoZeke/base16-zathura"
 name = "tinted-zathura"
 themes-dir = "build_schemes/colors"
-hook = "cat ~/.config/zathura/config > ~/.config/zathura/zathurarc && cat %f >> ~/.config/zathura/zathurarc"
+# hook = "cat ~/.config/zathura/config > ~/.config/zathura/zathurarc && cat %f >> ~/.config/zathura/zathurarc"
+hook = "cp -f %f ~/.config/zathura/colors"
 
 [[items]]
 path = "https://github.com/tinted-theming/base16-xresources"

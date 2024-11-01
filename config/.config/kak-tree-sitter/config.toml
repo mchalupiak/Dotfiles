@@ -805,7 +805,25 @@ path = "runtime/queries/llvm"
 # TODO
 
 # lua
-# TODO
+# [language.lua.grammar.source.git]
+# url = "https://github.com/tree-sitter-grammars/tree-sitter-lua"
+# pin = "88e446476a1e97a8724dff7a23e2d709855077f2"
+
+# [language.lua.grammar]
+# path = "src"
+# compile = "cc"
+# compile_args = ["-c", "-fpic", "../scanner.c", "../parser.c", "-I", ".."]
+# compile_flags = ["-O3"]
+# link = "cc"
+# link_args = ["-shared", "-fpic", "scanner.o", "parser.o", "-o", "lua.so"]
+# link_flags = ["-O3"]
+
+# [language.lua.queries.source.git]
+# url = "https://github.com/helix-editor/helix"
+# pin = "e76020ddb93eeb051de606c24f92189c3fc55547"
+
+# [language.lua.gueries]
+# path = "runtime/queries/lua"
 
 # make
 [language.make.grammar.source.git]

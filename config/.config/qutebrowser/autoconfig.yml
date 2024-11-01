@@ -20,7 +20,7 @@ settings:
     https://outlook.live.com?mailtouri=%25s: true
     https://outlook.office.com?mailtouri=%25s: true
   fonts.default_family:
-    global: Cascadia Code
+    global: Olympe Mono Hacked
   fonts.default_size:
     global: 12pt
   url.default_page:

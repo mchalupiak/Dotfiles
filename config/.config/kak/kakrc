@@ -34,10 +34,10 @@ plug "tinted-theming/base16-kakoune"
 
 ## Treesitter ##
 
-eval %sh{ kak-tree-sitter -dks --with-highlighting --with-text-objects --init $kak_session }
+#eval %sh{ kak-tree-sitter -dksv --with-highlighting --with-text-objects --init $kak_session }
 #eval %sh{ kak-tree-sitter -dks --with-text-objects --session $kak_session }
 #eval %sh{ kak-tree-sitter -dks  --with-highlighting --session $kak_session }
-
+eval %sh{ kak-tree-sitter -dks --init $kak_session }
 evaluate-commands %sh{
     echo "colorscheme base16-$BASE16_THEME"
 }

@@ -1,0 +1,172 @@
+#
+# wm independent hotkeys
+#
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+#
+# bspwm hotkeys
+# 
+
+# send the newest marked node to the newest preselected node
+super + y
+	bspc node newest.marked.local -n newest.!automatic.local
+
+#
+# state/flags
+#
+
+# set the node flags
+super + ctrl + {m,x,y,z}
+	bspc node -g {marked,locked,sticky,private}
+
+## My Custom Keybindings ##
+
+# Launch Programs
+
+# Browser
+super + ctrl + b
+    brave
+# dmenu Launcher
+super + p
+    dmenu_run
+# Terminal
+super + Return
+    st
+super + d
+    st
+# Cmus
+super + ctrl + c
+    st -e cmus
+# Ranger
+super + ctrl + r
+    st -e ranger
+# NeoVim
+super + ctrl + v
+    st -e nvim
+# Emacs
+super + ctrl + e
+    emacs
+# Screenshot
+super + ctrl + s
+    scrot
+
+# Media Controls
+
+# Mute Audio
+XF86AudioMute
+    pulseaudio-ctl mute
+# Lower Volume
+XF86AudioLowerVolume
+    pulseaudio-ctl down 1
+# Raise Volume
+XF86AudioRaiseVolume
+    pulseaudio-ctl up 1
+# Play/Pause
+XF86AudioPlay
+    playerctl play-pause
+# Stop
+XF86AudioStop
+    playerctl stop
+# Next Song
+XF86AudioNext
+    playerctl next
+# Previous Song
+XF86AudioPrev
+    playerctl previous
+
+## BSPWM Controls ##
+ 
+# Quit/Restart BSPWM
+super + shift + {q,r}
+	bspc {quit,wm -r}
+# Move A Floating Window
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+# Set Window State
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+# Close and Kill Window
+super + x
+	bspc node -{c,k}
+
+# Resize/Rearrange Windows
+
+# Move Left and Bottom Sides of a Window for Resizing
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,bottom 0 -20,left 20 0}
+# Move Top and Right Sides of a Window for Resizing
+super + alt + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,top 0 -20,right 20 0}
+# Swap the Current Node and the Biggest Node
+super + space
+	bspc node -s biggest
+# Switch Between Tiled and Fullscreen Layout
+super + m
+	bspc desktop -l next
+# Focus/Move the Node in the Given Direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+# Cycle Between Windows in Fullscreen Layout (Also Works in Tiled)
+super + {_,shift + }c
+	bspc node -f {next,prev}.local
+
+# Virtual Desktop Controls
+
+# Change Desktop/Send Window to Desktop
+super + {_,shift + }{1-9}
+	bspc {desktop -f,node -d} focused:'^{1-9}'
+# Move to Next/Previous Virtual Desktop
+super + bracket{left,right}
+	bspc desktop -f {prev,next}.local
+
+# Manual Tiling Controls
+
+# Preselect the Direction
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+# Preselect the Ratio
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+# Cancel the Preselection for the Focused Node
+super + ctrl + space
+	bspc node -p cancel
+# Cancel the Preselection for the Focused Desktop
+super + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+# Focus of Nodes
+
+# Focus the Node For the Given Path Jump
+super + {p,b,comma,period}
+	bspc node -f @{parent,brother,first,second}
+# Focus the Last Node/Desktop
+# super + {grave,Tab}
+#	bspc {node,desktop} -f last
+# Focus the Older or Newer Node in the Focus History
+super + {o,i}
+	bspc wm -h off; \
+	bspc node {older,newer} -f; \
+	bspc wm -h on
+# Switch Focus of Monitors
+super + ctrl + alt {h,l}
+    bspc monitor --focus {prev,next}
+super + shift {comma,period}
+	bspc monitor --focus {prev,next}
+# Send Window to other monitor
+super + ctrl + shift {h,l}
+    bspc node -m {prev,next} --follow 
+super + ctrl {comma,period}
+	bspc node -m {prev,next} --follow
+
+# gaps
+super + equal
+    gap=$(bspc query --tree --monitor | jq '.windowGap'); new_gap=$(( $gap + 5 )); bspc config window_gap ${new_gap}
+
+super + minus
+    gap=$(bspc query --tree --monitor | jq '.windowGap'); new_gap=$(( $gap - 5 )); bspc config window_gap ${new_gap}
+
+super + plus
+    bspc config window_gap 0

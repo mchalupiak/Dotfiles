@@ -75,6 +75,8 @@ return require('packer').startup(function(use)
 
     use "lewpoly/sherbet.nvim"
 
+    use 'xiyaowong/transparent.nvim'
+
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate',

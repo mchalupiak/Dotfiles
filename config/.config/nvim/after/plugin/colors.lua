@@ -1,4 +1,4 @@
-function colors(color)
+function colors(color, theme)
 	color = os.getenv("BASE16_THEME")
     alt_color = 'rose-pine' or color
     -- Available values:   `'hard'`, `'medium'`, `'soft'`
@@ -9,7 +9,13 @@ function colors(color)
     vim.g.everforest_background = 'hard'
     vim.g.gruvbox_material_better_performance = 1
     vim.g.everforest_better_performance = 1
-	if not pcall(vim.cmd.colorscheme, color) then
+    if color == 'gruvbox-dark-hard' then
+        color = 'gruvbox-material'
+        vim.g.gruvbox_material_background = 'hard'
+    end
+    if theme then
+        vim.cmd.colorscheme(alt_color)
+    elseif not pcall(vim.cmd.colorscheme, color) then
         vim.cmd.colorscheme(alt_color)
     end
 end

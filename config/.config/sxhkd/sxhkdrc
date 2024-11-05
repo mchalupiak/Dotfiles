@@ -3,7 +3,7 @@
 #
 
 # make sxhkd reload its configuration files:
-super + Escape
+super + r
 	pkill -USR1 -x sxhkd
 
 #
@@ -26,44 +26,42 @@ super + ctrl + {m,x,y,z}
 
 # Launch Programs
 
-# Browser
-super + ctrl + b
-    brave
 # dmenu Launcher
 super + p
     dmenu_run
 # Terminal
 super + Return
     st
-super + d
-    st
-# Cmus
-super + ctrl + c
-    st -e cmus
-# Ranger
-super + ctrl + r
-    st -e ranger
-# NeoVim
-super + ctrl + v
-    st -e nvim
-# Emacs
-super + ctrl + e
-    emacs
 # Screenshot
+super + shift + s
+    scrot -s -e 'xclip -selection clipboard -t image/png -i $f' ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png
 super + ctrl + s
-    scrot
+    scrot -u -e 'xclip -selection clipboard -t image/png -i $f' ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png
+# Screen Lock
+super + Escape
+    slock
+
+# scripts
+super + e
+    dmenu_emoji
+
+# keymap
+alt + space
+    setxkbmap il
+alt + shift + space
+    setxkbmap us
 
 # Media Controls
 
 # Mute Audio
 XF86AudioMute
-    pulseaudio-ctl mute
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
 # Lower Volume
 XF86AudioLowerVolume
-    pulseaudio-ctl down 1
+    pactl set-sink-volume @DEFAULT_SINK@ -2%
 # Raise Volume
 XF86AudioRaiseVolume
-    pulseaudio-ctl up 1
+    pactl set-sink-volume @DEFAULT_SINK@ +2%
 # Play/Pause
 XF86AudioPlay
     playerctl play-pause
@@ -76,6 +74,12 @@ XF86AudioNext
 # Previous Song
 XF86AudioPrev
     playerctl previous
+# Brightness Up
+XF86_MonBrightnessUp
+    brightnessctl set 1%+
+# Brightness Down
+XF86_MonBrightnessDown
+    brightnessctl set 1%+
 
 ## BSPWM Controls ##
  

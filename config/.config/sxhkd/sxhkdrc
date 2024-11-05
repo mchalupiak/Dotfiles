@@ -75,11 +75,11 @@ XF86AudioNext
 XF86AudioPrev
     playerctl previous
 # Brightness Up
-XF86_MonBrightnessUp
+XF86MonBrightnessUp
     brightnessctl set 1%+
 # Brightness Down
-XF86_MonBrightnessDown
-    brightnessctl set 1%+
+XF86MonBrightnessDown
+    brightnessctl set 1%-
 
 ## BSPWM Controls ##
  

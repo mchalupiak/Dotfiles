@@ -12,8 +12,11 @@ function colors(color, theme)
     if color == 'gruvbox-dark-hard' then
         color = 'gruvbox-material'
         vim.g.gruvbox_material_background = 'hard'
+    elseif color == 'gruvbox-dark-soft' then
+        color = 'gruvbox-material'
+        vim.g.gruvbox_material_background = 'soft'
     end
-    if theme then
+    if theme then 
         vim.cmd.colorscheme(alt_color)
     elseif not pcall(vim.cmd.colorscheme, color) then
         vim.cmd.colorscheme(alt_color)

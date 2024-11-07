@@ -1,25 +1,25 @@
 # base16-qutebrowser (https://github.com/theova/base16-qutebrowser)
-# Scheme name: Gruvbox dark, hard
-# Scheme author: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
+# Scheme name: Rosé Pine
+# Scheme author: Emilia Dunfelt &lt;edun@dunfelt.se&gt;
 # Template author: theova
 # Commentary: Tinted Theming: (https://github.com/tinted-theming)
 
-base00 = "#1d2021"
-base01 = "#3c3836"
-base02 = "#504945"
-base03 = "#665c54"
-base04 = "#bdae93"
-base05 = "#d5c4a1"
-base06 = "#ebdbb2"
-base07 = "#fbf1c7"
-base08 = "#fb4934"
-base09 = "#fe8019"
-base0A = "#fabd2f"
-base0B = "#b8bb26"
-base0C = "#8ec07c"
-base0D = "#83a598"
-base0E = "#d3869b"
-base0F = "#d65d0e"
+base00 = "#191724"
+base01 = "#1f1d2e"
+base02 = "#26233a"
+base03 = "#6e6a86"
+base04 = "#908caa"
+base05 = "#e0def4"
+base06 = "#e0def4"
+base07 = "#524f67"
+base08 = "#eb6f92"
+base09 = "#f6c177"
+base0A = "#ebbcba"
+base0B = "#31748f"
+base0C = "#9ccfd8"
+base0D = "#c4a7e7"
+base0E = "#f6c177"
+base0F = "#524f67"
 
 # set qutebrowser colors
 

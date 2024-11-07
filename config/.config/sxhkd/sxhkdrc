@@ -144,7 +144,7 @@ super + ctrl + shift + space
 # Focus of Nodes
 
 # Focus the Node For the Given Path Jump
-super + {p,b,comma,period}
+super + ctrl {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 # Focus the Last Node/Desktop
 # super + {grave,Tab}
@@ -155,14 +155,10 @@ super + {o,i}
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 # Switch Focus of Monitors
-super + ctrl + alt {h,l}
-    bspc monitor --focus {prev,next}
-super + shift {comma,period}
+super + {comma,period}
 	bspc monitor --focus {prev,next}
 # Send Window to other monitor
-super + ctrl + shift {h,l}
-    bspc node -m {prev,next} --follow 
-super + ctrl {comma,period}
+super + shift {comma,period}
 	bspc node -m {prev,next} --follow
 
 # gaps

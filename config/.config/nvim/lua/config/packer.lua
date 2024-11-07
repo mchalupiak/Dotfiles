@@ -260,18 +260,8 @@ return require('packer').startup(function(use)
         end
     }
 
-    use {
-        "utilyre/barbecue.nvim",
-        tag = "*",
-        requires = {
-            "SmiteshP/nvim-navic",
-            "nvim-tree/nvim-web-devicons", -- optional dependency
-        },
-        after = "nvim-web-devicons", -- keep this if you're using NvChad
-        config = function()
-            require("barbecue").setup()
-        end,
-    }
+    use 'nvim-tree/nvim-web-devicons'
+
 
     use {
         'nvim-lualine/lualine.nvim',
@@ -326,5 +316,5 @@ return require('packer').startup(function(use)
         cmd = { "DBUIToggle", "DBUI", "DBUIAddConnection", "DBUIFindBuffer", "DBUIRenameBuffer", "DBUILastQueryInfo" },
     }
 
-    use 'eandrju/cellular-automaton.nvim' 
+    use 'eandrju/cellular-automaton.nvim'
 end)

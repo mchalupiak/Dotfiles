@@ -13,7 +13,7 @@ else
 fi
 #MONITOR=DP-5 polybar example &
 ~/.fehbg
-picom --corner-radius 15 &
+picom &
 #lxsession &
 #blueman-applet &
 #nm-applet &
@@ -22,7 +22,7 @@ picom --corner-radius 15 &
 bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8 9
 
 ## Theming
-bspc config border_width        2
+bspc config border_width        1
 bspc config window_gap          10
 bspc config top_padding         36
 bspc config left_padding        0

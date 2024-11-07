@@ -326,5 +326,5 @@ return require('packer').startup(function(use)
         cmd = { "DBUIToggle", "DBUI", "DBUIAddConnection", "DBUIFindBuffer", "DBUIRenameBuffer", "DBUILastQueryInfo" },
     }
 
-    use 'eandrju/cellular-automaton.nvim' 
+    use 'eandrju/cellular-automaton.nvim'
 end)

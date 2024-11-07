@@ -13,6 +13,9 @@ vim.opt.showmode = false
 
 vim.opt.smartindent = true
 
+vim.opt.spell = true
+vim.opt.spelllang = "en_us"
+
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"

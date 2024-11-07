@@ -3,6 +3,7 @@
 ## Autostart Programs
 sxhkd &
 xsetroot -cursor_name left_ptr
+pgrep bspswallow || bspswallow &
 # polybar example &
 #~/.scripts/panel.sh
 if [ $(pgrep polybar) ]; then

@@ -57,7 +57,7 @@ test -n "$alldrives"
 
 # Feed all found drives to dmenu and get user choice.
 chosen="$(echo "$alldrives" | dmenu -p "Mount which drive?" -i)"
-
+#
 # Function for prompting user for a mountpoint.
 getmount(){
 	mp="$(find /mnt /media /mount /home -maxdepth 1 -type d 2>/dev/null | dmenu -i -p "Mount this drive where?")"
@@ -110,6 +110,7 @@ case "$chosen" in
 
 	📱*)
 		notify-send "❗Note" "Remember to allow file access on your phone now."
+        echo "here"
 		getmount
 		number="${chosen%%:*}"
 		number="${chosen:1}"	# This is a bashism.

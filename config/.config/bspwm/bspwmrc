@@ -4,6 +4,7 @@
 sxhkd &
 xsetroot -cursor_name left_ptr
 pgrep bspswallow || bspswallow &
+pgrep statnot || statnot &
 # polybar example &
 #~/.scripts/panel.sh
 if [ $(pgrep polybar) ]; then

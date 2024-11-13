@@ -10,7 +10,13 @@ source ~/.bashrc
 export QSYS_ROOTDIR="/home/mikec/intelFPGA_lite/18.1/quartus/sopc_builder/bin"
 export VERSION_CONTROL="never"
 
-# opam configuration
-test -r /home/mikec/.opam/opam-init/init.sh && . /home/mikec/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
-
 # exec hilbish -S -l
+
+
+# BEGIN opam configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+test -r '/home/mikec/.opam/opam-init/init.sh' && . '/home/mikec/.opam/opam-init/init.sh' > /dev/null 2> /dev/null || true
+# END opam configuration

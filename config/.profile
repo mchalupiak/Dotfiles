@@ -12,4 +12,5 @@ export CLASSPATH="/usr/share/java/junit.jar:/usr/share/java/hamcrest/core.jar"
 export PATH="$PATH:/home/mikec/.local/share/JetBrains/Toolbox/scripts"
 
 
+
 [ -f "/home/mikec/.ghcup/env" ] && . "/home/mikec/.ghcup/env" # ghcup-env

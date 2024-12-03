@@ -21,6 +21,7 @@ picom &
 
 ## Configure Monitors/Workspaces
 bspc monitor DisplayPort-1 -d 1 2 3 4 5 6 7 8 9
+bspc monitor DisplayPort-0 -d 1 2 3 4 5 6 7 8 9
 
 ## Theming
 bspc config border_width        1

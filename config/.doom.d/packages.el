@@ -52,3 +52,5 @@
   :recipe (:host github :repo "donniebreve/rose-pine-doom-emacs"
            :files ("doom-rose-pine-theme.el" "doom-rose-pine-moon-theme.el" "doom-rose-pine-dawn-theme.el")
            :pre-build ("make" "install")))
+(package! dylan)
+(package! dime)

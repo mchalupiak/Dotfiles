@@ -13,9 +13,13 @@ PATH=$PATH:~/.local/share/gem/ruby/3.0.0/bin/:~/.scripts
 PATH=$PATH:~/.cargo/bin
 PATH=$PATH:~/go/bin/
 PATH=$PATH:~/.nimble/bin/
+PATH=$PATH:~/Documents/suckless/dylan/opendylan-2024.1/bin
+PATH=$PATH:~/.config/emacs/bin/
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
+
+export OPEN_DYLAN_USER_REGISTRIES=/tmp/dime-test/registry
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -173,3 +177,8 @@ export DISABLE_TELEMETRY=YES
 
 
 [ -f "/home/mikec/.ghcup/env" ] && . "/home/mikec/.ghcup/env" # ghcup-env
+alias guile='rlwrap guile'
+alias sbcl='rlwrap sbcl'
+alias csi='rlwrap csi'
+alias chicken-csi='rlwrap chicken-csi'
+alias icyc='rlwrap icyc'

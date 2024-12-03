@@ -19,8 +19,8 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Olympe Mono Hacked" :size 15 )
-      doom-variable-pitch-font (font-spec :family "Cantarell" :size 15 :weight 'bold))
+(setq doom-font (font-spec :family "Olympe Mono Hacked" :size 16)
+      doom-variable-pitch-font (font-spec :family "Cantarell" :size 16 :weight 'bold))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -146,6 +146,12 @@
        (setq mpc-host (read-string "IP Address:"))
        (call-interactively 'mpc))
 
-(set-frame-parameter nil 'alpha-background 80) ; For current frame
+;; (set-frame-parameter nil 'alpha-background 80) ; For current frame
 (add-to-list 'default-frame-alist '(alpha-background . 80)) ; For all new frames henceforth
 (setq inhibit-x-resources t)
+
+(require 'dime)
+(dime-setup '(dime-repl dime-note-tree))
+(setq dime-dylan-implementations
+      '((opendylan ("/home/mikec/Documents/suckless/dylan/opendylan-2024.1/bin/dswank")
+         :env ("OPEN_DYLAN_USER_REGISTRIES=/tmp/dime-test/registry"))))

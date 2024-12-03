@@ -23,6 +23,8 @@ return require('packer').startup(function(use)
         end
     }
 
+    use "sindrets/diffview.nvim"
+
 	use({
 		'rose-pine/neovim',
 		as = 'rose-pine',
@@ -228,8 +230,8 @@ return require('packer').startup(function(use)
         end
     }
 
-	-- use 'Olical/conjure'
-	-- use 'PaterJason/cmp-conjure'
+	use 'Olical/conjure'
+	use 'PaterJason/cmp-conjure'
 
     use {
         'lukas-reineke/indent-blankline.nvim',

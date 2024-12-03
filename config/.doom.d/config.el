@@ -147,7 +147,7 @@
        (call-interactively 'mpc))
 
 ;; (set-frame-parameter nil 'alpha-background 80) ; For current frame
-(add-to-list 'default-frame-alist '(alpha-background . 80)) ; For all new frames henceforth
+;; (add-to-list 'default-frame-alist '(alpha-background . 80)) ; For all new frames henceforth
 (setq inhibit-x-resources t)
 
 (require 'dime)

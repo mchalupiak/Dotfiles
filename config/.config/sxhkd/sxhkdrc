@@ -158,7 +158,7 @@ super + {o,i}
 super + {comma,period}
 	bspc monitor --focus {prev,next}
 # Send Window to other monitor
-super + shift {comma,period}
+super + shift + {comma,period}
 	bspc node -m {prev,next} --follow
 
 # gaps

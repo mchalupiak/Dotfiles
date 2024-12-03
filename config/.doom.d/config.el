@@ -25,7 +25,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-rose-pine)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -146,5 +146,12 @@
        (setq mpc-host (read-string "IP Address:"))
        (call-interactively 'mpc))
 
-(set-frame-parameter nil 'alpha-background 80) ; For current frame
+;; (set-frame-parameter nil 'alpha-background 80) ; For current frame
 (add-to-list 'default-frame-alist '(alpha-background . 80)) ; For all new frames henceforth
+(setq inhibit-x-resources t)
+
+(require 'dime)
+(dime-setup '(dime-repl dime-note-tree))
+(setq dime-dylan-implementations
+      '((opendylan ("/home/mikec/Documents/suckless/dylan/opendylan-2024.1/bin/dswank")
+         :env ("OPEN_DYLAN_USER_REGISTRIES=/tmp/dime-test/registry"))))

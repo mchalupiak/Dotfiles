@@ -29,6 +29,8 @@ lsp_config.nim_langserver.setup{
 
 lsp_config.hls.setup{}
 
+lsp_config.clojure_lsp.setup{}
+
 local cmp = require("cmp")
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_mappings = lsp.defaults.cmp_mappings({
@@ -40,7 +42,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 
 cmp.setup {
     sources = {
-        -- { name = 'conjure' },
+        { name = 'conjure' },
         { name = 'nvim_lsp_signature_help' },
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
@@ -55,6 +57,12 @@ lsp.setup_nvim_cmp({
 	mapping = cmp_mappings
 })
 
+vim.api.nvim_create_autocmd('User', {
+    pattern = 'LspAttached',
+    once = true,
+    callback = vim.lsp.codelens.refresh,
+})
+
 lsp.on_attach(function(client, bufnr)
 	local opts = {buffer = bufnr, remap = false}
 
@@ -65,6 +73,14 @@ lsp.on_attach(function(client, bufnr)
     if client.name == "html" or client.name == "cssls" then
         capabilities = capabilities
     end
+
+    vim.api.nvim_create_autocmd({ 'TextChanged', 'InsertLeave' }, {
+        buffer = bufnr,
+        callback = vim.lsp.codelens.refresh,
+    })
+    -- trigger codelens refresh
+    vim.api.nvim_exec_autocmds('User', { pattern = 'LspAttached' })
+
 
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)

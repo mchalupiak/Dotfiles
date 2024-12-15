@@ -5,7 +5,8 @@ Xft.dpi: 192
 ! .alpha: 0.2
 
 font: monospace:12
-//*font: "Cascadia Code"
+Sxiv.font: "Cascadia Code"
+! Sxiv.font: "Olympe Mono Hacked"
 !! Dracula Xresources palette
 !/* *.foreground: #F8F8F2 */
 !/* *.background: #282A36 */

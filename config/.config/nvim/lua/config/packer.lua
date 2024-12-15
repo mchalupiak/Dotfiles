@@ -33,6 +33,14 @@ return require('packer').startup(function(use)
 		--		end
 	})
 
+    use {
+        "mireq/large_file",
+        config = function()
+            require("large_file").setup()
+        end
+    }
+
+
 	use 'tanvirtin/monokai.nvim'
 
     use 'arzg/vim-colors-xcode'
@@ -77,7 +85,7 @@ return require('packer').startup(function(use)
 
     use "lewpoly/sherbet.nvim"
 
-    use 'xiyaowong/transparent.nvim'
+    -- use 'xiyaowong/transparent.nvim'
 
 	use {
 		'nvim-treesitter/nvim-treesitter',

@@ -31,7 +31,7 @@ super + p
     dmenu_run
 # Terminal
 super + Return
-    st
+    neovide +term
 # Screenshot
 super + shift + s
     scrot -s -e 'xclip -selection clipboard -t image/png -i $f' ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png

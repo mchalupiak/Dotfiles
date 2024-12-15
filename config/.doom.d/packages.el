@@ -54,3 +54,4 @@
            :pre-build ("make" "install")))
 (package! dylan)
 (package! dime)
+(package! vlf)

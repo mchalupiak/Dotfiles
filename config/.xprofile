@@ -2,9 +2,10 @@ export PATH="${PATH}:$HOME/.scripts:~/.local/share/gem/ruby/3.0.0/bin"
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
 export XCURSOR_SIZE=32
-export SUDO_ASKPASS=ksshaskpass
+# export SUDO_ASKPASS=ksshaskpass
+# export _JAVA_AWT_WM_NONREPARENTING=1
 #sxhkd -c $HOME/.config/berry/sxhkdrc &
 xrandr --output eDP-1 --scale 1.25x1.25
 # autorandr -c
 # xrandr --output DisplayPort-0 --rate 165
-$HOME/.fehbg
+# $HOME/.fehbg

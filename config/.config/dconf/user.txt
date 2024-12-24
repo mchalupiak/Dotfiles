@@ -589,7 +589,7 @@ audible-bell=false
 custom-font='CaskaydiaCove Nerd Font 10'
 font-scale=1.0999999999999974
 last-window-maximised=false
-last-window-size=(1708, 1395)
+last-window-size=(3420, 1401)
 theme='auto'
 ignore-scrollback-limit=true
 
@@ -832,8 +832,8 @@ size=(734, 690)
 state=87168
 
 [org/gnome/control-center]
-last-panel='keyboard'
-window-state=(1708, 1395, false)
+last-panel='system'
+window-state=(2052, 1401, false)
 
 [org/gnome/desktop/a11y/applications]
 screen-reader-enabled=false
@@ -885,7 +885,7 @@ font-hinting='slight'
 font-name='Cantarell 10'
 gtk-theme='Adwaita'
 icon-theme='Adwaita'
-monospace-font-name='CaskaydiaCove Nerd Font Mono 10'
+monospace-font-name='Olympe Mono Hacked 11'
 show-battery-percentage=true
 toolbar-style='text'
 
@@ -1025,7 +1025,7 @@ primary-color='#000000000000'
 secondary-color='#000000000000'
 
 [org/gnome/desktop/search-providers]
-disabled=['org.gnome.Epiphany.desktop', 'org.gnome.Contacts.desktop']
+disabled=@as []
 enabled=['org.gnome.Weather.desktop']
 sort-order=['org.gnome.Documents.desktop', 'org.gnome.Settings.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.clocks.desktop', 'org.gnome.Photos.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Contacts.desktop', 'org.gnome.Software.desktop', 'org.gnome.Boxes.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Characters.desktop', 'org.gnome.Lollypop.desktop']
 
@@ -1034,45 +1034,49 @@ event-sounds=true
 theme-name='__custom'
 
 [org/gnome/desktop/wm/keybindings]
-close=['<Super>x']
+close=@as []
 cycle-windows=['<Alt>Escape']
 cycle-windows-backward=['<Shift><Alt>Escape']
 maximize=@as []
-move-to-monitor-down=['<Control><Super>period']
-move-to-monitor-left=['<Shift><Super>comma']
-move-to-monitor-right=['<Shift><Super>period']
-move-to-monitor-up=['<Control><Super>comma']
+move-to-monitor-down=@as []
+move-to-monitor-left=@as []
+move-to-monitor-right=@as []
+move-to-monitor-up=@as []
 move-to-workspace-1=['<Shift><Super>1']
 move-to-workspace-2=['<Shift><Super>2']
 move-to-workspace-3=['<Shift><Super>3']
 move-to-workspace-4=['<Shift><Super>4']
-move-to-workspace-down=['<Control><Shift><Alt>Down']
+move-to-workspace-down=@as []
 move-to-workspace-left=['<Shift><Super>bracketleft']
 move-to-workspace-right=['<Shift><Super>bracketright']
-move-to-workspace-up=['<Control><Shift><Alt>Up']
+move-to-workspace-up=@as []
 panel-main-menu=@as []
 panel-run-dialog=['<Alt>F2']
-switch-applications=['<Super>Tab', '<Alt>Tab']
-switch-applications-backward=['<Shift><Super>Tab', '<Shift><Alt>Tab']
+switch-applications=@as []
+switch-applications-backward=@as []
 switch-group=@as []
 switch-group-backward=@as []
-switch-panels=['<Control><Alt>Tab']
-switch-panels-backward=['<Shift><Control><Alt>Tab']
+switch-panels=@as []
+switch-panels-backward=@as []
 switch-to-workspace-1=['<Super>1']
 switch-to-workspace-2=['<Super>2']
 switch-to-workspace-3=['<Super>3']
 switch-to-workspace-4=['<Super>4']
-switch-to-workspace-last=['<Super>End']
+switch-to-workspace-last=@as []
 switch-to-workspace-left=['<Super>bracketleft']
 switch-to-workspace-right=['<Super>bracketright']
 toggle-fullscreen=['F11']
 toggle-on-all-workspaces=['<Super>0']
 unmaximize=@as []
+switch-to-workspace-down=@as []
+switch-to-workspace-up=@as []
+minimize=@as []
 
 [org/gnome/desktop/wm/preferences]
 auto-raise=false
 button-layout='icon:close'
 focus-mode='mouse'
+workspace-names=['', '', 'Workspace 3', 'Workspace 5']
 
 [org/gnome/eog/view]
 background-color='rgb(0,0,0)'
@@ -1193,19 +1197,19 @@ window-size=[742, 574]
 zoom-level=10
 
 [org/gnome/mutter]
-attach-modal-dialogs=true
+attach-modal-dialogs=false
 edge-tiling=false
 experimental-features=['autoclose-xwayland']
 overlay-key='Super_L'
-workspaces-only-on-primary=true
+workspaces-only-on-primary=false
 
 [org/gnome/mutter/keybindings]
 cancel-input-capture=['<Super><Shift>Escape']
-toggle-tiled-left=['<Primary><Super>Left', '<Primary><Super>KP_Left', '<Primary><Super>h']
-toggle-tiled-right=['<Primary><Super>Right', '<Primary><Super>KP_Right', '<Primary><Super>l']
+toggle-tiled-left=@as []
+toggle-tiled-right=@as []
 
 [org/gnome/mutter/wayland/keybindings]
-restore-shortcuts=['<Super>Escape']
+restore-shortcuts=@as []
 
 [org/gnome/nautilus/icon-view]
 default-zoom-level='medium'
@@ -1217,7 +1221,7 @@ search-filter-time-type='created'
 search-view='list-view'
 
 [org/gnome/nautilus/window-state]
-initial-size=(3420, 1400)
+initial-size=(3410, 1371)
 initial-size-file-chooser=(890, 550)
 maximized=false
 sidebar-width=246
@@ -1248,20 +1252,21 @@ night-light-temperature=uint32 2346
 
 [org/gnome/settings-daemon/plugins/media-keys]
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
-rotate-video-lock-static=['<Super>o', 'XF86RotationLockToggle']
+rotate-video-lock-static=@as []
 screensaver=['<Shift><Super>Escape']
+home=@as []
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
-binding='<Super>Return'
 command='kgx'
 name='Launch Console'
+binding='<Super>Return'
 
 [org/gnome/shell]
 app-picker-layout=[{'org.gnome.Contacts.desktop': <{'position': <0>}>, 'org.gnome.Weather.desktop': <{'position': <1>}>, 'org.gnome.clocks.desktop': <{'position': <2>}>, 'org.gnome.Maps.desktop': <{'position': <3>}>, 'org.gnome.Books.desktop': <{'position': <4>}>, 'org.gnome.Photos.desktop': <{'position': <5>}>, 'org.gnome.Totem.desktop': <{'position': <6>}>, 'org.gnome.Calculator.desktop': <{'position': <7>}>, 'org.gnome.gedit.desktop': <{'position': <8>}>, 'simple-scan.desktop': <{'position': <9>}>, 'gnome-system-monitor.desktop': <{'position': <10>}>, 'org.gnome.Boxes.desktop': <{'position': <11>}>, 'Utilities': <{'position': <12>}>, 'Arma 3.desktop': <{'position': <13>}>, 'yelp.desktop': <{'position': <14>}>, 'ASTRONEER.desktop': <{'position': <15>}>, 'bssh.desktop': <{'position': <16>}>, 'org.gnome.Cheese.desktop': <{'position': <17>}>, 'bvnc.desktop': <{'position': <18>}>, 'avahi-discover.desktop': <{'position': <19>}>, 'Celeste.desktop': <{'position': <20>}>}, {'Cities Skylines.desktop': <{'position': <0>}>, 'cmake-gui.desktop': <{'position': <1>}>, 'Counter-Strike Global Offensive.desktop': <{'position': <2>}>, 'emacs.desktop': <{'position': <3>}>, 'org.gnome.Extensions.desktop': <{'position': <4>}>, 'Factorio.desktop': <{'position': <5>}>, 'Halo The Master Chief Collection.desktop': <{'position': <6>}>, 'lstopo.desktop': <{'position': <7>}>, 'heroic.desktop': <{'position': <8>}>, 'Hitman Sniper Challenge.desktop': <{'position': <9>}>, 'HITMAN 2.desktop': <{'position': <10>}>, 'htop.desktop': <{'position': <11>}>, 'kitty.desktop': <{'position': <12>}>, 'net.lutris.Lutris.desktop': <{'position': <13>}>, 'nvim.desktop': <{'position': <14>}>, 'nvidia-settings.desktop': <{'position': <15>}>, 'OpenRGB.desktop': <{'position': <16>}>, 'org.freedesktop.Piper.desktop': <{'position': <17>}>, 'qv4l2.desktop': <{'position': <18>}>, 'qvidcap.desktop': <{'position': <19>}>, 'ranger.desktop': <{'position': <20>}>, 'steam.desktop': <{'position': <21>}>, 'Teardown.desktop': <{'position': <22>}>, 'org.gnome.Epiphany.desktop': <{'position': <23>}>}, {'in.lsp_plug.lsp_plugins_spectrum_analyzer_x12.desktop': <{'position': <0>}>, 'in.lsp_plug.lsp_plugins_spectrum_analyzer_x16.desktop': <{'position': <1>}>, 'org.gnome.TwentyFortyEight.desktop': <{'position': <2>}>, 'arduino.desktop': <{'position': <3>}>, 'in.lsp_plug.lsp_plugins_art_delay_mono.desktop': <{'position': <4>}>, 'in.lsp_plug.lsp_plugins_art_delay_stereo.desktop': <{'position': <5>}>, 'balena-etcher-electron.desktop': <{'position': <6>}>, 'blender.desktop': <{'position': <7>}>, 'calf.desktop': <{'position': <8>}>, 'in.lsp_plug.lsp_plugins_multisampler_x12_do.desktop': <{'position': <9>}>, 'in.lsp_plug.lsp_plugins_multisampler_x24_do.desktop': <{'position': <10>}>, 'in.lsp_plug.lsp_plugins_multisampler_x48_do.desktop': <{'position': <11>}>, 'DiRT Rally.desktop': <{'position': <12>}>, 'drracket.desktop': <{'position': <13>}>, 'in.lsp_plug.lsp_plugins_spectrum_analyzer_x8.desktop': <{'position': <14>}>, 'firewall-config.desktop': <{'position': <15>}>, 'in.lsp_plug.lsp_plugins_spectrum_analyzer_x4.desktop': <{'position': <16>}>, 'gnuradio-grc.desktop': <{'position': <17>}>, 'in.lsp_plug.lsp_plugins_latency_meter.desktop': <{'position': <18>}>, 'com.danplanet.chirp.desktop': <{'position': <19>}>, 'org.gnome.Lollypop.desktop': <{'position': <20>}>, 'cups.desktop': <{'position': <21>}>, 'micro.desktop': <{'position': <22>}>, 'in.lsp_plug.lsp_plugins_crossover_ms.desktop': <{'position': <23>}>}, {'in.lsp_plug.lsp_plugins_mb_compressor_ms.desktop': <{'position': <0>}>, 'in.lsp_plug.lsp_plugins_mb_expander_ms.desktop': <{'position': <1>}>, 'in.lsp_plug.lsp_plugins_mb_gate_ms.desktop': <{'position': <2>}>, 'in.lsp_plug.lsp_plugins_sc_mb_expander_ms.desktop': <{'position': <3>}>, 'in.lsp_plug.lsp_plugins_sc_mb_gate_ms.desktop': <{'position': <4>}>, 'in.lsp_plug.lsp_plugins_compressor_ms.desktop': <{'position': <5>}>, 'in.lsp_plug.lsp_plugins_graph_equalizer_x16_ms.desktop': <{'position': <6>}>, 'in.lsp_plug.lsp_plugins_para_equalizer_x16_ms.desktop': <{'position': <7>}>, 'in.lsp_plug.lsp_plugins_graph_equalizer_x32_ms.desktop': <{'position': <8>}>, 'in.lsp_plug.lsp_plugins_para_equalizer_x32_ms.desktop': <{'position': <9>}>, 'in.lsp_plug.lsp_plugins_dyna_processor_ms.desktop': <{'position': <10>}>, 'in.lsp_plug.lsp_plugins_sc_dyna_processor_ms.desktop': <{'position': <11>}>, 'in.lsp_plug.lsp_plugins_expander_ms.desktop': <{'position': <12>}>, 'in.lsp_plug.lsp_plugins_gate_ms.desktop': <{'position': <13>}>, 'in.lsp_plug.lsp_plugins_sc_expander_ms.desktop': <{'position': <14>}>, 'in.lsp_plug.lsp_plugins_sc_gate_ms.desktop': <{'position': <15>}>, 'in.lsp_plug.lsp_plugins_sc_mb_compressor_ms.desktop': <{'position': <16>}>, 'in.lsp_plug.lsp_plugins_sc_compressor_ms.desktop': <{'position': <17>}>, 'in.lsp_plug.lsp_plugins_graph_equalizer_x16_mono.desktop': <{'position': <18>}>, 'in.lsp_plug.lsp_plugins_graph_equalizer_x32_mono.desktop': <{'position': <19>}>, 'in.lsp_plug.lsp_plugins_para_equalizer_x16_mono.desktop': <{'position': <20>}>, 'in.lsp_plug.lsp_plugins_para_equalizer_x32_mono.desktop': <{'position': <21>}>, 'in.lsp_plug.lsp_plugins_profiler_mono.desktop': <{'position': <22>}>, 'in.lsp_plug.lsp_plugins_trigger_mono.desktop': <{'position': <23>}>}, {'in.lsp_plug.lsp_plugins_compressor_mono.desktop': <{'position': <0>}>, 'in.lsp_plug.lsp_plugins_impulse_reverb_mono.desktop': <{'position': <1>}>, 'in.lsp_plug.lsp_plugins_crossover_mono.desktop': <{'position': <2>}>, 'in.lsp_plug.lsp_plugins_comp_delay_mono.desktop': <{'position': <3>}>, 'in.lsp_plug.lsp_plugins_dyna_processor_mono.desktop': <{'position': <4>}>, 'in.lsp_plug.lsp_plugins_sc_dyna_processor_mono.desktop': <{'position': <5>}>, 'in.lsp_plug.lsp_plugins_expander_mono.desktop': <{'position': <6>}>, 'in.lsp_plug.lsp_plugins_gate_mono.desktop': <{'position': <7>}>, 'in.lsp_plug.lsp_plugins_impulse_responses_mono.desktop': <{'position': <8>}>, 'in.lsp_plug.lsp_plugins_limiter_mono.desktop': <{'position': <9>}>, 'in.lsp_plug.lsp_plugins_loud_comp_mono.desktop': <{'position': <10>}>, 'in.lsp_plug.lsp_plugins_sampler_mono.desktop': <{'position': <11>}>, 'in.lsp_plug.lsp_plugins_trigger_midi_mono.desktop': <{'position': <12>}>, 'in.lsp_plug.lsp_plugins_mb_compressor_mono.desktop': <{'position': <13>}>, 'in.lsp_plug.lsp_plugins_mb_expander_mono.desktop': <{'position': <14>}>, 'in.lsp_plug.lsp_plugins_mb_gate_mono.desktop': <{'position': <15>}>, 'in.lsp_plug.lsp_plugins_sc_mb_expander_mono.desktop': <{'position': <16>}>, 'in.lsp_plug.lsp_plugins_sc_mb_gate_mono.desktop': <{'position': <17>}>, 'in.lsp_plug.lsp_plugins_room_builder_mono.desktop': <{'position': <18>}>, 'in.lsp_plug.lsp_plugins_sc_compressor_mono.desktop': <{'position': <19>}>, 'in.lsp_plug.lsp_plugins_sc_expander_mono.desktop': <{'position': <20>}>, 'in.lsp_plug.lsp_plugins_sc_gate_mono.desktop': <{'position': <21>}>, 'in.lsp_plug.lsp_plugins_sc_limiter_mono.desktop': <{'position': <22>}>, 'in.lsp_plug.lsp_plugins_sc_mb_compressor_mono.desktop': <{'position': <23>}>}, {'in.lsp_plug.lsp_plugins_oscillator_mono.desktop': <{'position': <0>}>, 'in.lsp_plug.lsp_plugins_slap_delay_mono.desktop': <{'position': <1>}>, 'in.lsp_plug.lsp_plugins_surge_filter_mono.desktop': <{'position': <2>}>, 'in.lsp_plug.lsp_plugins_spectrum_analyzer_x1.desktop': <{'position': <3>}>, 'onlyoffice-desktopeditors.desktop': <{'position': <4>}>, 'jconsole-java-openjdk.desktop': <{'position': <5>}>, 'jshell-java-openjdk.desktop': <{'position': <6>}>, 'in.lsp_plug.lsp_plugins_oscilloscope_x1.desktop': <{'position': <7>}>, 'in.lsp_plug.lsp_plugins_oscilloscope_x2.desktop': <{'position': <8>}>, 'in.lsp_plug.lsp_plugins_oscilloscope_x4.desktop': <{'position': <9>}>, 'in.lsp_plug.lsp_plugins_phase_detector.desktop': <{'position': <10>}>, 'system-config-printer.desktop': <{'position': <11>}>, 'com.github.wwmm.pulseeffects.desktop': <{'position': <12>}>, 'slideshow.desktop': <{'position': <13>}>, 'org.gnome.Software.desktop': <{'position': <14>}>, 'in.lsp_plug.lsp_plugins_crossover_lr.desktop': <{'position': <15>}>, 'in.lsp_plug.lsp_plugins_mb_compressor_lr.desktop': <{'position': <16>}>, 'in.lsp_plug.lsp_plugins_mb_expander_lr.desktop': <{'position': <17>}>, 'in.lsp_plug.lsp_plugins_mb_gate_lr.desktop': <{'position': <18>}>, 'electron.desktop': <{'position': <19>}>, 'in.lsp_plug.lsp_plugins_sc_mb_expander_lr.desktop': <{'position': <20>}>, 'in.lsp_plug.lsp_plugins_sc_mb_gate_lr.desktop': <{'position': <21>}>, 'in.lsp_plug.lsp_plugins_graph_equalizer_x16_lr.desktop': <{'position': <22>}>, 'in.lsp_plug.lsp_plugins_para_equalizer_x16_lr.desktop': <{'position': <23>}>}, {'in.lsp_plug.lsp_plugins_graph_equalizer_x32_lr.desktop': <{'position': <0>}>, 'in.lsp_plug.lsp_plugins_para_equalizer_x32_lr.desktop': <{'position': <1>}>, 'in.lsp_plug.lsp_plugins_compressor_lr.desktop': <{'position': <2>}>, 'in.lsp_plug.lsp_plugins_comp_delay_x2_stereo.desktop': <{'position': <3>}>, 'in.lsp_plug.lsp_plugins_dyna_processor_lr.desktop': <{'position': <4>}>, 'in.lsp_plug.lsp_plugins_sc_dyna_processor_lr.desktop': <{'position': <5>}>, 'in.lsp_plug.lsp_plugins_expander_lr.desktop': <{'position': <6>}>, 'in.lsp_plug.lsp_plugins_gate_lr.desktop': <{'position': <7>}>, 'in.lsp_plug.lsp_plugins_sc_compressor_lr.desktop': <{'position': <8>}>, 'in.lsp_plug.lsp_plugins_sc_expander_lr.desktop': <{'position': <9>}>, 'in.lsp_plug.lsp_plugins_sc_gate_lr.desktop': <{'position': <10>}>, 'in.lsp_plug.lsp_plugins_sc_mb_compressor_lr.desktop': <{'position': <11>}>, 'in.lsp_plug.lsp_plugins_multisampler_x12.desktop': <{'position': <12>}>, 'in.lsp_plug.lsp_plugins_graph_equalizer_x16_stereo.desktop': <{'position': <13>}>, 'in.lsp_plug.lsp_plugins_para_equalizer_x16_stereo.desktop': <{'position': <14>}>, 'in.lsp_plug.lsp_plugins_multisampler_x24.desktop': <{'position': <15>}>, 'in.lsp_plug.lsp_plugins_graph_equalizer_x32_stereo.desktop': <{'position': <16>}>, 'in.lsp_plug.lsp_plugins_para_equalizer_x32_stereo.desktop': <{'position': <17>}>, 'in.lsp_plug.lsp_plugins_multisampler_x48.desktop': <{'position': <18>}>, 'in.lsp_plug.lsp_plugins_profiler_stereo.desktop': <{'position': <19>}>, 'in.lsp_plug.lsp_plugins_trigger_stereo.desktop': <{'position': <20>}>, 'in.lsp_plug.lsp_plugins_compressor_stereo.desktop': <{'position': <21>}>, 'in.lsp_plug.lsp_plugins_impulse_reverb_stereo.desktop': <{'position': <22>}>, 'in.lsp_plug.lsp_plugins_crossover_stereo.desktop': <{'position': <23>}>}, {'in.lsp_plug.lsp_plugins_comp_delay_stereo.desktop': <{'position': <0>}>, 'in.lsp_plug.lsp_plugins_dyna_processor_stereo.desktop': <{'position': <1>}>, 'in.lsp_plug.lsp_plugins_sc_dyna_processor_stereo.desktop': <{'position': <2>}>, 'in.lsp_plug.lsp_plugins_expander_stereo.desktop': <{'position': <3>}>, 'in.lsp_plug.lsp_plugins_gate_stereo.desktop': <{'position': <4>}>, 'in.lsp_plug.lsp_plugins_impulse_responses_stereo.desktop': <{'position': <5>}>, 'in.lsp_plug.lsp_plugins_limiter_stereo.desktop': <{'position': <6>}>, 'in.lsp_plug.lsp_plugins_loud_comp_stereo.desktop': <{'position': <7>}>, 'in.lsp_plug.lsp_plugins_sampler_stereo.desktop': <{'position': <8>}>, 'in.lsp_plug.lsp_plugins_trigger_midi_stereo.desktop': <{'position': <9>}>, 'in.lsp_plug.lsp_plugins_mb_compressor_stereo.desktop': <{'position': <10>}>, 'in.lsp_plug.lsp_plugins_mb_expander_stereo.desktop': <{'position': <11>}>, 'in.lsp_plug.lsp_plugins_mb_gate_stereo.desktop': <{'position': <12>}>, 'in.lsp_plug.lsp_plugins_sc_mb_expander_stereo.desktop': <{'position': <13>}>, 'in.lsp_plug.lsp_plugins_sc_mb_gate_stereo.desktop': <{'position': <14>}>, 'in.lsp_plug.lsp_plugins_room_builder_stereo.desktop': <{'position': <15>}>, 'in.lsp_plug.lsp_plugins_sc_expander_stereo.desktop': <{'position': <16>}>, 'in.lsp_plug.lsp_plugins_sc_gate_stereo.desktop': <{'position': <17>}>, 'in.lsp_plug.lsp_plugins_sc_limiter_stereo.desktop': <{'position': <18>}>, 'in.lsp_plug.lsp_plugins_sc_mb_compressor_stereo.desktop': <{'position': <19>}>, 'in.lsp_plug.lsp_plugins_slap_delay_stereo.desktop': <{'position': <20>}>, 'in.lsp_plug.lsp_plugins_surge_filter_stereo.desktop': <{'position': <21>}>, 'in.lsp_plug.lsp_plugins_sc_compressor_stereo.desktop': <{'position': <22>}>, 'in.lsp_plug.lsp_plugins_spectrum_analyzer_x2.desktop': <{'position': <23>}>}, {'uxterm.desktop': <{'position': <0>}>, 'via.desktop': <{'position': <1>}>, 'visual-studio-code.desktop': <{'position': <2>}>, 'xdvi.desktop': <{'position': <3>}>, 'xterm.desktop': <{'position': <4>}>, 'com.zamaudio.zamautosat.desktop': <{'position': <5>}>, 'com.zamaudio.zamaximx2.desktop': <{'position': <6>}>, 'com.zamaudio.zamcomp.desktop': <{'position': <7>}>, 'com.zamaudio.zamcompx2.desktop': <{'position': <8>}>, 'com.zamaudio.zamdelay.desktop': <{'position': <9>}>, 'com.zamaudio.zamdynamiceq.desktop': <{'position': <10>}>, 'com.zamaudio.zameq2.desktop': <{'position': <11>}>, 'com.zamaudio.zamgate.desktop': <{'position': <12>}>, 'com.zamaudio.zamgatex2.desktop': <{'position': <13>}>, 'com.zamaudio.zamgeq31.desktop': <{'position': <14>}>, 'com.zamaudio.zamgrains.desktop': <{'position': <15>}>, 'com.zamaudio.zamheadx2.desktop': <{'position': <16>}>, 'com.zamaudio.zamphono.desktop': <{'position': <17>}>, 'com.zamaudio.zamtube.desktop': <{'position': <18>}>, 'com.zamaudio.zamulticomp.desktop': <{'position': <19>}>, 'com.zamaudio.zamverb.desktop': <{'position': <20>}>, 'org.pwmt.zathura.desktop': <{'position': <21>}>, 'electron16.desktop': <{'position': <22>}>, 'emacsclient.desktop': <{'position': <23>}>}, {'evtest-qt.desktop': <{'position': <0>}>, 'fluid.desktop': <{'position': <1>}>, 'GDLauncher.desktop': <{'position': <2>}>, 'org.octave.Octave.desktop': <{'position': <3>}>, 'julia.desktop': <{'position': <4>}>, 'LEGO® Batman™ The Videogame.desktop': <{'position': <5>}>, 'LEGO Star Wars III The Clone Wars.desktop': <{'position': <6>}>, 'LEGO Worlds.desktop': <{'position': <7>}>, 'wine-Programs-LibreWolf-LibreWolf.desktop': <{'position': <8>}>, 'lime-suite.desktop': <{'position': <9>}>, 'fr.natron.Natron.desktop': <{'position': <10>}>, 'nitrogen.desktop': <{'position': <11>}>, 'Papers, Please.desktop': <{'position': <12>}>, 'powder-toy.desktop': <{'position': <13>}>, 'assistant.desktop': <{'position': <14>}>, 'designer.desktop': <{'position': <15>}>, 'linguist.desktop': <{'position': <16>}>, 'qdbusviewer.desktop': <{'position': <17>}>, 'r.desktop': <{'position': <18>}>, 'sdrpp.desktop': <{'position': <19>}>, 'org.gnome.Settings.desktop': <{'position': <20>}>, 'rpi-imager.desktop': <{'position': <21>}>, 'Stardew Valley.desktop': <{'position': <22>}>, 'Stick Fight The Game.desktop': <{'position': <23>}>}, {'org.strawberrymusicplayer.strawberry.desktop': <{'position': <0>}>, 'Super Meat Boy.desktop': <{'position': <1>}>, 'supertuxkart.desktop': <{'position': <2>}>, 'wine-Programs-LibreWolf-Uninstall.desktop': <{'position': <3>}>, 'vim.desktop': <{'position': <4>}>, 'virt-manager.desktop': <{'position': <5>}>, 'winetricks.desktop': <{'position': <6>}>, 'org.wireshark.Wireshark.desktop': <{'position': <7>}>, 'net.sourceforge.maxima.xmaxima.desktop': <{'position': <8>}>, 'openrct2.desktop': <{'position': <9>}>}]
 command-history=['emacs -Q', 'emacsclient', 'emacsclient -c', 'st', 'code & emacs', 'r']
 disable-user-extensions=false
-disabled-extensions=['cpufreq@konkor', 'gtktitlebar@velitasali.github.io', 'x11gestures@joseexposito.github.io', 'arcmenu@arcmenu.com', 'hidetopbar@mathieu.bidon.ca', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'native-window-placement@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com', 'dash-to-dock-cosmic-@halfmexicanhalfamazing@gmail.com', 'gsconnect@andyholmes.github.io', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'BringOutSubmenuOfPowerOffLogoutButton@pratap.fastmail.fm', 'tilingshell@ferrarodomenico.com', 'gTile@vibou', 'paperwm@paperwm.github.com', 'window-title-is-back@fthx']
-enabled-extensions=['drive-menu@gnome-shell-extensions.gcampax.github.com', 'extension-list@tu.berry', 'audio-switcher@albertomosconi', 'trayIconsReloaded@selfmade.pl', 'caffeine@patapon.info', 'just-perfection-desktop@just-perfection', 'sound-output-device-chooser@kgshank.net', 'volume-mixer@evermiss.net', 'quick-settings-tweaks@qwreey', 'gdeej@kareraisu.me', 'pop-shell@system76.com', 'blur-my-shell@aunetx', 'transparent-top-bar@ftpix.com', 'better-end-session-dialog@popov895.ukr.net']
+disabled-extensions=['cpufreq@konkor', 'gtktitlebar@velitasali.github.io', 'x11gestures@joseexposito.github.io', 'arcmenu@arcmenu.com', 'hidetopbar@mathieu.bidon.ca', 'native-window-placement@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com', 'dash-to-dock-cosmic-@halfmexicanhalfamazing@gmail.com', 'gsconnect@andyholmes.github.io', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'BringOutSubmenuOfPowerOffLogoutButton@pratap.fastmail.fm', 'gTile@vibou', 'window-title-is-back@fthx', 'transparent-top-bar@ftpix.com', 'windowsNavigator@gnome-shell-extensions.gcampax.github.com', 'pop-shell@system76.com', 'system-monitor@gnome-shell-extensions.gcampax.github.com', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'tilingshell@ferrarodomenico.com']
+enabled-extensions=['drive-menu@gnome-shell-extensions.gcampax.github.com', 'extension-list@tu.berry', 'audio-switcher@albertomosconi', 'trayIconsReloaded@selfmade.pl', 'caffeine@patapon.info', 'just-perfection-desktop@just-perfection', 'sound-output-device-chooser@kgshank.net', 'volume-mixer@evermiss.net', 'quick-settings-tweaks@qwreey', 'gdeej@kareraisu.me', 'blur-my-shell@aunetx', 'better-end-session-dialog@popov895.ukr.net', 'launch-new-instance@gnome-shell-extensions.gcampax.github.com', 'paperwm@paperwm.github.com']
 favorite-apps=['brave-browser.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Music.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Console.desktop']
 had-bluetooth-devices-setup=true
 last-selected-power-profile='performance'
@@ -1306,7 +1311,7 @@ brightness=0.59999999999999998
 sigma=30
 
 [org/gnome/shell/extensions/caffeine]
-indicator-position-max=2
+indicator-position-max=1
 nightlight-control='never'
 show-notifications=false
 
@@ -1433,13 +1438,26 @@ theme=false
 
 [org/gnome/shell/extensions/paperwm]
 last-used-display-server='Wayland'
-restore-attach-modal-dialogs=''
-restore-edge-tiling=''
-restore-keybinds='{}'
-restore-workspaces-only-on-primary=''
+restore-attach-modal-dialogs='true'
+restore-edge-tiling='true'
+restore-keybinds='{"toggle-tiled-left":{"bind":"[\\"<Primary><Super>Left\\",\\"<Primary><Super>KP_Left\\",\\"<Primary><Super>h\\"]","schema_id":"org.gnome.mutter.keybindings"},"toggle-tiled-right":{"bind":"[\\"<Primary><Super>Right\\",\\"<Primary><Super>KP_Right\\",\\"<Primary><Super>l\\"]","schema_id":"org.gnome.mutter.keybindings"},"restore-shortcuts":{"bind":"[\\"<Super>Escape\\"]","schema_id":"org.gnome.mutter.wayland.keybindings"},"switch-to-workspace-last":{"bind":"[\\"<Super>End\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-panels":{"bind":"[\\"<Control><Alt>Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"close":{"bind":"[\\"<Super>x\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-panels-backward":{"bind":"[\\"<Shift><Control><Alt>Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"move-to-monitor-up":{"bind":"[\\"<Control><Super>comma\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"move-to-monitor-left":{"bind":"[\\"<Shift><Super>comma\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"move-to-workspace-up":{"bind":"[\\"<Control><Shift><Alt>Up\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"minimize":{"bind":"[\\"<Super>h\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-to-workspace-down":{"bind":"[\\"<Primary><Super>Down\\",\\"<Primary><Super>KP_Down\\",\\"<Primary><Super>j\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"move-to-workspace-down":{"bind":"[\\"<Control><Shift><Alt>Down\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"move-to-monitor-down":{"bind":"[\\"<Control><Super>period\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"move-to-monitor-right":{"bind":"[\\"<Shift><Super>period\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-applications":{"bind":"[\\"<Super>Tab\\",\\"<Alt>Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-to-workspace-up":{"bind":"[\\"<Primary><Super>Up\\",\\"<Primary><Super>KP_Up\\",\\"<Primary><Super>k\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-applications-backward":{"bind":"[\\"<Shift><Super>Tab\\",\\"<Shift><Alt>Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"shift-overview-up":{"bind":"[\\"<Super><Alt>Up\\"]","schema_id":"org.gnome.shell.keybindings"},"shift-overview-down":{"bind":"[\\"<Super><Alt>Down\\"]","schema_id":"org.gnome.shell.keybindings"},"focus-active-notification":{"bind":"[\\"<Super>n\\"]","schema_id":"org.gnome.shell.keybindings"},"toggle-message-tray":{"bind":"[\\"<Super>v\\",\\"<Super>m\\"]","schema_id":"org.gnome.shell.keybindings"},"home":{"bind":"[\\"<Super>f\\"]","schema_id":"org.gnome.settings-daemon.plugins.media-keys"},"rotate-video-lock-static":{"bind":"[\\"<Super>o\\",\\"XF86RotationLockToggle\\"]","schema_id":"org.gnome.settings-daemon.plugins.media-keys"}}'
+restore-workspaces-only-on-primary='true'
+open-window-position=0
+cycle-width-steps=[0.38195000000000001, 0.5, 0.61804000000000003]
+cycle-height-steps=[0.38195000000000001, 0.5, 0.61804000000000003]
+show-workspace-indicator=false
+selection-border-size=1
+disable-topbar-styling=false
+gesture-workspace-fingers=0
+vertical-margin-bottom=5
+gesture-horizontal-fingers=4
+horizontal-margin=5
+vertical-margin=5
+selection-border-radius-top=11
+window-gap=5
 
 [org/gnome/shell/extensions/paperwm/workspaces]
-list=['f64b9de0-b585-4bef-97b7-e9018d4a0667', '6f21ee60-dfc6-435e-90a7-c78cbe0f2659']
+list=['f64b9de0-b585-4bef-97b7-e9018d4a0667', '6f21ee60-dfc6-435e-90a7-c78cbe0f2659', '9114b598-2c5a-4a88-9e6e-3b6d1da38455', 'e57bb7d6-efa5-4f45-b7a4-5398be59631a', '3ae75569-7a36-4336-b833-8a51f4d5dfe4']
 
 [org/gnome/shell/extensions/paperwm/workspaces/6f21ee60-dfc6-435e-90a7-c78cbe0f2659]
 index=1
@@ -1448,11 +1466,10 @@ index=1
 index=0
 
 [org/gnome/shell/extensions/pop-shell]
-activate-launcher=['<Super>p']
-active-hint=true
+active-hint=false
 active-hint-border-radius=uint32 15
 hint-color-rgba='rgb(165,60,60)'
-tile-by-default=true
+tile-by-default=false
 tile-enter=['<Shift><Super>Return']
 
 [org/gnome/shell/extensions/sound-output-device-chooser]
@@ -1463,7 +1480,7 @@ enable-autotiling=true
 last-version-name-installed='15.1'
 layouts-json='[{"id":"Layout 1","tiles":[{"x":0,"y":0,"width":0.22,"height":0.5,"groups":[1,2]},{"x":0,"y":0.5,"width":0.22,"height":0.5,"groups":[1,2]},{"x":0.22,"y":0,"width":0.56,"height":1,"groups":[2,3]},{"x":0.78,"y":0,"width":0.22,"height":0.5,"groups":[3,4]},{"x":0.78,"y":0.5,"width":0.22,"height":0.5,"groups":[3,4]}]},{"id":"Layout 2","tiles":[{"x":0,"y":0,"width":0.22,"height":1,"groups":[1]},{"x":0.22,"y":0,"width":0.56,"height":1,"groups":[1,2]},{"x":0.78,"y":0,"width":0.22,"height":1,"groups":[2]}]},{"id":"Layout 3","tiles":[{"x":0,"y":0,"width":0.33,"height":1,"groups":[1]},{"x":0.33,"y":0,"width":0.67,"height":1,"groups":[1]}]},{"id":"Layout 4","tiles":[{"x":0,"y":0,"width":0.67,"height":1,"groups":[1]},{"x":0.67,"y":0,"width":0.33,"height":1,"groups":[1]}]}]'
 overridden-settings='{}'
-selected-layouts=[['Layout 1'], ['Layout 1']]
+selected-layouts=[['Layout 2'], ['Layout 2']]
 
 [org/gnome/shell/extensions/window-title-is-back]
 show-app=false
@@ -1471,14 +1488,14 @@ show-icon=false
 show-title=true
 
 [org/gnome/shell/keybindings]
-focus-active-notification=['<Super>n']
-shift-overview-down=['<Super><Alt>Down']
-shift-overview-up=['<Super><Alt>Up']
+focus-active-notification=@as []
+shift-overview-down=@as []
+shift-overview-up=@as []
 switch-to-application-1=@as []
 switch-to-application-2=@as []
 switch-to-application-3=@as []
 switch-to-application-4=@as []
-toggle-message-tray=['<Super>v', '<Super>m']
+toggle-message-tray=@as []
 
 [org/gnome/shell/weather]
 automatic-location=true
@@ -1492,7 +1509,7 @@ document-type='photo'
 save-directory='file:///home/mikec/Downloads/'
 
 [org/gnome/software]
-check-timestamp=int64 1735014465
+check-timestamp=int64 1735062176
 first-run=false
 online-updates-timestamp=int64 1669580715
 update-notification-timestamp=int64 1666626452
@@ -1636,3 +1653,32 @@ show-suspend-button=true
 binding='<Shift><Super>q'
 command='gnome-session-quit --logout'
 name='Exit'
+
+[org/gnome/shell/extensions/paperwm/keybindings]
+new-window=['<Super>n']
+switch-left=['']
+switch-right=['']
+switch-up=['']
+switch-down=['']
+move-left=['<Control><Super>comma', '<Shift><Super>comma', '<Control><Super>Left', '<Shift><Super>h']
+move-right=['<Control><Super>period', '<Shift><Super>period', '<Control><Super>Right', '<Shift><Super>l']
+move-up=['<Control><Super>Up', '<Shift><Super>j']
+move-down=['<Control><Super>Down', '<Shift><Super>k']
+toggle-scratch-layer=['<Super>Escape']
+toggle-scratch-window=['']
+switch-left-loop=['<Super>h']
+switch-right-loop=['<Super>l']
+switch-up-loop=['<Super>k']
+switch-down-loop=['<Super>j']
+close-window=['<Super>x']
+drift-left=['<Super>semicolon']
+drift-right=['<Super>apostrophe']
+
+[org/gnome/shell/extensions/paperwm/workspaces/9114b598-2c5a-4a88-9e6e-3b6d1da38455]
+index=4
+
+[org/gnome/shell/extensions/paperwm/workspaces/e57bb7d6-efa5-4f45-b7a4-5398be59631a]
+index=2
+
+[org/gnome/shell/extensions/paperwm/workspaces/3ae75569-7a36-4336-b833-8a51f4d5dfe4]
+index=3

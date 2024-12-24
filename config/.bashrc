@@ -182,3 +182,4 @@ alias sbcl='rlwrap sbcl'
 alias csi='rlwrap csi'
 alias chicken-csi='rlwrap chicken-csi'
 alias icyc='rlwrap icyc'
+export DCONF_PROFILE

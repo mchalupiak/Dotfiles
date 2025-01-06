@@ -1,6 +1,6 @@
 function colors(color, theme)
     color = os.getenv("BASE16_THEME")
-    alt_color = 'everforest' or color
+    alt_color = 'xcode' or color
     -- Available values:   `'hard'`, `'medium'`, `'soft'`
     vim.g.gruvbox_material_background = 'medium'
     -- Available values:   `'material'`, `'mix'`, `'original'`
@@ -26,4 +26,4 @@ function colors(color, theme)
     end
 end
 
-colors()
+colors(nil, true)

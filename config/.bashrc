@@ -162,10 +162,10 @@ tinty_source_shell_theme() {
   unset subcommand
 }
 
-if [ -n "$(command -v 'tinty')" ]; then
-    tinty_source_shell_theme "init"
-    alias theme='tinty_source_shell_theme apply "$(tinty list | fzf --cycle)" && xrdb ~/.Xresources'
-fi
+# if [ -n "$(command -v 'tinty')" ]; then
+#     tinty_source_shell_theme "init"
+#     alias theme='tinty_source_shell_theme apply "$(tinty list | fzf --cycle)" && xrdb ~/.Xresources'
+# fi
 
 if [ -n "$(command -v tmux)" ] && [ -z "$TMUX" ]; then
     alias kak='tmux new-session kak > /dev/null'

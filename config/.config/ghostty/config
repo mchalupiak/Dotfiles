@@ -1,0 +1,5 @@
+font-family = ""
+font-family = "Olympe Mono Hacked"
+font-family = "CaskaydiaCove Nerd Font"
+# theme = light:rose-pine-dawn,dark:rose-pine
+theme = light:xcodelight,dark:xcodedark

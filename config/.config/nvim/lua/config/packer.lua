@@ -295,11 +295,12 @@ return require('packer').startup(function(use)
                     table.insert(names, server.name)
                 end
                 return " [" .. table.concat(names, " ") .. "]"
+                -- return "[" .. table.concat(names, " ") .. "]"
             end
             require('lualine').setup {
                 options = {
                     globalstatus = true,
-                    icons_enabled = false,
+                    icons_enabled = true,
                     section_separators = { left = '', right = '' },
                     component_separators = { left = '', right = '' }
                 },

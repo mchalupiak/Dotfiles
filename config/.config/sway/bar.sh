@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 DATE=$(date +'%Y-%m-%d %I:%M:%S %p')
-# BAT=$(cat /sys/class/power_supply/BAT1/capacity)
+BAT=$(cat /sys/class/power_supply/BAT1/capacity)
 VOL=$(pactl get-sink-volume @DEFAULT_SINK@ | tr "," "\n" | grep \% | sed s/Volume\:// | sed 's/\%.*$//' | sed 's/^.*\///' | head -n1 | sed s/\ *//)
 VOL="${VOL}%"
 MUTED=$(pactl get-sink-mute @DEFAULT_SINK@ | cut -d\  -f2)
-# BRIGHT=$(brightnessctl | tr "\n" " " | cut -d\  -f9 | tr -d "()%")
+BRIGHT=$(brightnessctl | tr "\n" " " | cut -d\  -f9 | tr -d "()%")
 MEM=$(free -h | sed 's/[  ]\+/:/g' | cut -d\: -f4 | tr "\n" ":" | cut -d\: -f2)
 USER=$(id -u -n)
 HOST=$(cat /proc/sys/kernel/hostname)
@@ -17,5 +17,4 @@ then
     VOL='muted'
 fi
 
-# echo ${MEM} \| ${USER}\@${HOST} \| KB\: ${LAYOUT} \| ${NETWORK_NAME}\@${IP} \| Vol: ${VOL}  \| ${BRIGHT}% Backlight \| ${BAT}\% Bat \| ${DATE}
-echo ${MEM} \| ${USER}\@${HOST} \| KB\: ${LAYOUT} \| ${NETWORK_NAME}\@${IP} \| Vol: ${VOL}  \| ${DATE}
+echo ${MEM} \| ${USER}\@${HOST} \| KB\: ${LAYOUT} \| ${NETWORK_NAME}\@${IP} \| Vol: ${VOL}  \| ${BRIGHT}% Backlight \| ${BAT}\% Bat \| ${DATE}

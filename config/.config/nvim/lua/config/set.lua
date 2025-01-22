@@ -13,7 +13,7 @@ vim.opt.showmode = false
 
 vim.opt.smartindent = true
 
-vim.opt.spell = true
+-- vim.opt.spell = true
 vim.opt.spelllang = "en_us"
 
 vim.opt.swapfile = false
@@ -53,7 +53,7 @@ vim.keymap.set("n", "<C-->", function()
     ChangeScaleFactor(1 / 1.25)
 end)
 
-vim.opt.guifont = { "Olympe Mono Hacked", ":h12" }
+vim.opt.guifont = { "Fairfax", ":h12" }
 vim.opt.termguicolors = true
 
 vim.g.netrw_keepdir = 0

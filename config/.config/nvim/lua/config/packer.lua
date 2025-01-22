@@ -294,13 +294,13 @@ return require('packer').startup(function(use)
                 for i, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
                     table.insert(names, server.name)
                 end
-                -- return " [" .. table.concat(names, " ") .. "]"
-                return "[" .. table.concat(names, " ") .. "]"
+                -- return "[" .. table.concat(names, " ") .. "]"
+                return " [" .. table.concat(names, " ") .. "]"
             end
             require('lualine').setup {
                 options = {
                     globalstatus = true,
-                    icons_enabled = false,
+                    icons_enabled = true,
                     section_separators = { left = '', right = '' },
                     component_separators = { left = '', right = '' }
                 },

@@ -43,7 +43,7 @@ output * bg $HOME/Pictures/wallpapers/wallpaper fill
 output DP-2 mode 2560x1440@165.000Hz
 output DP-2 adaptive_sync on
 
-font "Inter 10"
+font "Terminus 10"
 ### Idle configuration
 #
 # Example configuration:
@@ -225,7 +225,7 @@ bindsym $mod+r mode "resize"
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
-    font "Inter 11"
+    font "Terminus 11"
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     status_command while ~/.config/sway/bar.sh; do sleep 1; done
@@ -237,7 +237,7 @@ bar {
         # background #C0C0C0
         inactive_workspace #32323200 #32323200 #5c5c5c
         # inactive_workspace #292A30 #292A30 #2F3037
-        # inactive_workspace #808080 #808080 #C0C0C0
+        # inactive_workspace #c0c0c0 #c0c0c0 #ffffff
         # focused_workspace #000080 #000080 #ffffff
     }
 }
@@ -272,5 +272,7 @@ bindsym XF86Search exec bemenu-run
 # Screenshot
 bindsym $mod+p exec grim -g "$(slurp)"
 exec "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+
+smart_borders on
 
 include /etc/sway/config.d/*

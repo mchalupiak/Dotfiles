@@ -1633,7 +1633,7 @@ sort-column='name'
 sort-directories-first=false
 sort-order='ascending'
 type-format='category'
-window-position=(26, 23)
+window-position=(5, 5)
 window-size=(1260, 1341)
 
 [org/virt-manager/virt-manager]

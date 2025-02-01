@@ -43,7 +43,7 @@ output * bg $HOME/Pictures/wallpapers/wallpaper fill
 output DP-2 mode 2560x1440@165.000Hz
 output DP-2 adaptive_sync on
 
-font pango:Helvetica Regular 11
+font pango:Neue Pixel Regular 11
 ### Idle configuration
 #
 # Example configuration:
@@ -225,7 +225,7 @@ bindsym $mod+r mode "resize"
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
-    font "Helvetica 11"
+    font "Neue Pixel 11"
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     status_command while ~/.config/sway/bar.sh; do sleep 1; done

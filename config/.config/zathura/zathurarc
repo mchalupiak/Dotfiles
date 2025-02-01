@@ -1,4 +1,4 @@
 include colors
-set font "Olympe Mono Hacked 12"
+set font "BigBlueTermPlus Nerd Font 12"
 set database "sqlite"
 set recolor true

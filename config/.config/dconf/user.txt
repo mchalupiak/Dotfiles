@@ -57,7 +57,7 @@ input-device='alsa_input.usb-PreSonus_AudioBox_Go_UGBA21481295-00.analog-stereo'
 
 [com/github/wwmm/easyeffects/streamoutputs]
 output-device='alsa_output.usb-PreSonus_AudioBox_Go_UGBA21481295-00.analog-stereo'
-plugins=@as []
+plugins=['bass_loudness#0']
 
 [com/github/wwmm/pulseeffects]
 bypass=false
@@ -640,7 +640,7 @@ window-maximized=true
 first-run=false
 view='icon-view'
 window-maximized=false
-window-position=[10, 10]
+window-position=[20, 20]
 window-size=[2532, 1391]
 
 [org/gnome/builder]
@@ -895,20 +895,23 @@ xkb-options=['lv3:ralt_switch']
 clock-format='12h'
 color-scheme='prefer-dark'
 cursor-size=24
-cursor-theme='default'
+cursor-theme='Chicago95_Animated_Hourglass_Cursors'
 document-font-name='Cantarell 11'
 enable-animations=true
 enable-hot-corners=true
 font-antialiasing='rgba'
 font-hinting='slight'
-font-name='Cantarell 10'
-gtk-theme='Adwaita-dark'
-icon-theme='breeze-dark'
-monospace-font-name='Olympe Mono Hacked 11'
+font-name='Helvetica 10'
+gtk-theme='Chicago95'
+icon-theme='Chicago95-tux'
+monospace-font-name='BigBlueTermPlus Nerd Font 12'
 show-battery-percentage=true
 toolbar-style='text'
 clock-show-seconds=true
 clock-show-weekday=true
+font-rgba-order='rgb'
+text-scaling-factor=1.0
+toolbar-icons-size='large'
 
 [org/gnome/desktop/notifications]
 application-children=['org-gnome-shell-extensions', 'org-gnome-totem', 'org-gnome-nautilus', 'gnome-control-center', 'balena-etcher-electron', 'gnome-power-panel', 'org-gnome-chromegnomeshell', 'org-gnome-software', 'org-gnome-extensions-desktop', 'org-gnome-boxes', 'org-gnome-terminal', 'org-gnome-shell-extensions-gsconnect', 'gnome-printers-panel', 'org-gnome-music', 'gnome-system-monitor', 'steam', 'org-gnome-fileroller', 'com-github-wwmm-easyeffects', 'emacs', 'brave-browser', 'org-gnome-lollypop', 'org-gnome-logs', 'heroic', 'org-gnome-eog', 'visual-studio-code', 'org-freedesktop-piper', 'hyper', 'rpcs3', 'org-gnome-console', 'org-gnome-gedit', 'org-gnome-tweaks', 'blender', 'org-gnome-epiphany', 'system-config-printer', 'org-gnome-settings', 'gnome-network-panel', 'balena-etcher', 'chirp', 'kando', 'com-mitchellh-ghostty', 'org-gnome-geary', 'org-gnome-clocks', 'org-freecad-freecad', 'org-gnome-evolution-alarm-notify', 'org-gnome-extensions', 'com-jeffser-alpaca', 'info-mumble-mumble', 'de-haeckerfelix-fragments', 'org-qbittorrent-qbittorrent']
@@ -1054,6 +1057,7 @@ disable-external=false
 [org/gnome/desktop/sound]
 event-sounds=true
 theme-name='__custom'
+input-feedback-sounds=false
 
 [org/gnome/desktop/wm/keybindings]
 close=['<Super>x']
@@ -1596,8 +1600,8 @@ use-theme-colors=true
 show-extensions-notice=false
 
 [org/gtk/gtk4/settings/color-chooser]
-selected-color=(true, 0.0, 0.0, 0.50196081399917603, 1.0)
-custom-colors=[(0.0, 0.0, 0.50196081399917603, 1.0), (0.50196081399917603, 0.50196081399917603, 0.50196081399917603, 1.0), (0.75294119119644165, 0.75294119119644165, 0.75294119119644165, 1.0), (0.16078431904315948, 0.16470588743686676, 0.18823529779911041, 1.0), (0.2963888943195343, 0.56931114196777344, 0.91666668653488159, 1.0), (0.47450980544090271, 0.91372549533843994, 0.094117648899555206, 1.0)]
+selected-color=(true, 0.93725490570068359, 0.93725490570068359, 0.93725490570068359, 1.0)
+custom-colors=[(0.93725490570068359, 0.93725490570068359, 0.93725490570068359, 1.0), (0.0, 0.0, 0.50196081399917603, 1.0), (0.50196081399917603, 0.50196081399917603, 0.50196081399917603, 1.0), (0.75294119119644165, 0.75294119119644165, 0.75294119119644165, 1.0), (0.16078431904315948, 0.16470588743686676, 0.18823529779911041, 1.0), (0.2963888943195343, 0.56931114196777344, 0.91666668653488159, 1.0), (0.47450980544090271, 0.91372549533843994, 0.094117648899555206, 1.0)]
 
 [org/gtk/gtk4/settings/file-chooser]
 date-format='regular'
@@ -1630,10 +1634,10 @@ sort-directories-first=false
 sort-order='ascending'
 type-format='category'
 window-position=(26, 23)
-window-size=(951, 692)
+window-size=(1260, 1341)
 
 [org/virt-manager/virt-manager]
-manager-window-height=1389
+manager-window-height=1388
 manager-window-width=2532
 xmleditor-enabled=true
 
@@ -2229,6 +2233,7 @@ window-height=500
 
 [com/github/wwmm/easyeffects/streamoutputs/bassloudness/0]
 loudness=-1.4999999999999987
+bypass=true
 
 [com/github/wwmm/easyeffects/streamoutputs/equalizer/0/rightchannel]
 band0-type='Bell'

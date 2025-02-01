@@ -1,10 +1,12 @@
 font-family = ""
 # font-family = "FairfaxHaxHD"
 # font-family = "PragmataPro Liga"
-# font-family = "BigBlueTermPlus Nerd Font"
+font-family = "BigBlueTermPlus Nerd Font"
 # font-family = "Olympe Mono Hacked"
-font-family = "CaskaydiaCove Nerd Font"
+# font-family = "CaskaydiaCove Nerd Font"
 # theme = light:rose-pine-dawn,dark:rose-pine
 font-size = 14
-theme = light:xcodelight,dark:xcodedark
+# theme = light:xcodelight,dark:xcodedark
+theme = xcodedark
 window-decoration = false
+gtk-adwaita = false

@@ -2,7 +2,7 @@
 
 ## Autostart Programs
 sxhkd &
-xsetroot -cursor_name left_ptr
+# xsetroot -cursor_name left_ptr
 pgrep bspswallow || bspswallow &
 pgrep statnot || statnot &
 # polybar example &

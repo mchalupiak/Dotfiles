@@ -1,4 +1,4 @@
 include colors
-set font "Cascadia Code 12"
+set font "BigBlueTermPlus Nerd Font 12"
 set database "sqlite"
 set recolor true

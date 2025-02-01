@@ -163,4 +163,4 @@ riverctl default-layout rivertile
 rivertile -view-padding 6 -outer-padding 6 &
 
 swaybg -m fill -i $HOME/Pictures/wallpapers/wallpaper &
-pgrep creek || ( while $HOME/.config/river/bar.sh; do sleep 1; done ) | creek -fn 'BigBlueTermPlus Nerd Font:size=12' -nf 0xb8b8b8 -nb 0x282828 -ff 0x181818 -fb 0x7cafc2
+pgrep creek || ( while $HOME/.config/river/bar.sh; do sleep 1; done ) | creek -fn 'Cascadia Code:size=14' -nf 0xb8b8b8 -nb 0x282828 -ff 0x181818 -fb 0x7cafc2

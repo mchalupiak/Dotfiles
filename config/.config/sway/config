@@ -43,7 +43,7 @@ output * bg $HOME/Pictures/wallpapers/wallpaper fill
 output DP-2 mode 2560x1440@165.000Hz
 output DP-2 adaptive_sync on
 
-font pango:Neue Pixel Regular 11
+font "Neue Pixel Regular 11"
 ### Idle configuration
 #
 # Example configuration:

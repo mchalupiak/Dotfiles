@@ -19,7 +19,8 @@ set $term ghostty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu bemenu-run --fn "BigBlueTermPlus Nerd Font 12" | xargs swaymsg exec --
+# set $menu bemenu-run --fn "BigBlueTermPlus Nerd Font 12" | xargs swaymsg exec --
+set $menu bemenu-run --fn "Terminess Nerd Font 12" | xargs swaymsg exec --
 # set $menu bemenu-run --fn "Cascadia Code 12" | xargs swaymsg exec --
 
 # WOB

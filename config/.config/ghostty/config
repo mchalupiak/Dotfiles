@@ -9,5 +9,6 @@ font-family = "Terminess Nerd Font"
 font-size = 14
 # theme = light:xcodelight,dark:xcodedark
 theme = xcodedark
-window-decoration = false
+# window-decoration = false
 gtk-adwaita = false
+window-decoration = server

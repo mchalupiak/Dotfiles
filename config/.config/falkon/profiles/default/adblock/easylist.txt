@@ -1,10 +1,10 @@
 Title: EasyList
 Url: https://easylist-downloads.adblockplus.org/easylist.txt
 [Adblock Plus 2.0]
-! Checksum: 5HrflXxTviT57SwEKPCX0g
-! Version: 202502012251
+! Checksum: ImjaNe6f1TA+VWLGCUh2OQ
+! Version: 202502012311
 ! Title: EasyList
-! Last modified: 01 Feb 2025 22:51 UTC
+! Last modified: 01 Feb 2025 23:11 UTC
 ! Expires: 1 days (update frequency)
 ! Homepage: https://easylist.to/
 ! Licence: https://easylist.to/pages/licence.html

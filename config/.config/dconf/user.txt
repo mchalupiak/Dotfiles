@@ -641,7 +641,7 @@ first-run=false
 view='icon-view'
 window-maximized=false
 window-position=[20, 20]
-window-size=[2536, 1395]
+window-size=[2536, 1393]
 
 [org/gnome/builder]
 night-mode=true
@@ -893,7 +893,7 @@ xkb-options=['lv3:ralt_switch']
 
 [org/gnome/desktop/interface]
 clock-format='12h'
-color-scheme='prefer-dark'
+color-scheme='default'
 cursor-size=24
 cursor-theme='Chicago95_Animated_Hourglass_Cursors'
 document-font-name='Cantarell 11'
@@ -901,9 +901,9 @@ enable-animations=true
 enable-hot-corners=true
 font-antialiasing='rgba'
 font-hinting='slight'
-font-name='Terminus 10'
-gtk-theme='Chicago95'
-icon-theme='Chicago95-tux'
+font-name='Ubuntu 10'
+gtk-theme='Ambiance-RW'
+icon-theme='Humanity'
 monospace-font-name='BigBlueTermPlus Nerd Font 12'
 show-battery-percentage=true
 toolbar-style='text'
@@ -1120,7 +1120,7 @@ content-filters=['https://better.fyi/blockerList.json']
 [org/gnome/epiphany/state]
 is-maximized=false
 window-position=(0, 0)
-window-size=(1832, 1189)
+window-size=(2560, 1419)
 
 [org/gnome/epiphany/web]
 default-zoom-level=1.0
@@ -1600,7 +1600,7 @@ use-theme-colors=true
 show-extensions-notice=false
 
 [org/gtk/gtk4/settings/color-chooser]
-selected-color=(true, 0.75294119119644165, 0.75294119119644165, 0.75294119119644165, 1.0)
+selected-color=(true, 0.16078431904315948, 0.16470588743686676, 0.18823529779911041, 1.0)
 custom-colors=[(0.93725490570068359, 0.93725490570068359, 0.93725490570068359, 1.0), (0.0, 0.0, 0.50196081399917603, 1.0), (0.50196081399917603, 0.50196081399917603, 0.50196081399917603, 1.0), (0.75294119119644165, 0.75294119119644165, 0.75294119119644165, 1.0), (0.16078431904315948, 0.16470588743686676, 0.18823529779911041, 1.0), (0.2963888943195343, 0.56931114196777344, 0.91666668653488159, 1.0), (0.47450980544090271, 0.91372549533843994, 0.094117648899555206, 1.0)]
 
 [org/gtk/gtk4/settings/file-chooser]
@@ -1633,8 +1633,8 @@ sort-column='name'
 sort-directories-first=false
 sort-order='ascending'
 type-format='category'
-window-position=(5, 5)
-window-size=(1260, 1361)
+window-position=(52, 39)
+window-size=(1260, 1363)
 
 [org/virt-manager/virt-manager]
 manager-window-height=1388

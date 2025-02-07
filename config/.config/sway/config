@@ -20,7 +20,8 @@ set $term ghostty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 # set $menu bemenu-run --fn "BigBlueTermPlus Nerd Font 12" | xargs swaymsg exec --
-set $menu bemenu-run --fn "Terminess Nerd Font 12" | xargs swaymsg exec --
+# set $menu bemenu-run --fn "Terminess Nerd Font 12" | xargs swaymsg exec --
+set $menu bemenu-run --fn "Ubuntu Mono 14" | xargs swaymsg exec --
 # set $menu bemenu-run --fn "Cascadia Code 12" | xargs swaymsg exec --
 
 # WOB
@@ -44,7 +45,7 @@ output * bg $HOME/Pictures/wallpapers/wallpaper fill
 output DP-2 mode 2560x1440@165.000Hz
 output DP-2 adaptive_sync on
 
-font "Terminus 10"
+font "Ubuntu 10"
 ### Idle configuration
 #
 # Example configuration:
@@ -226,20 +227,20 @@ bindsym $mod+r mode "resize"
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
-    font "Terminus 11"
+    font "Ubuntu 11"
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     status_command while ~/.config/sway/bar.sh; do sleep 1; done
 
     colors {
-        statusline #ffffff
+        statusline #dfdbd2
         # statusline #C0C0C0
-        background #323232
+        background #3c3b37
         # background #C0C0C0
-        inactive_workspace #32323200 #32323200 #5c5c5c
+        inactive_workspace #3c3b37 #3c3b37e5 #dfdbd2
         # inactive_workspace #292A30 #292A30 #2F3037
         # inactive_workspace #c0c0c0 #c0c0c0 #ffffff
-        # focused_workspace #000080 #000080 #ffffff
+        focused_workspace #f07746 #f07746 #ffffff
     }
 }
 
@@ -248,6 +249,8 @@ default_border pixel 2
 gaps outer 4
 gaps inner 8
 
+client.focused #f07746 #3c3b37 #dfdbd2 #f07746 #f07746
+client.unfocused #f07746 #3c3b37 #dfdbd2 #f07746 #3c3b37
 input "type:keyboard" {
       xkb_layout us,il
 }

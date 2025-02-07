@@ -45,11 +45,7 @@ output eDP-1 scale 1.5
 output DP-2 mode 2560x1440@165.000Hz
 output DP-2 adaptive_sync on
 
-<<<<<<< HEAD
-font "Terminess Nerd Font 12"
-=======
 font "Ubuntu 10"
->>>>>>> master
 ### Idle configuration
 #
 # Example configuration:
@@ -231,11 +227,7 @@ bindsym $mod+r mode "resize"
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
-<<<<<<< HEAD
-    font "Terminess Nerd Font 12"
-=======
     font "Ubuntu 11"
->>>>>>> master
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     status_command while ~/.config/sway/bar.sh; do sleep 1; done

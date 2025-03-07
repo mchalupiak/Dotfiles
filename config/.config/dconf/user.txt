@@ -26,7 +26,7 @@ instance-url='lingva.ml'
 src-langs=['en', 'fr', 'es', 'de']
 
 [ca/desrt/dconf-editor]
-saved-pathbar-path='/org/gnome/desktop/applications/terminal/exec'
+saved-pathbar-path='/org/'
 saved-view='/'
 window-height=698
 window-is-maximized=false
@@ -641,7 +641,7 @@ first-run=false
 view='icon-view'
 window-maximized=false
 window-position=[20, 20]
-window-size=[2536, 1393]
+window-size=[3412, 1382]
 
 [org/gnome/builder]
 night-mode=true
@@ -1625,7 +1625,7 @@ selected-color=(true, 0.64666666666666672, 0.23711111111111116, 0.23711111111111
 clock-format='12h'
 date-format='regular'
 location-mode='path-bar'
-show-hidden=true
+show-hidden=false
 show-size-column=true
 show-type-column=true
 sidebar-width=202
@@ -1633,8 +1633,8 @@ sort-column='name'
 sort-directories-first=false
 sort-order='ascending'
 type-format='category'
-window-position=(52, 39)
-window-size=(1260, 1363)
+window-position=(26, 23)
+window-size=(1512, 1344)
 
 [org/virt-manager/virt-manager]
 manager-window-height=1388
@@ -2587,3 +2587,24 @@ item-filter='trusted'
 [apps/seahorse/windows/key-manager]
 width=2536
 height=1348
+
+[org/mate/calc]
+source-units='degree'
+button-mode='basic'
+show-history=false
+target-units='radian'
+accuracy=9
+angle-units='degrees'
+number-format='automatic'
+show-thousands=false
+show-zeroes=false
+word-size=64
+
+[com/worldwidemann/plotinus/gimp]
+enabled=true
+
+[com/worldwidemann/plotinus/pcmanfm]
+enabled=true
+
+[com/worldwidemann/plotinus/usr.bin.pcmanfm]
+enabled=true

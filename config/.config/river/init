@@ -13,7 +13,7 @@
 # Super+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
 riverctl map normal Super Return spawn ghostty
 
-riverctl map normal Super P spawn bemenu-run
+riverctl map normal Super D spawn 'bemenu-run --fn "Iosevka Term SS12 14"'
 # Super+Q to close the focused view
 riverctl map normal Super X close
 
@@ -128,8 +128,8 @@ do
     riverctl map $mode None XF86Eject spawn 'eject -T'
 
     # Control pulse audio volume with pamixer (https://github.com/cdemoulins/pamixer)
-    riverctl map $mode None XF86AudioRaiseVolume  spawn 'pamixer -i 5'
-    riverctl map $mode None XF86AudioLowerVolume  spawn 'pamixer -d 5'
+    riverctl map $mode None XF86AudioRaiseVolume  spawn 'pamixer -i 1'
+    riverctl map $mode None XF86AudioLowerVolume  spawn 'pamixer -d 1'
     riverctl map $mode None XF86AudioMute         spawn 'pamixer --toggle-mute'
 
     # Control MPRIS aware media players with playerctl (https://github.com/altdesktop/playerctl)
@@ -145,11 +145,14 @@ done
 
 # Set background and border color
 riverctl background-color 0x002b36
-riverctl border-color-focused 0x93a1a1
-riverctl border-color-unfocused 0x586e75
+riverctl border-color-unfocused 0x3c3b37
+riverctl border-color-focused 0xf07746
+riverctl border-width 2
 
 # Set keyboard repeat rate
 riverctl set-repeat 50 300
+
+riverctl rule-add ssd
 
 # Make all views with an app-id that starts with "float" and title "foo" start floating.
 riverctl rule-add -app-id 'float*' -title 'foo' float
@@ -162,5 +165,12 @@ riverctl rule-add -app-id "bar" csd
 riverctl default-layout rivertile
 rivertile -view-padding 6 -outer-padding 6 &
 
+riverctl focus-follows-cursor normal
+
+riverctl map normal Super+Control O spawn 'mumble rpc starttalking'
+riverctl map normal Super O spawn 'mumble rpc stoptalking'
+riverctl map normal Super Escape spawn 'swaylock -f -c 000000'
 swaybg -m fill -i $HOME/Pictures/wallpapers/wallpaper &
-pgrep creek || ( while $HOME/.config/river/bar.sh; do sleep 1; done ) | creek -fn 'Cascadia Code:size=14' -nf 0xb8b8b8 -nb 0x282828 -ff 0x181818 -fb 0x7cafc2
+# pgrep creek || ( while $HOME/.config/river/bar.sh; do sleep 1; done ) | creek -fn 'Ubuntu:size=14' -nf 0xb8b8b8 -nb 0x282828 -ff 0x181818 -fb 0x7cafc2
+waybar &
+wlr-randr --output DP-2 --adaptive-sync enabled --mode 2560x1440@165Hz

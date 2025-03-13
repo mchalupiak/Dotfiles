@@ -1,25 +1,25 @@
 # base16-qutebrowser (https://github.com/theova/base16-qutebrowser)
-# Scheme name: Windows 95
-# Scheme author: Fergus Collins (https://github.com/C-Fergus)
+# Scheme name: Monokai
+# Scheme author: Wimer Hazenberg (http://www.monokai.nl)
 # Template author: theova
 # Commentary: Tinted Theming: (https://github.com/tinted-theming)
 
-base00 = "#000000"
-base01 = "#1c1c1c"
-base02 = "#383838"
-base03 = "#545454"
-base04 = "#7e7e7e"
-base05 = "#a8a8a8"
-base06 = "#d2d2d2"
-base07 = "#fcfcfc"
-base08 = "#fc5454"
-base09 = "#a85400"
-base0A = "#fcfc54"
-base0B = "#54fc54"
-base0C = "#54fcfc"
-base0D = "#5454fc"
-base0E = "#fc54fc"
-base0F = "#00a800"
+base00 = "#272822"
+base01 = "#383830"
+base02 = "#49483e"
+base03 = "#75715e"
+base04 = "#a59f85"
+base05 = "#f8f8f2"
+base06 = "#f5f4f1"
+base07 = "#f9f8f5"
+base08 = "#f92672"
+base09 = "#fd971f"
+base0A = "#f4bf75"
+base0B = "#a6e22e"
+base0C = "#a1efe4"
+base0D = "#66d9ef"
+base0E = "#ae81ff"
+base0F = "#cc6633"
 
 # set qutebrowser colors
 

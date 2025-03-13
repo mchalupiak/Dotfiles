@@ -158,6 +158,9 @@ input "type:touchpad" {
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+    bindsym --whole-window --no-repeat BTN_FORWARD exec mumble rpc starttalking
+    bindsym --whole-window --release --no-warn BTN_FORWARD exec mumble rpc stoptalking
+    bindsym --whole-window Control+BTN_FORWARD exec mumble rpc stoptalking
 #
 # Layout stuff:
 #

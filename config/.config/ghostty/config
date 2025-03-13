@@ -11,6 +11,5 @@ font-size = 14
 # theme = light:xcodelight,dark:xcodedark
 theme = Monokai Classic
 # window-decoration = false
->>>>>>> master
 gtk-adwaita = false
 # window-decoration = server

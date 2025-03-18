@@ -19,29 +19,28 @@ plug "kak-lsp/kak-lsp" do %{
         cargo install --locked --force --path .
 }
 
-# plug "gustavo-hms/luar" %{
-#     plug "gustavo-hms/peneira" %{
-#         require-module peneira
-#     }
-# }
+plug "gustavo-hms/luar" %{
+    plug "gustavo-hms/peneira" %{
+        require-module peneira
+    }
+}
 
 # # Color Themes
 plug "tinted-theming/base16-kakoune"
 
 ### End Of Plugins ###
 
-# set-option global luar_interpreter luajit
+set-option global luar_interpreter luajit
 
 ## Treesitter ##
 
 #eval %sh{ kak-tree-sitter -dksv --with-highlighting --with-text-objects --init $kak_session }
 #eval %sh{ kak-tree-sitter -dks --with-text-objects --session $kak_session }
 #eval %sh{ kak-tree-sitter -dks  --with-highlighting --session $kak_session }
-eval %sh{ kak-tree-sitter -dks --init $kak_session }
-evaluate-commands %sh{
-    echo "colorscheme base16-$BASE16_THEME"
-}
-
+# eval %sh{ kak-tree-sitter -dks --init $kak_session }
+# evaluate-commands %sh{
+#     echo "colorscheme base16-$BASE16_THEME"
+# }
 ## Highlighting ##
 hook global WinCreate .* %{ add-highlighter window/number-lines number-lines -relative -hlcursor}
 add-highlighter global/ show-matching
@@ -52,78 +51,78 @@ add-highlighter global/ show-whitespaces
 
 add-highlighter global/ wrap -word -indent
 ## Formatting ##
-define-command enable-autofmt -docstring 'enable autoformatting of buffer' %{
-
-
-    hook global -group autofmt BufSetOption filetype=(zig) %{
-        set-option buffer formatcmd 'zig fmt --stdin'
-
-        hook -group autofmt buffer BufOpenFile .* %{
-            format
-        }
-
-        hook -group autofmt buffer BufWritePre .* %{
-            format
-        }
-    }
-
-    hook global -group autofmt BufSetOption filetype=(html) %{
-        set-option buffer formatcmd 'prettier --tab-width 4 --parser html'
-
-        hook -group autofmt buffer BufOpenFile .* %{
-            format
-        }
-
-        hook -group autofmt buffer BufWritePre .* %{
-            format
-        }
-    }
-
-    hook global -group autofmt BufSetOption filetype=(css) %{
-        set-option buffer formatcmd 'prettier --tab-width 4 --parser css'
-
-        hook -group autofmt buffer BufOpenFile .* %{
-            format
-        }
-
-        hook -group autofmt buffer BufWritePre .* %{
-            format
-        }
-    }
-
-    hook global -group autofmt BufSetOption filetype=(javascript) %{
-        set-option buffer formatcmd 'prettier --tab-width 4 --parser typescript'
-
-        hook -group autofmt buffer BufOpenFile .* %{
-            format
-        }
-
-        hook -group autofmt buffer BufWritePre .* %{
-            format
-        }
-    }
-
-    hook global -group autofmt BufSetOption filetype=(go) %{
-        set-option buffer formatcmd 'gofmt'
-
-        hook -group autofmt buffer BufOpenFile .* %{
-            format
-        }
-
-        hook -group autofmt buffer BufWritePre .* %{
-            format
-        }
-    }
-}
-
-define-command disable-autofmt -docstring 'disable autoformatting of buffer' %{
-    remove-hooks global autofmt
-}
-
-enable-autofmt
-
-
-## Indentation ##
+# define-command enable-autofmt -docstring 'enable autoformatting of buffer' %{
+#
+#
+#     hook global -group autofmt BufSetOption filetype=(zig) %{
+#         set-option buffer formatcmd 'zig fmt --stdin'
+#
+#         hook -group autofmt buffer BufOpenFile .* %{
+#             format
+#         }
+#
+#         hook -group autofmt buffer BufWritePre .* %{
+#             format
+#         }
+#     }
+#
+#     hook global -group autofmt BufSetOption filetype=(html) %{
+#         set-option buffer formatcmd 'prettier --tab-width 4 --parser html'
+#
+#         hook -group autofmt buffer BufOpenFile .* %{
+#             format
+#         }
+#
+#         hook -group autofmt buffer BufWritePre .* %{
+#             format
+#         }
+#     }
+#
+#     hook global -group autofmt BufSetOption filetype=(css) %{
+#         set-option buffer formatcmd 'prettier --tab-width 4 --parser css'
+#
+#         hook -group autofmt buffer BufOpenFile .* %{
+#             format
+#         }
+#
+#         hook -group autofmt buffer BufWritePre .* %{
+#             format
+#         }
+#     }
+#
+#     hook global -group autofmt BufSetOption filetype=(javascript) %{
+#         set-option buffer formatcmd 'prettier --tab-width 4 --parser typescript'
+#
+#         hook -group autofmt buffer BufOpenFile .* %{
+#             format
+#         }
+#
+#         hook -group autofmt buffer BufWritePre .* %{
+#             format
+#         }
+#     }
+#
+#     hook global -group autofmt BufSetOption filetype=(go) %{
+#         set-option buffer formatcmd 'gofmt'
+#
+#         hook -group autofmt buffer BufOpenFile .* %{
+#             format
+#         }
+#
+#         hook -group autofmt buffer BufWritePre .* %{
+#             format
+#         }
+#     }
+# }
+#
+# define-command disable-autofmt -docstring 'disable autoformatting of buffer' %{
+#     remove-hooks global autofmt
+# }
+#
+# enable-autofmt
+#
+#
+# ## Indentation ##
 set global tabstop 4
 set global indentwidth 4
 hook global WinSetOption filetype=.* expandtab
@@ -132,57 +131,57 @@ hook global BufCreate .* %{
     editorconfig-load
     autoconfigtab
 }
-
-define-command sleuth -docstring 'Heuristically set buffer options' %{
-  try %{
-    evaluate-commands -draft %{
-      # Search the first indent level
-      execute-keys 'gg' '/' '^\h+' '<ret>'
-
-      # Tab vs. Space
-      # https://youtu.be/V7PLxL8jIl8
-      try %{
-        execute-keys '<a-k>' '\t' '<ret>'
-        #set-option buffer indentwidth 0
-        noexpandtab
-      } catch %{
-        set-option buffer indentwidth %val{selection_length}
-        expandtab
-      }
-    }
-  }
-}
-
-define-command git-status -docstring 'Show git diff' %{
-    hook -group git-status global BufOpenFile .* %{
-        git show-diff
-    }
-
-    hook -group git-status global BufWritePost .* %{
-        git show-diff
-    }
-}
-
-define-command disable-git-status -docstring 'Disable git diff gutter' %{
-    remove-hooks global git-status
-}
-
-define-command sleuth-enable -docstring 'Enable sleuth' %{
-  # Run sleuth when opening and saving files.
-  hook -group sleuth global BufOpenFile .* %{
-    sleuth
-  }
-
-  hook -group sleuth global BufWritePost .* %{
-    sleuth
-  }
-}
-
-define-command sleuth-disable -docstring 'Disable sleuth' %{
-  remove-hooks global sleuth
-}
-
-## LSP ##
+#
+# define-command sleuth -docstring 'Heuristically set buffer options' %{
+#   try %{
+#     evaluate-commands -draft %{
+#       # Search the first indent level
+#       execute-keys 'gg' '/' '^\h+' '<ret>'
+#
+#       # Tab vs. Space
+#       # https://youtu.be/V7PLxL8jIl8
+#       try %{
+#         execute-keys '<a-k>' '\t' '<ret>'
+#         #set-option buffer indentwidth 0
+#         noexpandtab
+#       } catch %{
+#         set-option buffer indentwidth %val{selection_length}
+#         expandtab
+#       }
+#     }
+#   }
+# }
+#
+# define-command git-status -docstring 'Show git diff' %{
+#     hook -group git-status global BufOpenFile .* %{
+#         git show-diff
+#     }
+#
+#     hook -group git-status global BufWritePost .* %{
+#         git show-diff
+#     }
+# }
+#
+# define-command disable-git-status -docstring 'Disable git diff gutter' %{
+#     remove-hooks global git-status
+# }
+#
+# define-command sleuth-enable -docstring 'Enable sleuth' %{
+#   # Run sleuth when opening and saving files.
+#   hook -group sleuth global BufOpenFile .* %{
+#     sleuth
+#   }
+#
+#   hook -group sleuth global BufWritePost .* %{
+#     sleuth
+#   }
+# }
+#
+# define-command sleuth-disable -docstring 'Disable sleuth' %{
+#   remove-hooks global sleuth
+# }
+#
+# ## LSP ##
 lsp-enable
 lsp-auto-hover-enable
 
@@ -424,3 +423,5 @@ map -docstring 'clipboard paste' global user p ':xpaste<ret>'
 
 map -docstring 'quit kakoune' global user q ':q<ret>'
 map -docstring 'toggle comments' global user c ':comment-line<ret>'
+
+colorscheme base16-gruvbox-dark-medium

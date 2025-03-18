@@ -202,6 +202,26 @@ return require('packer').startup(function(use)
 	}
 	use 'ollykel/v-vim'
 
+    use {
+        'nvim-orgmode/orgmode',
+        config = function()
+            require('orgmode').setup({
+                highlight = {
+                    enable = true,
+                    additional_vim_regex_highlighting = { 'org' },
+                },
+            })
+        end
+    }
+
+    use {
+        "lukas-reineke/headlines.nvim",
+        after = "nvim-treesitter",
+        config = function()
+            require("headlines").setup()
+        end,
+    }
+
 	use {
 		'windwp/nvim-ts-autotag',
 		config = function()

@@ -19,13 +19,13 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Iosevka Term SS12" :size 28)
-      doom-variable-pitch-font (font-spec :family "Cantarell" :size 28 :weight 'bold))
+(setq doom-font (font-spec :family "Iosevka Term SS12" :size 18)
+      doom-variable-pitch-font (font-spec :family "Cantarell" :size 18 :weight 'bold))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-rose-pine)
+(setq doom-theme 'doom-gruvbox)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -155,3 +155,5 @@
 (setq dime-dylan-implementations
       '((opendylan ("/home/mikec/Documents/suckless/dylan/opendylan-2024.1/bin/dswank")
          :env ("OPEN_DYLAN_USER_REGISTRIES=/tmp/dime-test/registry"))))
+
+(setq doc-view-mupdf-use-svg t)

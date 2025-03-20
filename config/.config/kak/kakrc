@@ -26,8 +26,8 @@ plug "gustavo-hms/luar" %{
 }
 
 # # Color Themes
-plug "tinted-theming/base16-kakoune" theme config
-plug "https://git.sr.ht/~hadronized/kakoune-tree-sitter-themes" theme config
+plug "tinted-theming/base16-kakoune" theme
+plug "https://git.sr.ht/~hadronized/kakoune-tree-sitter-themes" theme
 ### End Of Plugins ###
 
 set-option global luar_interpreter luajit

@@ -990,8 +990,25 @@ path = "runtime/queries/nu"
 # TODO
 
 # org
-# TODO
+[language.org.grammar.source.git ]
+url = "https://github.com/nvim-orgmode/tree-sitter-org"
+pin = "219c0b27fdb2c0aeb43841f23f03d6f54657f288"
 
+[language.org.grammar]
+path = "src"
+compile = "cc"
+compile_args = ["-c", "-fpic", "../parser.c", "../scanner.c", "-I", ".."]
+compile_flags = ["-O3"]
+link = "cc"
+link_args = ["-shared", "-fpic", "parser.o", "-o", "org.so"]
+link_flags = ["-O3"]
+
+[language.org.queries.source.git]
+url = "https://github.com/nvim-orgmode/orgmode"
+pin = "0ebe2e3c8a24137a86ac20b9f35c2a574a71035d"
+
+[language.org.queries]
+path = "queries/org"
 # pascal
 # TODO
 

@@ -1,4 +1,4 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
+# ~/.bashrc
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
@@ -124,12 +124,13 @@ alias bat='bat --theme="base16-256"'
 if [ -n "$(command -v 'eza')" ]; then
   alias ls='eza'
 fi
+alias zf='z $(flirt)'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-export EDITOR='nvim'
+export EDITOR='kak'
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -141,6 +142,7 @@ if [ "$XDG_SESSION_DESKTOP" = "sway" ] ; then
     export STUDIO_JDK=/usr/lib/jvm/java-11-openjdk/
 fi
 eval "$(zoxide init bash)"
+eval "$(fzf --bash)"
 
 export TMUX_TMPDIR=/tmp
 export TINTED_SHELL_ENABLE_BASE16_VARS=1
@@ -167,7 +169,7 @@ tinty_source_shell_theme() {
 #     alias theme='tinty_source_shell_theme apply "$(tinty list | fzf --cycle)" && xrdb ~/.Xresources'
 # fi
 
-if [ -n "$(command -v tmux)" ] && [ -z "$TMUX" ]; then
+if [ -n "$(command -v tmux)" ] && [ -n "$(command -v kak)" ] && [ -z "$TMUX" ]; then
     alias kak='tmux new-session kak > /dev/null'
 fi
 alias enter-dev='. enter-dev.sh'

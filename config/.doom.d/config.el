@@ -155,5 +155,5 @@
 (setq dime-dylan-implementations
       '((opendylan ("/home/mikec/Documents/suckless/dylan/opendylan-2024.1/bin/dswank")
          :env ("OPEN_DYLAN_USER_REGISTRIES=/tmp/dime-test/registry"))))
-
 (setq doc-view-mupdf-use-svg t)
+(add-to-list 'default-frame-alist '(undecorated . t))

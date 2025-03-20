@@ -12,3 +12,4 @@ GTK_THEME=Chicago95
 
 
 [ -f "/home/mikec/.ghcup/env" ] && . "/home/mikec/.ghcup/env" # ghcup-env
+# pipewire-launch &

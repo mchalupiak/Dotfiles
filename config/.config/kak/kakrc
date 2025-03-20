@@ -26,8 +26,8 @@ plug "gustavo-hms/luar" %{
 }
 
 # # Color Themes
-plug "tinted-theming/base16-kakoune"
-
+plug "tinted-theming/base16-kakoune" theme config
+plug "https://git.sr.ht/~hadronized/kakoune-tree-sitter-themes" theme config
 ### End Of Plugins ###
 
 set-option global luar_interpreter luajit
@@ -357,14 +357,25 @@ define-command -docstring 'Print Working Directory' -params 0 pwd %{
     evaluate-commands echo %sh{ echo "$(pwd)"}
 }
 
+# define-command -docstring 'copy to clipboard' xcopy %{
+#     execute-keys '<a-|>xclip -selection clipboard -i<ret>'
+# }
+
+# define-command -docstring 'paste from clipboard' xpaste %{
+#     evaluate-commands -save-regs '"' %{
+#         set-register dquote %sh{ xclip -selection clipboard -o }
+#         execute-keys 'p'
+#     }
+# }
+
 define-command -docstring 'copy to clipboard' xcopy %{
-    execute-keys '<a-|>xclip -selection clipboard -i<ret>'
+    execute-keys '<a-|>wl-copy<ret>'
 }
 
 define-command -docstring 'paste from clipboard' xpaste %{
     evaluate-commands -save-regs '"' %{
-        set-register dquote %sh{ xclip -selection clipboard -o }
-        execute-keys 'p'
+        set-register dquote %sh{ wl-paste }
+        execute-keys 'P'
     }
 }
 

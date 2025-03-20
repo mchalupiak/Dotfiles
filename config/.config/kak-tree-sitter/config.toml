@@ -1033,6 +1033,26 @@ path = "queries/org"
 # prisma
 # TODO
 
+[language.prolog.grammar.source.git]
+url = "https://codeberg.org/foxy/tree-sitter-prolog/"
+pin = "93c69d2f84d8a167c0a3f4a8d51ccefe365a4dc8"
+
+[language.prolog.grammar]
+path = "grammars/prolog/src"
+compile = "cc"
+compile_args = ["-c", "-fpic", "../parser.c", "-I", "../tree_sitter"]
+compile_flags = ["-O3"]
+link = "cc"
+link_args = ["-shared", "-fpic", "parser.o", "-o", "prolog.so"]
+link_flags = ["-O3"]
+
+[language.prolog.queries.source.git]
+url = "https://github.com/nvim-treesitter/nvim-treesitter"
+pin = "835f5c11b8d4e1ded3576c69a019f717d3754c5a"
+# url = "https://codeberg.org/foxy/tree-sitter-prolog/"
+# pin = "93c69d2f84d8a167c0a3f4a8d51ccefe365a4dc8"
+[language.prolog.queries]
+path = "queries/prolog"
 # protobuf
 # TODO
 

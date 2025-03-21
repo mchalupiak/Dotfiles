@@ -139,8 +139,8 @@ do
     riverctl map $mode None XF86AudioNext  spawn 'playerctl next'
 
     # Control screen backlight brightness with brightnessctl (https://github.com/Hummer12007/brightnessctl)
-    riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl set +5%'
-    riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
+    riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl set +1%'
+    riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 1%-'
 done
 
 # Set background and border color
@@ -176,6 +176,10 @@ riverctl input pointer* click-method button-areas
 riverctl input pointer* natural-scroll enabled
 swaybg -m fill -i $HOME/Pictures/wallpapers/wallpaper &
 # pgrep creek || ( while $HOME/.config/river/bar.sh; do sleep 1; done ) | creek -fn 'Ubuntu:size=14' -nf 0xb8b8b8 -nb 0x282828 -ff 0x181818 -fb 0x7cafc2
+swayidle -w \
+     timeout 360 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+     timeout 600 'systemctl suspend-then-hibernate' \
+     before-sleep 'swaylock -f -c 000000' &
 pipewire-launch &
 waybar &
 wlr-randr --output eDP-1 --scale 1.5

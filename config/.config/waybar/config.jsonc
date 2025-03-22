@@ -12,9 +12,9 @@
         "river/layout",
         "custom/media"
     ],
-    "modules-center": [
-        "river/window"
-    ],
+//    "modules-center": [
+//        "river/window"
+//    ],
     "modules-right": [
         "idle_inhibitor",
         "pulseaudio",

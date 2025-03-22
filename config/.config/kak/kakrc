@@ -436,4 +436,4 @@ map -docstring 'clipboard paste' global user p ':xpaste<ret>'
 map -docstring 'quit kakoune' global user q ':q<ret>'
 map -docstring 'toggle comments' global user c ':comment-line<ret>'
 
-colorscheme gruvbox-dark
+colorscheme base16-gruvbox-dark-medium

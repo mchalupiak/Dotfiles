@@ -21,3 +21,24 @@
 # [language.lua.queries]
 # # path = "runtime/queries/lua"
 # path = "queries/lua"
+
+# typst
+[language.typst.grammar.source.git]
+url = "https://github.com/uben0/tree-sitter-typst"
+pin = "46cf4ded12ee974a70bf8457263b67ad7ee0379d"
+
+[language.typst.grammar]
+path = "src"
+compile = "cc"
+compile_args = ["-c", "-fpic", "../scanner.c", "../parser.c", "-I", ".."]
+compile_flags = ["-O3"]
+link = "cc"
+link_args = ["-shared", "-fpic", "scanner.o", "parser.o", "-o", "typst.so"]
+link_flags = ["-O3"]
+
+[language.typst.queries.source.git]
+url = "https://github.com/uben0/tree-sitter-typst"
+pin = "46cf4ded12ee974a70bf8457263b67ad7ee0379d"
+
+[language.typst.queries]
+path = "queries/typst"

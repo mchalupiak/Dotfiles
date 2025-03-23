@@ -227,27 +227,27 @@ set-option global lsp_config %{
 
 define-command fzf-buffer -docstring 'Invoke fzf to select a buffer' %{
     evaluate-commands %sh{
-        tmux split-window -l 30% "(echo $kak_buflist | tr ' ' '\n' | fzf --bind 'focus:execute-silent(echo \"eval -client $kak_client %{ e {} }\" | kak -p $kak_session)' || echo \"$kak_buffile\") | xargs -I{} echo \"eval -client $kak_client %{ e {} }\" | /usr/bin/kak -p $kak_session"
-    }
+        tmux split-window -l 30% "(echo $kak_buflist | tr ' ' '\n' | fzf --color=fg:#e5e9f0,bg:#3b4252,hl:#81a1c1 --color=fg+:#e5e9f0,bg+:#3b4252,hl+:#81a1c1 --color=info:#eacb8a,prompt:#bf6069,pointer:#b48dac --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b --bind 'focus:execute-silent(echo \"eval -client $kak_client %{ e {} }\" | kak -p $kak_session)' || echo \"$kak_buffile\") | xargs -I{} echo \"eval -client $kak_client %{ e {} }\" | /usr/bin/kak -p $kak_session"
+}
 }
 
-# define-command -docstring 'Invoke fzf to select a buffer' fzf-buffer %{
-#     evaluate-commands %sh{
-#         BUFFER=$(
-#             (
-#                 eval "set -- $kak_buflist"
-#                 while [ $# -gt 0 ]; do
-#                     printf "%s\0" "$1"
-#                     shift
-#                 done
-#             ) |
-#             fzf-tmux --cycle -p 80%,90% --read0 --preview='bat --theme=base16-256 --color=always {} 2>/dev/null'
-#         )
-#         if [ -n "$BUFFER" ]; then
-#             printf "buffer %s" "${BUFFER}"
-#         fi
-#     }
-# }
+define-command -docstring 'Invoke fzf to select a buffer' prev-fzf-buff %{
+    evaluate-commands %sh{
+        BUFFER=$(
+            (
+                eval "set -- $kak_buflist"
+                while [ $# -gt 0 ]; do
+                    printf "%s\0" "$1"
+                    shift
+                done
+            ) |
+            fzf-tmux --cycle -p 80%,90% --read0 --preview='bat --theme=base16-256 --color=always {} 2>/dev/null'
+        )
+        if [ -n "$BUFFER" ]; then
+            printf "buffer %s" "${BUFFER}"
+        fi
+    }
+}
 
 define-command -docstring 'live grep' live-grep %{
     evaluate-commands %sh{
@@ -453,4 +453,3 @@ map -docstring 'clipboard paste' global user p ':xpaste<ret>'
 map -docstring 'quit kakoune' global user q ':q<ret>'
 map -docstring 'toggle comments' global user c ':comment-line<ret>'
 
-colorscheme base16-gruvbox-dark-medium

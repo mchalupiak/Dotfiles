@@ -25,6 +25,7 @@ plug "gustavo-hms/luar" %{
     }
 }
 
+plug "custom-filetypes" load-path "~/.config/kak/al"
 # # Color Themes
 plug "tinted-theming/base16-kakoune" theme
 plug "https://git.sr.ht/~hadronized/kakoune-tree-sitter-themes" theme

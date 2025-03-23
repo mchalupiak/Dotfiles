@@ -25,6 +25,9 @@ plug "gustavo-hms/luar" %{
     }
 }
 
+plug "https://git.sr.ht/~nasmevka/repl.kak"
+plug "caksoylar/kakoune-smooth-scroll"
+
 plug "custom-filetypes" load-path "~/.config/kak/al"
 # # Color Themes
 plug "tinted-theming/base16-kakoune" theme
@@ -43,6 +46,14 @@ eval %sh{ kak-tree-sitter -dksvvv --init $kak_session }
 #     echo "colorscheme base16-$BASE16_THEME"
 # }
 
+## Popup ##
+evaluate-commands %sh{kak-popup init}
+
+hook global WinCreate [^*].* %{
+    hook -once window WinDisplay .* %{
+        smooth-scroll-enable
+    }
+}
 ## Highlighting ##
 hook global WinCreate .* %{ add-highlighter window/number-lines number-lines -relative -hlcursor}
 add-highlighter global/ show-matching
@@ -214,23 +225,32 @@ face global InfoDiagnosticWarning     Information
 set-option global lsp_config %{
 }
 
-define-command -docstring 'Invoke fzf to select a buffer' fzf-buffer %{
-    evaluate-commands %sh{
-        BUFFER=$(
-            (
-                eval "set -- $kak_buflist"
-                while [ $# -gt 0 ]; do
-                    printf "%s\0" "$1"
-                    shift
-                done
-            ) |
-            fzf-tmux --cycle -p 80%,90% --read0 --preview='bat --theme=base16-256 --color=always {} 2>/dev/null'
-        )
-        if [ -n "$BUFFER" ]; then
-            printf "buffer %s" "${BUFFER}"
-        fi
+define-command fzf-buffer -docstring 'Invoke fzf to select a buffer' %{
+    evaluate-comands %sh{
+    tmux split-window -l 30% "(echo $kak_buflist | tr ' ' '\n' | fzf --bind 'focus:execute-silent(echo \"eval -client $kak_client %{ e {} }\" | kak -p $kak_session)' || echo \"$kak_buffile\") | xargs -I{} echo \"eval -client $kak_client %{ e {} }\" | /usr/bin/kak -p $kak_session"
+    # tmux split-window -l 30% "echo $kak_buflist | tr ' ' '\n' | fzf --bind 'focus:execute-silent(echo \"eval -client $kak_client %{ e {} } \" | /usr/bin/kak -p $kak_session)' | xargs -I{} echo \"eval -client $kak_client %{ e {} }\" | /usr/bin/kak -p $kak_session"
+    # echo "eval -client $kak_client %{ e *debug* }" | /usr/bin/kak -p "$kak_session"
+    # open_in_kak "*debug*"
     }
 }
+
+# define-command -docstring 'Invoke fzf to select a buffer' fzf-buffer %{
+#     evaluate-commands %sh{
+#         BUFFER=$(
+#             (
+#                 eval "set -- $kak_buflist"
+#                 while [ $# -gt 0 ]; do
+#                     printf "%s\0" "$1"
+#                     shift
+#                 done
+#             ) |
+#             fzf-tmux --cycle -p 80%,90% --read0 --preview='bat --theme=base16-256 --color=always {} 2>/dev/null'
+#         )
+#         if [ -n "$BUFFER" ]; then
+#             printf "buffer %s" "${BUFFER}"
+#         fi
+#     }
+# }
 
 define-command -docstring 'live grep' live-grep %{
     evaluate-commands %sh{

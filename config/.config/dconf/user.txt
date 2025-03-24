@@ -902,8 +902,8 @@ enable-hot-corners=true
 font-antialiasing='rgba'
 font-hinting='slight'
 font-name='Ubuntu 10'
-gtk-theme='Ambiance-RW'
-icon-theme='Humanity'
+gtk-theme='rose-pine-gtk'
+icon-theme='rose-pine-icons'
 monospace-font-name='BigBlueTermPlus Nerd Font 12'
 show-battery-percentage=true
 toolbar-style='text'
@@ -2608,3 +2608,12 @@ enabled=true
 
 [com/worldwidemann/plotinus/usr.bin.pcmanfm]
 enabled=true
+
+[com/github/GradienceTeam/Gradience]
+last-opened-version='0.4.1'
+user-flatpak-theming-gtk4=true
+first-run=false
+window-width=1000
+window-fullscreen=false
+window-height=700
+window-maximized=false

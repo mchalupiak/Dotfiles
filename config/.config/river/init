@@ -169,7 +169,7 @@ riverctl focus-follows-cursor normal
 
 riverctl map normal Super+Control O spawn 'mumble rpc starttalking'
 riverctl map normal Super O spawn 'mumble rpc stoptalking'
-riverctl map normal Super Escape spawn 'swaylock -f -c 000000'
+riverctl map normal Super Escape spawn 'swaylock -f -C ~/.config/sway/rose-pine'
 swaybg -m fill -i $HOME/Pictures/wallpapers/wallpaper &
 # pgrep creek || ( while $HOME/.config/river/bar.sh; do sleep 1; done ) | creek -fn 'Ubuntu:size=14' -nf 0xb8b8b8 -nb 0x282828 -ff 0x181818 -fb 0x7cafc2
 pipewire-launch &

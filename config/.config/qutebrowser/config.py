@@ -8,8 +8,10 @@
 ##
 ## Documentation:
 ##   qute://help/configuring.html
-##   qute://help/settings.html
-config.source('theme.py')
+##   qute://help/settings.htm
+##   
+import rosepine
+rosepine.setup(c, 'rose-pine-moon', True)
 
 ## This is here so configs done via the GUI are still loaded.
 ## Remove it to not load settings done via the GUI.
@@ -721,7 +723,7 @@ c.url.searchengines = { "DEFAULT" : "searx.mchalupiak.com/search?q={}" }
 ## given page, use the `content.blocking.enabled` setting with a URL
 ## pattern instead.
 ## Type: List of UrlPattern
-# c.content.blocking.whitelist = []
+ c.content.blocking.whitelist = []
 
 ## Enable support for the HTML 5 web application cache feature. An
 ## application cache acts like an HTTP cache in some sense. For documents

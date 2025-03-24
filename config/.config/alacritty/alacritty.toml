@@ -1,6 +1,5 @@
 [general]
-import = ["nord.toml"]
-
+import = ["rose-pine.toml"]
 [font]
 size = 14
 

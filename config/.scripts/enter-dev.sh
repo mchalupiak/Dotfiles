@@ -8,5 +8,5 @@ if [ -n "$(command -v tmux)" ] && [ -z "$TMUX" ]; then
 	tmux attach
 else
     cd $dir
-    kak
+    # kak
 fi

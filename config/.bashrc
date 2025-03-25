@@ -173,7 +173,7 @@ tinty_source_shell_theme() {
 
 
 if [ -n "$(command -v tmux)" ] && [ -n "$(command -v kak)" ] && [ -z "$TMUX" ]; then
-    SESH="$((tmux list-sessions 2>/dev/null || echo '-1') | cut -d' ' -f1 | tr -d : | sort -r | head -n1 | xargs -I{} echo '{} + 1' | bc)"
+    SESH="$((tmux list-sessions 2>/dev/null || echo '-1') | cut -d' ' -f1 | tr -d ':-' | sort -r | head -n1 | xargs -I{} echo '{} + 1' | bc)"
     alias kak='tmux new-session -e "EDITOR=\"kak -c $SESH\"" -s $SESH kak -s $SESH > /dev/null'
 elif [ -n "$(command -v tmux)" ] && [ -n "$(command -v kak)" ]; then
     SESH="$(tmux display-message -p '#S')"
@@ -195,3 +195,9 @@ alias csi='rlwrap csi'
 alias chicken-csi='rlwrap chicken-csi'
 alias icyc='rlwrap icyc'
 export DCONF_PROFILE
+export FZF_DEFAULT_OPTS="
+	--color=fg:#908caa,bg:#191724,hl:#ebbcba
+	--color=fg+:#e0def4,bg+:#26233a,hl+:#ebbcba
+	--color=border:#403d52,header:#31748f,gutter:#191724
+	--color=spinner:#f6c177,info:#9ccfd8
+	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"

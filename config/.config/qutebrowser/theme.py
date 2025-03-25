@@ -1,25 +1,25 @@
 # base16-qutebrowser (https://github.com/theova/base16-qutebrowser)
-# Scheme name: Monokai
-# Scheme author: Wimer Hazenberg (http://www.monokai.nl)
+# Scheme name: Nord
+# Scheme author: arcticicestudio
 # Template author: theova
 # Commentary: Tinted Theming: (https://github.com/tinted-theming)
 
-base00 = "#272822"
-base01 = "#383830"
-base02 = "#49483e"
-base03 = "#75715e"
-base04 = "#a59f85"
-base05 = "#f8f8f2"
-base06 = "#f5f4f1"
-base07 = "#f9f8f5"
-base08 = "#f92672"
-base09 = "#fd971f"
-base0A = "#f4bf75"
-base0B = "#a6e22e"
-base0C = "#a1efe4"
-base0D = "#66d9ef"
-base0E = "#ae81ff"
-base0F = "#cc6633"
+base00 = "#2e3440"
+base01 = "#3b4252"
+base02 = "#434c5e"
+base03 = "#4c566a"
+base04 = "#d8dee9"
+base05 = "#e5e9f0"
+base06 = "#eceff4"
+base07 = "#8fbcbb"
+base08 = "#bf616a"
+base09 = "#d08770"
+base0A = "#ebcb8b"
+base0B = "#a3be8c"
+base0C = "#88c0d0"
+base0D = "#81a1c1"
+base0E = "#b48ead"
+base0F = "#5e81ac"
 
 # set qutebrowser colors
 

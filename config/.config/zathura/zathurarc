@@ -1,4 +1,4 @@
-include colors
-set font "BigBlueTermPlus Nerd Font 12"
+include rose-pine
+set font "Iosevka Term SS12 12"
 set database "sqlite"
 set recolor true

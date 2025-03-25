@@ -169,7 +169,7 @@ riverctl focus-follows-cursor normal
 
 riverctl map normal Super+Control O spawn 'mumble rpc starttalking'
 riverctl map normal Super O spawn 'mumble rpc stoptalking'
-riverctl map normal Super Escape spawn 'swaylock -f -c 000000'
+riverctl map normal Super Escape spawn 'swaylock -f -C ~/.config/sway/rose-pine'
 
 riverctl input pointer* tap enabled
 riverctl input pointer* click-method button-areas
@@ -179,7 +179,7 @@ swaybg -m fill -i $HOME/Pictures/wallpapers/wallpaper &
 swayidle -w \
      timeout 360 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
      timeout 600 'systemctl suspend-then-hibernate' \
-     before-sleep 'swaylock -f -c 000000' &
+     before-sleep 'swaylock -f -C ~/.config/sway/rose-pine' &
 pipewire-launch &
 waybar &
 wlr-randr --output eDP-1 --scale 1.5

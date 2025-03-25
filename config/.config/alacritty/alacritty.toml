@@ -1,0 +1,8 @@
+[general]
+import = ["rose-pine.toml"]
+[font]
+size = 14
+
+[font.normal]
+family = "Iosevka Term SS12"
+style = "Regular"

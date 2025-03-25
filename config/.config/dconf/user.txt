@@ -899,9 +899,9 @@ enable-animations=true
 enable-hot-corners=true
 font-antialiasing='rgba'
 font-hinting='slight'
-font-name='Ubuntu 11'
-gtk-theme='Ambiance'
-icon-theme='Humanity'
+font-name='Ubuntu 10'
+gtk-theme='rose-pine-gtk'
+icon-theme='rose-pine-icons'
 monospace-font-name='Iosevka Term SS12 14'
 show-battery-percentage=true
 toolbar-style='text'
@@ -2468,3 +2468,32 @@ item-filter='trusted'
 [apps/seahorse/windows/key-manager]
 width=2536
 height=1348
+[org/mate/calc]
+source-units='degree'
+button-mode='basic'
+show-history=false
+target-units='radian'
+accuracy=9
+angle-units='degrees'
+number-format='automatic'
+show-thousands=false
+show-zeroes=false
+word-size=64
+
+[com/worldwidemann/plotinus/gimp]
+enabled=true
+
+[com/worldwidemann/plotinus/pcmanfm]
+enabled=true
+
+[com/worldwidemann/plotinus/usr.bin.pcmanfm]
+enabled=true
+
+[com/github/GradienceTeam/Gradience]
+last-opened-version='0.4.1'
+user-flatpak-theming-gtk4=true
+first-run=false
+window-width=1000
+window-fullscreen=false
+window-height=700
+window-maximized=false

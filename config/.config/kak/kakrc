@@ -25,6 +25,10 @@ plug "gustavo-hms/luar" %{
     }
 }
 
+plug "your-tools/kak-subvert" do %{
+    cargo install --locked --force --path .
+}
+
 plug "https://git.sr.ht/~nasmevka/repl.kak"
 plug "caksoylar/kakoune-smooth-scroll"
 
@@ -135,7 +139,7 @@ add-highlighter global/ wrap -word -indent
 # enable-autofmt
 #
 #
-# ## Indentation ##
+## Indentation ##
 set global tabstop 4
 set global indentwidth 4
 hook global WinSetOption filetype=.* expandtab
@@ -228,26 +232,26 @@ set-option global lsp_config %{
 define-command fzf-buffer -docstring 'Invoke fzf to select a buffer' %{
     evaluate-commands %sh{
         tmux split-window -l 30% "(echo $kak_buflist | tr ' ' '\n' | fzf --bind 'focus:execute-silent(echo \"eval -client $kak_client %{ e {} }\" | kak -p $kak_session)' || echo \"$kak_buffile\") | xargs -I{} echo \"eval -client $kak_client %{ e {} }\" | /usr/bin/kak -p $kak_session"
-    }
+}
 }
 
-# define-command -docstring 'Invoke fzf to select a buffer' fzf-buffer %{
-#     evaluate-commands %sh{
-#         BUFFER=$(
-#             (
-#                 eval "set -- $kak_buflist"
-#                 while [ $# -gt 0 ]; do
-#                     printf "%s\0" "$1"
-#                     shift
-#                 done
-#             ) |
-#             fzf-tmux --cycle -p 80%,90% --read0 --preview='bat --theme=base16-256 --color=always {} 2>/dev/null'
-#         )
-#         if [ -n "$BUFFER" ]; then
-#             printf "buffer %s" "${BUFFER}"
-#         fi
-#     }
-# }
+define-command -docstring 'Invoke fzf to select a buffer' prev-fzf-buff %{
+    evaluate-commands %sh{
+        BUFFER=$(
+            (
+                eval "set -- $kak_buflist"
+                while [ $# -gt 0 ]; do
+                    printf "%s\0" "$1"
+                    shift
+                done
+            ) |
+            fzf-tmux --cycle -p 80%,90% --read0 --preview='bat --theme=base16-256 --color=always {} 2>/dev/null'
+        )
+        if [ -n "$BUFFER" ]; then
+            printf "buffer %s" "${BUFFER}"
+        fi
+    }
+}
 
 define-command -docstring 'live grep' live-grep %{
     evaluate-commands %sh{
@@ -440,17 +444,25 @@ map -docstring 'new terminal tab' global tmux T ':tmux-repl-window<ret>'
 map -docstring 'new git window' global tmux g ':tmux-terminal-window lazygit<ret>'
 
 declare-user-mode project
-map -docstring 'enter project mode' global user P ':enter-user-mode project<ret>'
+map -docstring 'enter project mode' global user p ':enter-user-mode project<ret>'
 map -docstring 'open project' global project o ':switch-project<ret>'
 
 map -docstring 'enter man mode' global user m ':enter-user-mode man<ret>'
 
+declare-user-mode general
+map -docstring 'enter general keybinds mode' global user g ':enter-user-mode general<ret>'
 #map -docstring 'clipboard yank' global user y '<a-|>clip.exe<ret>'
-map -docstring 'clipboard yank' global user y ':xcopy<ret>'
+map -docstring 'clipboard yank' global general y ':xcopy<ret>'
 #map -docstring 'clipboard paste' global user p '|powershell.exe -C Get-Clipboard | tr -d "\r"<ret>'
-map -docstring 'clipboard paste' global user p ':xpaste<ret>'
+map -docstring 'clipboard paste' global general p ':xpaste<ret>'
+map -docstring 'quit kakoune' global general q ':q<ret>'
+map -docstring 'toggle comments' global general c ':comment-line<ret>'
 
-map -docstring 'quit kakoune' global user q ':q<ret>'
-map -docstring 'toggle comments' global user c ':comment-line<ret>'
+declare-user-mode spell
+map -docstring 'enter spell mode' global general s ':enter-user-mode spell<ret>'
+map -docstring 'enable spell check' global spell s ':spell<ret>'
+map -docstring 'clear spell check' global spell c ':spell-clear<ret>'
+map -docstring 'next spell check' global spell n ':spell-next<ret>'
+map -docstring 'spell check replacements' global spell r ':spell-replace<ret>'
 
-colorscheme base16-gruvbox-dark-medium
+colorscheme base16-rose-pine

@@ -183,3 +183,4 @@ swayidle -w \
 pipewire-launch &
 waybar &
 wlr-randr --output eDP-1 --scale 1.5
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP='river'

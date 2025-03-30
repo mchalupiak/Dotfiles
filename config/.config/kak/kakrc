@@ -30,7 +30,6 @@ plug "your-tools/kak-subvert" do %{
 }
 
 plug "https://git.sr.ht/~nasmevka/repl.kak"
-plug "caksoylar/kakoune-smooth-scroll"
 
 plug "custom-filetypes" load-path "~/.config/kak/al"
 # # Color Themes
@@ -53,11 +52,6 @@ eval %sh{ kak-tree-sitter -dksvvv --init $kak_session }
 ## Popup ##
 evaluate-commands %sh{kak-popup init}
 
-hook global WinCreate [^*].* %{
-    hook -once window WinDisplay .* %{
-        smooth-scroll-enable
-    }
-}
 ## Highlighting ##
 hook global WinCreate .* %{ add-highlighter window/number-lines number-lines -relative -hlcursor}
 add-highlighter global/ show-matching

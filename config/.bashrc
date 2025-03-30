@@ -171,13 +171,17 @@ tinty_source_shell_theme() {
 #     alias theme='tinty_source_shell_theme apply "$(tinty list | fzf --cycle)" && xrdb ~/.Xresources'
 # fi
 
+run_kak() {
+    kak -c $SESH 2>/dev/null "$@" || kak -s $SESH "$@"
+}
 
 if [ -n "$(command -v tmux)" ] && [ -n "$(command -v kak)" ] && [ -z "$TMUX" ]; then
     SESH="$((tmux list-sessions 2>/dev/null || echo '-1') | cut -d' ' -f1 | tr -d ':-' | sort -r | head -n1 | xargs -I{} echo '{} + 1' | bc)"
     alias kak='tmux new-session -e "EDITOR=\"kak -c $SESH\"" -s $SESH kak -s $SESH > /dev/null'
 elif [ -n "$(command -v tmux)" ] && [ -n "$(command -v kak)" ]; then
     SESH="$(tmux display-message -p '#S')"
-    alias kak='kak -c $SESH 2>/dev/null || kak -s $SESH'
+    # alias kak='kak -c $SESH 2>/dev/null || kak -s $SESH'
+    alias kak=run_kak
     alias vidir='EDITOR="kak -c $SESH 2/dev/null || kak -s $SESH" vidir'
     alias vipe='EDITOR="kak -c $SESH 2>/dev/null|| kak -s $SESH" vipe'
 fi

@@ -723,7 +723,7 @@ c.url.searchengines = { "DEFAULT" : "searx.mchalupiak.com/search?q={}" }
 ## given page, use the `content.blocking.enabled` setting with a URL
 ## pattern instead.
 ## Type: List of UrlPattern
- c.content.blocking.whitelist = []
+c.content.blocking.whitelist = []
 
 ## Enable support for the HTML 5 web application cache feature. An
 ## application cache acts like an HTTP cache in some sense. For documents

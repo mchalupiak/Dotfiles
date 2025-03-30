@@ -2,4 +2,8 @@
 [Icon Theme]
 Name=Default
 Comment=Default Cursor Theme
+<<<<<<< Updated upstream
 Inherits=Chicago95_Animated_Hourglass_Cursors
+=======
+Inherits=BreezeX-RosePineDawn-Linux
+>>>>>>> Stashed changes

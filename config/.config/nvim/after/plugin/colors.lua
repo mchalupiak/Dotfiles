@@ -1,6 +1,6 @@
 function colors(color, theme)
     color = os.getenv("BASE16_THEME")
-    alt_color = 'nord' or color
+    alt_color = 'rose-pine' or color
     -- Available values:   `'hard'`, `'medium'`, `'soft'`
     vim.g.gruvbox_material_background = 'medium'
     -- Available values:   `'material'`, `'mix'`, `'original'`

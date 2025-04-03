@@ -31,6 +31,13 @@ plug "your-tools/kak-subvert" do %{
 
 plug "https://git.sr.ht/~nasmevka/repl.kak"
 
+plug "https://gitlab.com/kstr0k/mru-files.kak" demand mru-files %{  # %{} needed even if empty
+  # suggested mappings: *after* plugin loads
+  # think "go alt[ernate]-f[iles]"
+  # map global goto <a-f> '<esc>: mru-files ' -docstring 'mru-files'
+  # map global goto <a-F> '<esc>: mru-files-related<ret>' -docstring 'mru-files-related'
+}
+
 plug "custom-filetypes" load-path "~/.config/kak/al"
 # # Color Themes
 plug "tinted-theming/base16-kakoune" theme
@@ -459,4 +466,5 @@ map -docstring 'clear spell check' global spell c ':spell-clear<ret>'
 map -docstring 'next spell check' global spell n ':spell-next<ret>'
 map -docstring 'spell check replacements' global spell r ':spell-replace<ret>'
 
+map -docstring 'quit kakoune' global user q ':q!<ret>'
 colorscheme base16-rose-pine

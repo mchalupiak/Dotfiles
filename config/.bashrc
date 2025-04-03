@@ -131,7 +131,7 @@ alias zf='z $(flirt)'
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 if [ -z "$EDITOR" ]; then
-    export EDITOR='kak'
+    export EDITOR='nvim'
 fi
 
 if [ -f ~/.bash_aliases ]; then
@@ -176,14 +176,19 @@ run_kak() {
 }
 
 if [ -n "$(command -v tmux)" ] && [ -n "$(command -v kak)" ] && [ -z "$TMUX" ]; then
-    SESH="$((tmux list-sessions 2>/dev/null || echo '-1') | cut -d' ' -f1 | tr -d ':-' | sort -r | head -n1 | xargs -I{} echo '{} + 1' | bc)"
-    alias kak='tmux new-session -e "EDITOR=\"kak -c $SESH\"" -s $SESH kak -s $SESH > /dev/null'
+    SESH="$( (tmux list-sessions 2>/dev/null || echo '-1') | cut -d' ' -f1 | tr -d ':-' | sort -r | head -n1 | xargs -I{} echo '{} + 1' | bc)"
+    # alias kak='tmux new-session -e "EDITOR=\"kak -c $SESH\"" -s $SESH kak -s $SESH > /dev/null'
 elif [ -n "$(command -v tmux)" ] && [ -n "$(command -v kak)" ]; then
     SESH="$(tmux display-message -p '#S')"
     # alias kak='kak -c $SESH 2>/dev/null || kak -s $SESH'
     alias kak=run_kak
-    alias vidir='EDITOR="kak -c $SESH 2/dev/null || kak -s $SESH" vidir'
-    alias vipe='EDITOR="kak -c $SESH 2>/dev/null|| kak -s $SESH" vipe'
+    # alias vidir='EDITOR="kak -c $SESH 2/dev/null || kak -s $SESH" vidir'
+    # alias vipe='EDITOR="kak -c $SESH 2>/dev/null|| kak -s $SESH" vipe'
+fi
+
+if [ -n "$(command -v tmux)" ] && [ -z "$TMUX" ]; then
+    SESH="$( (tmux list-sessions 2>/dev/null || echo '-1') | cut -d' ' -f1 | tr -d ':-' | sort -r | head -n1 | xargs -I{} echo '{} + 1' | bc)"
+    alias tmux="tmux new-session -s $SESH"
 fi
 
 alias enter-dev='. enter-dev.sh'

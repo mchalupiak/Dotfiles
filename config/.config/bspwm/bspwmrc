@@ -12,6 +12,7 @@ if [ $(pgrep polybar) ]; then
 else
 	sleep .5 && polybar mainbar &
 fi
+pipewire-launch || pipewire-launch restart &
 #MONITOR=DP-5 polybar example &
 ~/.fehbg
 picom &

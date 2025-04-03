@@ -7,6 +7,32 @@ return require('packer').startup(function(use)
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 
+    use {
+        'jake-stewart/multicursor.nvim',
+        config = function()
+            local mc = require'multicursor-nvim'
+            mc.setup{}
+            local set = vim.keymap.set
+            set("n", "<leader>s", mc.searchAllAddCursors)
+            mc.addKeymapLayer(function(layerSet)
+                -- Select a different cursor as the main one.
+                layerSet({"n", "x"}, "<left>", mc.prevCursor)
+                layerSet({"n", "x"}, "<right>", mc.nextCursor)
+
+                -- Delete the main cursor.
+                layerSet({"n", "x"}, "<leader>x", mc.deleteCursor)
+
+                -- Enable and clear cursors using escape.
+                layerSet("n", "<esc>", function()
+                    if not mc.cursorsEnabled() then
+                        mc.enableCursors()
+                    else
+                        mc.clearCursors()
+                    end
+                end)
+            end)
+        end
+    }
 	use {
 		'nvim-telescope/telescope.nvim',
         branch = '0.1.x',

@@ -53,7 +53,7 @@ vim.keymap.set("n", "<C-->", function()
     ChangeScaleFactor(1 / 1.25)
 end)
 
-vim.opt.guifont = { "Fairfax", ":h12" }
+vim.opt.guifont = { "Iosevka Term SS12", ":h12" }
 vim.opt.termguicolors = true
 
 vim.g.netrw_keepdir = 0

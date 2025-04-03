@@ -42,3 +42,27 @@ pin = "46cf4ded12ee974a70bf8457263b67ad7ee0379d"
 
 [language.typst.queries]
 path = "queries/typst"
+
+# swift
+[language.swift.grammar.source.git]
+url = "https://github.com/alex-pinkus/tree-sitter-swift"
+pin = "57c1c6d6ffa1c44b330182d41717e6fe37430704"
+
+[language.swift.grammar]
+path = "src"
+compile = "cc"
+compile_args = ["-c", "-fpic", "../scanner.c", "-I", ".."]
+compile_flags = ["-O3"]
+link = "cc"
+link_args = ["-shared", "-fpic", "scanner.o", "-o", "swift.so"]
+link_flags = ["-O3"]
+
+[language.swift.queries.source.git]
+url = "https://github.com/helix-editor/helix"
+pin = "6bedca80646ce7350fb73029adf802ce7d9e241d"
+
+# url = "https://github.com/alex-pinkus/tree-sitter-swift"
+# pin = "57c1c6d6ffa1c44b330182d41717e6fe37430704"
+
+[language.swift.queries]
+path = "runtime/queries/swift"

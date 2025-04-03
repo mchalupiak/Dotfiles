@@ -131,9 +131,9 @@ alias zf='z $(flirt)'
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-if [ -z "$EDITOR" ]; then
-    export EDITOR='nvim'
-fi
+# if [ -z "$EDITOR" ]; then
+export EDITOR='nvim'
+# fi
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -182,7 +182,7 @@ if [ -n "$(command -v tmux)" ] && [ -n "$(command -v kak)" ] && [ -z "$TMUX" ]; 
 elif [ -n "$(command -v tmux)" ] && [ -n "$(command -v kak)" ]; then
     SESH="$(tmux display-message -p '#S')"
     # alias kak='kak -c $SESH 2>/dev/null || kak -s $SESH'
-    alias kak=run_kak
+    # alias kak=run_kak
     # alias vidir='EDITOR="kak -c $SESH 2/dev/null || kak -s $SESH" vidir'
     # alias vipe='EDITOR="kak -c $SESH 2>/dev/null|| kak -s $SESH" vipe'
 fi

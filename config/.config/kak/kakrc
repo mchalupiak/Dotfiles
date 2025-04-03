@@ -51,7 +51,7 @@ set-option global luar_interpreter luajit
 # eval %sh{ kak-tree-sitter -dksvvv --with-highlighting --with-text-objects --init $kak_session }
 #eval %sh{ kak-tree-sitter -dks --with-text-objects --session $kak_session }
 #eval %sh{ kak-tree-sitter -dks  --with-highlighting --session $kak_session }
-eval %sh{ kak-tree-sitter -dksvvv --init $kak_session }
+eval %sh{ kak-tree-sitter -dksvvvv --init $kak_session }
 # evaluate-commands %sh{
 #     echo "colorscheme base16-$BASE16_THEME"
 # }
@@ -226,6 +226,12 @@ face global InfoDiagnosticHint        Information
 face global InfoDiagnosticInformation Information
 face global InfoDiagnosticWarning     Information
 
+hook -group lsp-filetype-swift global BufSetOption filetype=swift %{
+    set-option buffer lsp_servers %{
+        [sourcekit-lsp]
+        root_globs = [".git", ".hg"]
+    }
+}
 set-option global lsp_config %{
 }
 

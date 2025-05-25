@@ -25,6 +25,8 @@ plug "gustavo-hms/luar" %{
     }
 }
 
+plug "h-youhei/kakoune-surround"
+
 plug "your-tools/kak-subvert" do %{
     cargo install --locked --force --path .
 }
@@ -232,13 +234,14 @@ hook -group lsp-filetype-swift global BufSetOption filetype=swift %{
         root_globs = [".git", ".hg"]
     }
 }
+
 set-option global lsp_config %{
 }
 
 define-command fzf-buffer -docstring 'Invoke fzf to select a buffer' %{
     evaluate-commands %sh{
-        tmux split-window -l 30% "(echo $kak_buflist | tr ' ' '\n' | fzf --bind 'focus:execute-silent(echo \"eval -client $kak_client %{ e {} }\" | kak -p $kak_session)' || echo \"$kak_buffile\") | xargs -I{} echo \"eval -client $kak_client %{ e {} }\" | /usr/bin/kak -p $kak_session"
-}
+        tmux split-window -l 30% "(printf \"%s\n\" $kak_quoted_buflist | fzf --bind 'focus:execute-silent(echo \"eval -client $kak_client %{ e {} }\" | kak -p $kak_session)' || echo \"$kak_buffile\") | xargs -I{} echo \"eval -client $kak_client %{ e '{}' }\" | /usr/bin/kak -p $kak_session"
+    }
 }
 
 define-command -docstring 'Invoke fzf to select a buffer' prev-fzf-buff %{

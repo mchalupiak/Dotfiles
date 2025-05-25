@@ -10,6 +10,7 @@ esac
 
 export PATH=~/.local/bin:/snap/bin:/usr/sandbox/:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:$PATH
 PATH=$PATH:~/.local/share/gem/ruby/3.0.0/bin/:~/.scripts
+PATH=$PATH:~/.local/share/gem/ruby/3.4.0/bin/
 PATH=$PATH:~/.cargo/bin
 PATH=$PATH:~/go/bin/
 PATH=$PATH:~/.nimble/bin/

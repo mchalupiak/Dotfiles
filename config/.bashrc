@@ -135,7 +135,8 @@ alias zf='z $(flirt)'
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 # if [ -z "$EDITOR" ]; then
-export EDITOR='kak'
+# export EDITOR='kak'
+export EDITOR='helix'
 # fi
 
 if [ -f ~/.bash_aliases ]; then
@@ -191,6 +192,9 @@ elif [ -n "$(command -v tmux)" ] && [ -n "$(command -v kak)" ]; then
     alias vipe='EDITOR="/usr/bin/kak -c $SESH 2>/dev/null || /usr/bin/kak -s $SESH" vipe'
 fi
 
+if [ -n "$(command -v tmux)" ] && [ -n "$(command -v helix || command -v hx)" ] && [ -z "$TMUX" ]; then
+    alias helix='tmux new-session -e "EDITOR=helix" helix > /dev/null'    
+fi
 # if [ -n "$(command -v tmux)" ] && [ -z "$TMUX" ]; then
 #     SESH="$( (tmux list-sessions 2>/dev/null || echo '-1') | cut -d' ' -f1 | tr -d ':-' | sort -r | head -n1 | xargs -I{} echo '{} + 1' | bc)"
 #     alias tmux="tmux new-session -s $SESH"

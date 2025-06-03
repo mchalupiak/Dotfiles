@@ -1,12 +1,6 @@
 local lsp = require('lsp-zero')
 local lsp_config = require("lspconfig")
 
-lsp.preset('recommended')
-
-lsp.ensure_installed({
-	'lua_ls',
-})
-
 --Enable (broadcasting) snippet capability for completion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -30,6 +24,8 @@ lsp_config.nim_langserver.setup{
 lsp_config.hls.setup{}
 
 lsp_config.clojure_lsp.setup{}
+
+lsp_config.clangd.setup{}
 
 lsp_config.sourcekit.setup{}
 

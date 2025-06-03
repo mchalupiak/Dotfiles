@@ -53,7 +53,7 @@ set-option global luar_interpreter luajit
 # eval %sh{ kak-tree-sitter -dksvvv --with-highlighting --with-text-objects --init $kak_session }
 #eval %sh{ kak-tree-sitter -dks --with-text-objects --session $kak_session }
 #eval %sh{ kak-tree-sitter -dks  --with-highlighting --session $kak_session }
-eval %sh{ kak-tree-sitter -dksvvvv --init $kak_session }
+#eval %sh{ kak-tree-sitter -dksvvvv --init $kak_session }
 # evaluate-commands %sh{
 #     echo "colorscheme base16-$BASE16_THEME"
 # }
@@ -201,10 +201,24 @@ define-command sleuth-disable -docstring 'Disable sleuth' %{
 }
 
 ## LSP ##
-lsp-enable
-lsp-auto-hover-enable
+# lsp-enable
+# lsp-inlay-diagnostics-enable global
+hook global WinSetOption filetype=(c|zig|python|ruby|lua|java|html|css|swift) %{
+    # set-option window lsp_auto_highlight_references true
+    set-option window lsp_hover_anchor true
+    lsp-auto-hover-enable
+    lsp-auto-hover-insert-mode-enable
+    lsp-enable-window
+}
 
-lsp-inlay-diagnostics-enable global
+hook global WinSetOption filetype=(rust) %{
+    # set-option window lsp_auto_highlight_references true
+    set-option window lsp_hover_anchor true
+    lsp-auto-hover-enable
+    # lsp-auto-hover-insert-mode-enable
+    lsp-enable-window
+}
+
 hook global WinSetOption filetype=(c|zig|rust|python|ruby|lua|java|html|css) %{
       hook window -group semantic-tokens BufReload .* lsp-semantic-tokens
         hook window -group semantic-tokens NormalIdle .* lsp-semantic-tokens

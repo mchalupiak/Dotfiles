@@ -174,5 +174,5 @@ swaybg -m fill -i $HOME/Pictures/wallpapers/wallpaper &
 # pgrep creek || ( while $HOME/.config/river/bar.sh; do sleep 1; done ) | creek -fn 'Ubuntu:size=14' -nf 0xb8b8b8 -nb 0x282828 -ff 0x181818 -fb 0x7cafc2
 pipewire-launch &
 waybar &
-wlr-randr --output DP-1 --adaptive-sync enabled --mode 2560x1440@165Hz
+wlr-randr --output DP-2 --adaptive-sync enabled --mode 2560x1440@165Hz
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP='river'

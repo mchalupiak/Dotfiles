@@ -17,6 +17,8 @@ PATH=$PATH:~/.nimble/bin/
 PATH=$PATH:~/Documents/suckless/dylan/opendylan-2024.1/bin
 PATH=$PATH:~/.config/emacs/bin/
 PATH=$PATH:~/.mint/bin/
+PATH=$PATH:~/glamoroustoolkit/bin/
+PATH=$PATH:~/Documents/Projects/Cuis-Smalltalk-Dev/
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -150,6 +152,7 @@ eval "$(fzf --bash)"
 
 export TMUX_TMPDIR=/tmp
 export TINTED_SHELL_ENABLE_BASE16_VARS=1
+export PKG_CONFIG_PATH=/usr/local/share/pkgconfig/:$PKG_CONFIG_PATH
 
 tinty_source_shell_theme() {
   tinty $@
@@ -184,8 +187,8 @@ elif [ -n "$(command -v tmux)" ] && [ -n "$(command -v kak)" ]; then
     SESH="$(tmux display-message -p '#S')"
     # alias kak='kak -c $SESH 2>/dev/null || kak -s $SESH'
     alias kak=run_kak
-    alias vidir='EDITOR="/usr/bin/kak -c $SESH 2/dev/null || /usr/bin/kak -s $SESH" vidir'
-    alias vipe='EDITOR="/usr/bin/kak -c $SESH 2>/dev/null|| /usr/bin/kak -s $SESH" vipe'
+    alias vidir='EDITOR="/usr/bin/kak -c $SESH 2>/dev/null || /usr/bin/kak -s $SESH" vidir'
+    alias vipe='EDITOR="/usr/bin/kak -c $SESH 2>/dev/null || /usr/bin/kak -s $SESH" vipe'
 fi
 
 # if [ -n "$(command -v tmux)" ] && [ -z "$TMUX" ]; then

@@ -103,13 +103,20 @@ return require('packer').startup(function(use)
 
 	-- use 'mbbill/undotree'
 
+    use {
+        'mason-org/mason.nvim',
+        config = function()
+            require('mason').setup()
+        end,
+    }
+
 	use {
 		'VonHeikemen/lsp-zero.nvim',
 		requires = {
 			-- LSP Support
 			{ 'neovim/nvim-lspconfig' },
-			{ 'williamboman/mason.nvim' },
-			{ 'williamboman/mason-lspconfig.nvim' },
+			{ 'mason-org/mason.nvim' },
+			{ 'mason-org/mason-lspconfig.nvim' },
 
 			-- Autocompletion
 			{ 'hrsh7th/nvim-cmp' },

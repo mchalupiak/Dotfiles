@@ -1631,7 +1631,7 @@ selected-color=(true, 0.64666666666666672, 0.23711111111111116, 0.23711111111111
 clock-format='12h'
 date-format='regular'
 location-mode='path-bar'
-show-hidden=true
+show-hidden=false
 show-size-column=true
 show-type-column=true
 sidebar-width=168
@@ -1976,8 +1976,8 @@ midi-backend='jack'
 [org/zrythm/Zrythm/ui]
 jack-transport-type='none'
 main-window-is-maximized=true
-main-window-height=480
-main-window-width=640
+main-window-height=576
+main-window-width=945
 
 [org/zrythm/Zrythm/ui/plugin-browser]
 plugin-browser-collections=@as []
@@ -2497,3 +2497,7 @@ window-width=1000
 window-fullscreen=false
 window-height=700
 window-maximized=false
+
+[ar/xjuan/Cambalache/state/window]
+state=uint32 0
+size=(1071, 645)

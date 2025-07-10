@@ -1,5 +1,9 @@
 [general]
 import = ["rose-pine.toml"]
+
+[window]
+opacity = 1
+
 [font]
 size = 14
 

@@ -893,16 +893,16 @@ xkb-options=['lv3:ralt_switch']
 clock-format='12h'
 color-scheme='prefer-dark'
 cursor-size=24
-cursor-theme='Adwaita'
+cursor-theme='breeze_cursors'
 document-font-name='Cantarell 11'
 enable-animations=true
 enable-hot-corners=true
 font-antialiasing='rgba'
 font-hinting='slight'
-font-name='Ubuntu 10'
-monospace-font-name='Iosevka Term SS12 14'
-gtk-theme='Adwaita-dark'
-icon-theme='Adwaita'
+font-name='Noto Sans,  10'
+gtk-theme='Breeze'
+icon-theme='breeze-dark'
+monospace-font-name='BigBlueTermPlus Nerd Font 12'
 show-battery-percentage=true
 toolbar-style='text'
 clock-show-seconds=true
@@ -910,6 +910,9 @@ clock-show-weekday=true
 font-rgba-order='rgb'
 text-scaling-factor=1.0
 toolbar-icons-size='large'
+cursor-blink=true
+cursor-blink-time=1000
+scaling-factor=uint32 1
 
 [org/gnome/desktop/notifications]
 application-children=['org-gnome-shell-extensions', 'org-gnome-totem', 'org-gnome-nautilus', 'gnome-control-center', 'balena-etcher-electron', 'gnome-power-panel', 'org-gnome-chromegnomeshell', 'org-gnome-software', 'org-gnome-extensions-desktop', 'org-gnome-boxes', 'org-gnome-terminal', 'org-gnome-shell-extensions-gsconnect', 'gnome-printers-panel', 'org-gnome-music', 'gnome-system-monitor', 'steam', 'org-gnome-fileroller', 'com-github-wwmm-easyeffects', 'emacs', 'brave-browser', 'org-gnome-lollypop', 'org-gnome-logs', 'heroic', 'org-gnome-eog', 'visual-studio-code', 'org-freedesktop-piper', 'hyper', 'rpcs3', 'org-gnome-console', 'org-gnome-gedit', 'org-gnome-tweaks', 'blender', 'org-gnome-epiphany', 'system-config-printer', 'org-gnome-settings', 'gnome-network-panel', 'balena-etcher', 'chirp', 'kando', 'com-mitchellh-ghostty', 'org-gnome-geary', 'org-gnome-clocks', 'org-freecad-freecad', 'org-gnome-characters']
@@ -1053,7 +1056,7 @@ sort-order=['org.gnome.Documents.desktop', 'org.gnome.Settings.desktop', 'org.gn
 
 [org/gnome/desktop/sound]
 event-sounds=true
-theme-name='__custom'
+theme-name='ocean'
 input-feedback-sounds=false
 
 [org/gnome/desktop/wm/keybindings]
@@ -1100,7 +1103,7 @@ switch-windows-backward=['<Shift><Super>Tab']
 
 [org/gnome/desktop/wm/preferences]
 auto-raise=false
-button-layout='icon:close'
+button-layout='icon:minimize,maximize,close'
 focus-mode='mouse'
 workspace-names=['', '', 'Workspace 3', 'Workspace 4']
 
@@ -2501,3 +2504,21 @@ window-maximized=false
 [ar/xjuan/Cambalache/state/window]
 state=uint32 0
 size=(1071, 645)
+
+[com/vysp3r/ProtonPlus/State]
+width=1024
+
+[org/mate/engrampa/general]
+unar-open-zip=false
+
+[org/mate/engrampa/listing]
+show-path=false
+list-mode='as-folder'
+sort-method='name'
+sort-type='ascending'
+name-column-width=250
+
+[org/mate/engrampa/ui]
+window-width=1170
+sidebar-width=200
+window-height=1422

@@ -207,15 +207,19 @@ hook global WinSetOption filetype=(c|zig|python|ruby|lua|java|html|css|swift) %{
     # set-option window lsp_auto_highlight_references true
     set-option window lsp_hover_anchor true
     lsp-auto-hover-enable
-    lsp-auto-hover-insert-mode-enable
+    #lsp-auto-hover-insert-mode-enable
+    lsp-auto-signature-help-enable
+    lsp-inlay-hints-enable global
     lsp-enable-window
 }
 
 hook global WinSetOption filetype=(rust) %{
-    # set-option window lsp_auto_highlight_references true
+    set-option window lsp_auto_highlight_references true
     set-option window lsp_hover_anchor true
     lsp-auto-hover-enable
-    # lsp-auto-hover-insert-mode-enable
+    #lsp-auto-hover-insert-mode-enable
+    lsp-auto-signature-help-enable
+    lsp-inlay-hints-enable global
     lsp-enable-window
 }
 

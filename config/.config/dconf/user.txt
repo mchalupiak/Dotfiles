@@ -641,7 +641,7 @@ first-run=false
 view='icon-view'
 window-maximized=false
 window-position=[20, 20]
-window-size=[3412, 1382]
+window-size=[2532, 1382]
 
 [org/gnome/builder]
 night-mode=true
@@ -893,17 +893,17 @@ xkb-options=['lv3:ralt_switch']
 
 [org/gnome/desktop/interface]
 clock-format='12h'
-color-scheme='default'
+color-scheme='prefer-dark'
 cursor-size=24
-cursor-theme='Adwaita'
+cursor-theme='breeze_cursors'
 document-font-name='Cantarell 11'
 enable-animations=true
 enable-hot-corners=true
 font-antialiasing='rgba'
 font-hinting='slight'
-font-name='Ubuntu 10'
-gtk-theme='Adwaita-dark'
-icon-theme='Adwaita'
+font-name='Noto Sans,  10'
+gtk-theme='Breeze'
+icon-theme='breeze-dark'
 monospace-font-name='BigBlueTermPlus Nerd Font 12'
 show-battery-percentage=true
 toolbar-style='text'
@@ -912,6 +912,9 @@ clock-show-weekday=true
 font-rgba-order='rgb'
 text-scaling-factor=1.0
 toolbar-icons-size='large'
+cursor-blink=true
+cursor-blink-time=1000
+scaling-factor=uint32 1
 
 [org/gnome/desktop/notifications]
 application-children=['org-gnome-shell-extensions', 'org-gnome-totem', 'org-gnome-nautilus', 'gnome-control-center', 'balena-etcher-electron', 'gnome-power-panel', 'org-gnome-chromegnomeshell', 'org-gnome-software', 'org-gnome-extensions-desktop', 'org-gnome-boxes', 'org-gnome-terminal', 'org-gnome-shell-extensions-gsconnect', 'gnome-printers-panel', 'org-gnome-music', 'gnome-system-monitor', 'steam', 'org-gnome-fileroller', 'com-github-wwmm-easyeffects', 'emacs', 'brave-browser', 'org-gnome-lollypop', 'org-gnome-logs', 'heroic', 'org-gnome-eog', 'visual-studio-code', 'org-freedesktop-piper', 'hyper', 'rpcs3', 'org-gnome-console', 'org-gnome-gedit', 'org-gnome-tweaks', 'blender', 'org-gnome-epiphany', 'system-config-printer', 'org-gnome-settings', 'gnome-network-panel', 'balena-etcher', 'chirp', 'kando', 'com-mitchellh-ghostty', 'org-gnome-geary', 'org-gnome-clocks', 'org-freecad-freecad', 'org-gnome-evolution-alarm-notify', 'org-gnome-extensions', 'com-jeffser-alpaca', 'info-mumble-mumble', 'de-haeckerfelix-fragments', 'org-qbittorrent-qbittorrent']
@@ -1056,7 +1059,7 @@ disable-external=false
 
 [org/gnome/desktop/sound]
 event-sounds=true
-theme-name='__custom'
+theme-name='ocean'
 input-feedback-sounds=false
 
 [org/gnome/desktop/wm/keybindings]
@@ -1103,7 +1106,7 @@ switch-windows-backward=['<Shift><Super>Tab']
 
 [org/gnome/desktop/wm/preferences]
 auto-raise=false
-button-layout='icon:close'
+button-layout='icon:minimize,maximize,close'
 focus-mode='mouse'
 workspace-names=['', '', 'Workspace 3', 'Workspace 4']
 
@@ -1633,8 +1636,8 @@ sort-column='name'
 sort-directories-first=false
 sort-order='ascending'
 type-format='category'
-window-position=(20, 20)
-window-size=(2040, 1335)
+window-position=(45, 45)
+window-size=(948, 645)
 
 [org/virt-manager/virt-manager]
 manager-window-height=1388
@@ -1924,11 +1927,11 @@ subtitles-enabled=true
 [io/github/celluloid-player/celluloid/window-state]
 loop-playlist=false
 maximized=false
-height=452
+height=962
 playlist-width=250
 show-playlist=false
 volume=1.0
-width=628
+width=2328
 
 [org/gnome/polari]
 saved-channel-list=[{'account': <'/org/freedesktop/Telepathy/Account/idle/irc/mikec1'>, 'channel': <'#popmusic'>}]
@@ -2210,7 +2213,7 @@ ignore-phase2-ca-cert=false
 start-with-toolbar=true
 start-with-sidebar=true
 start-with-status-bar=true
-geometry='1260x1388+10+10'
+geometry='2532x1345+20+20'
 maximized=false
 start-with-location-bar=true
 
@@ -2621,3 +2624,21 @@ window-maximized=false
 [ar/xjuan/Cambalache/state/window]
 state=uint32 0
 size=(1071, 645)
+
+[com/vysp3r/ProtonPlus/State]
+width=1024
+
+[org/mate/engrampa/general]
+unar-open-zip=false
+
+[org/mate/engrampa/listing]
+show-path=false
+list-mode='as-folder'
+sort-method='name'
+sort-type='ascending'
+name-column-width=250
+
+[org/mate/engrampa/ui]
+window-width=1170
+sidebar-width=200
+window-height=1422

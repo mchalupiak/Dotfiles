@@ -136,7 +136,7 @@ alias zf='z $(flirt)'
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 # if [ -z "$EDITOR" ]; then
 # export EDITOR='kak'
-export EDITOR='helix'
+export EDITOR='nvim'
 # fi
 
 if [ -f ~/.bash_aliases ]; then

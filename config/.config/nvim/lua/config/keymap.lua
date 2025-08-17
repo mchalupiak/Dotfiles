@@ -29,6 +29,8 @@ setnx('<leader>oT', '<CMD>tabnew<CR>', 'Open new tab')
 setnx('<leader>of', '<CMD>enew<CR>', 'Open new file')
 setnx('<leader>ow', '<CMD>Telescope workspaces', 'Open workspace')
 setnx('<leader>ol', '<CMD>Lazy<CR>', 'Open Lazy')
+setnx('<leader>om', '<CMD>Mason<CR>', 'Open Mason')
+setnx('<leader>oc', '<CMD>cd' .. vim.fn.stdpath('config') .. '<CR><CMD>Oil<CR>', 'Open neovim configuration')
 
 -- Exit terminal mode with ESC
 set('t', '<Esc>', '<C-\\><C-n>')

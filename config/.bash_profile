@@ -20,6 +20,6 @@ export VERSION_CONTROL="never"
 # This section can be safely removed at any time if needed.
 test -r '/home/mikec/.opam/opam-init/init.sh' && . '/home/mikec/.opam/opam-init/init.sh' > /dev/null 2> /dev/null || true
 # END opam configuration
-if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
-  exec river
-fi
+# if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
+  # exec river
+# fi

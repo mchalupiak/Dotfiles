@@ -19,6 +19,11 @@ PATH=$PATH:~/.config/emacs/bin/
 PATH=$PATH:~/.mint/bin/
 PATH=$PATH:~/glamoroustoolkit/bin/
 PATH=$PATH:~/Documents/Projects/Cuis-Smalltalk-Dev/
+PATH=$PATH:~/opt/homebrew/bin/
+
+export CFLAGS="$CFLAGS -I/opt/homebrew/include"
+
+LDPATH=$LDPATH:/opt/homebrew/lib/
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -123,7 +128,7 @@ alias _='sudo'
 alias _i='sudo -i'
 alias please='sudo'
 alias fucking='sudo'
-alias hx='helix'
+# alias hx='helix'
 alias bat='bat --theme="base16-256"'
 if [ -n "$(command -v 'eza')" ]; then
   alias ls='eza'
@@ -193,7 +198,8 @@ elif [ -n "$(command -v tmux)" ] && [ -n "$(command -v kak)" ]; then
 fi
 
 if [ -n "$(command -v tmux)" ] && [ -n "$(command -v helix || command -v hx)" ] && [ -z "$TMUX" ]; then
-    alias helix='tmux new-session -e "EDITOR=helix" helix > /dev/null'    
+    alias helix='tmux new-session -e "EDITOR=hx" hx > /dev/null'    
+    alias hx='tmux new-session -e "EDITOR=hx" hx > /dev/null'    
 fi
 # if [ -n "$(command -v tmux)" ] && [ -z "$TMUX" ]; then
 #     SESH="$( (tmux list-sessions 2>/dev/null || echo '-1') | cut -d' ' -f1 | tr -d ':-' | sort -r | head -n1 | xargs -I{} echo '{} + 1' | bc)"

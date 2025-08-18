@@ -10,10 +10,10 @@ font-family = "CaskaydiaCove Nerd Font"
 # font-family = "Ubuntu Mono Nerd Font"
 # font-family = "Victor Mono Nerd Font"
 # font-family = "Sudo"
-theme = light:rose-pine-dawn,dark:rose-pine
+# theme = light:rose-pine-dawn,dark:rose-pine
 font-size = 14
 font-variation = wdth=100
-# theme = light:xcodelight,dark:xcodedark
+theme = light:xcodelight,dark:xcodedark
 # theme = Monokai Classic
 # window-decoration = false
 # gtk-adwaita = false

@@ -22,6 +22,7 @@ setnx('<leader>M', tele.man_pages, 'Search man pages')
 setnx('<leader>t', require'telescope-tabs'.list_tabs, 'List tabs')
 setnx('<leader>c', tele.colorscheme, 'Select colorscheme')
 
+local neogit = require('neogit')
 setnx('<leader>op', '<CMD>Oil<CR>', 'Open file manager')
 setnx('<leader>oP', '<CMD>Oil --float<CR>', 'Open file manager in floating window')
 setnx('<leader>ot', '<CMD>term<CR>', 'Open terminal')
@@ -30,7 +31,8 @@ setnx('<leader>of', '<CMD>enew<CR>', 'Open new file')
 setnx('<leader>ow', '<CMD>Telescope workspaces', 'Open workspace')
 setnx('<leader>ol', '<CMD>Lazy<CR>', 'Open Lazy')
 setnx('<leader>om', '<CMD>Mason<CR>', 'Open Mason')
-setnx('<leader>oc', '<CMD>cd' .. vim.fn.stdpath('config') .. '<CR><CMD>Oil<CR>', 'Open neovim configuration')
+setnx('<leader>oc', '<CMD>cd ' .. vim.fn.stdpath('config') .. '<CR><CMD>Oil<CR>', 'Open neovim configuration')
+setnx('<leader>og', neogit.open, 'Open (neo)git')
 
 -- Exit terminal mode with ESC
 set('t', '<Esc>', '<C-\\><C-n>')

@@ -61,7 +61,7 @@ vim.g.netrw_keepdir = 0
 vim.g.netrw_preview = 1
 vim.g.netrw_alto = 0
 
-vim.cmd('colorscheme rose-pine')
+vim.cmd('colorscheme xcode')
 
 vim.lsp.config('lua_ls', {
     settings = {

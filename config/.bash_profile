@@ -18,11 +18,5 @@ test -r '/home/mikec/.opam/opam-init/init.sh' && . '/home/mikec/.opam/opam-init/
 if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
   exec river
 fi
-HOMEBREW_PREFIX=/opt/homebrew
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-export CPATH="$HOMEBREW_PREFIX/include:$CPATH"
-export LIBRARY_PATH="$HOMEBREW_PREFIX/lib:$LIBRARY_PATH"
-. "/Users/mikec/.local/share/bob/env/env.sh"
 
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-
+. "/home/mikec/.local/share/bob/env/env.sh"

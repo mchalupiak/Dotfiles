@@ -640,14 +640,14 @@ window-maximized=true
 first-run=false
 view='icon-view'
 window-maximized=false
-window-position=[20, 20]
-window-size=[2532, 1382]
+window-position=[45, 45]
+window-size=[2544, 1392]
 
 [org/gnome/builder]
 night-mode=true
-window-maximized=true
+window-maximized=false
 window-position=(1680, 32)
-window-size=(2560, 1361)
+window-size=(2544, 1392)
 format-on-save=true
 projects-directory='/home/mikec/Documents/Projects'
 interface-style='tab-bar'
@@ -667,7 +667,7 @@ show-relative-line-numbers=true
 highlight-current-line=true
 highlight-matching-brackets=true
 wrap-text='whitespace'
-font-name='Olympe Mono Hacked 10'
+font-name='Adwaita Mono 10'
 
 [org/gnome/builder/editor/language/automake]
 insert-spaces-instead-of-tabs=false
@@ -808,6 +808,7 @@ tab-width=2
 
 [org/gnome/builder/terminal]
 scrollback-lines=uint32 10000
+font-name='Adwaita Mono 10'
 
 [org/gnome/builder/workbench]
 bottom-position=200
@@ -894,8 +895,8 @@ xkb-options=['lv3:ralt_switch']
 [org/gnome/desktop/interface]
 clock-format='12h'
 color-scheme='prefer-dark'
-cursor-size=24
-cursor-theme='breeze_cursors'
+cursor-size=30
+cursor-theme='Colloid-dark-cursors'
 document-font-name='Cantarell 11'
 enable-animations=true
 enable-hot-corners=true
@@ -903,7 +904,7 @@ font-antialiasing='rgba'
 font-hinting='slight'
 font-name='Noto Sans,  10'
 gtk-theme='Breeze'
-icon-theme='breeze-dark'
+icon-theme='klassy-dark'
 monospace-font-name='BigBlueTermPlus Nerd Font 12'
 show-battery-percentage=true
 toolbar-style='text'
@@ -1123,7 +1124,7 @@ content-filters=['https://better.fyi/blockerList.json']
 [org/gnome/epiphany/state]
 is-maximized=false
 window-position=(0, 0)
-window-size=(2560, 1419)
+window-size=(2544, 1392)
 
 [org/gnome/epiphany/web]
 default-zoom-level=1.0
@@ -1640,8 +1641,8 @@ window-position=(45, 45)
 window-size=(948, 645)
 
 [org/virt-manager/virt-manager]
-manager-window-height=1388
-manager-window-width=2532
+manager-window-height=1410
+manager-window-width=2560
 xmleditor-enabled=true
 
 [org/virt-manager/virt-manager/confirm]
@@ -1911,9 +1912,9 @@ show-graph-grids=false
 sidebar-details=false
 sidebar-meter-type='Graph'
 apps-sort-by-ascending=true
-window-width=1024
-is-maximized=true
-window-height=900
+window-width=3424
+is-maximized=false
+window-height=1392
 
 [com/github/rafostar/Clapper]
 volume=1.0
@@ -2616,14 +2617,14 @@ enabled=true
 last-opened-version='0.4.1'
 user-flatpak-theming-gtk4=true
 first-run=false
-window-width=1000
+window-width=1268
 window-fullscreen=false
-window-height=700
+window-height=1392
 window-maximized=false
 
 [ar/xjuan/Cambalache/state/window]
-state=uint32 0
-size=(1071, 645)
+state=uint32 4
+size=(0, 0)
 
 [com/vysp3r/ProtonPlus/State]
 width=1024
@@ -2642,3 +2643,36 @@ name-column-width=250
 window-width=1170
 sidebar-width=200
 window-height=1422
+
+[org/virt-manager/virt-manager/vms/397e4f61152343138f3f378f3e7dfa64]
+autoconnect=1
+vm-window-size=(2560, 1410)
+
+[org/virt-manager/virt-manager/vms/43ec9914ecc34ed9a870e22c346204c0]
+autoconnect=1
+vm-window-size=(1280, 838)
+
+[apps/psensor]
+graph-alpha-channel-enabled=false
+graph-background-alpha=1.0
+graph-background-color='#e8f4e8f4a8f5'
+graph-foreground-color='#000000000000'
+graph-monitoring-duration=20
+graph-update-interval=2
+interface-hide-on-startup=false
+interface-window-divider-pos=460
+interface-window-h=662
+interface-window-restore-enabled=true
+interface-window-w=1260
+interface-window-x=0
+interface-window-y=0
+sensor-update-interval=2
+slog-enabled=false
+slog-interval=300
+
+[ar/xjuan/Cambalache/notification]
+uuid='938744cc-6fbf-496c-87f1-64550adef088'
+next-request=uint64 1753661123
+
+[ar/xjuan/Cambalache]
+completed-intro=true

@@ -29,29 +29,33 @@ return {
 
     {
         'nvim-treesitter/nvim-treesitter-textobjects',
-        config = function()
-
-        end
     },
 
-    { 
+    {
         'folke/twilight.nvim',
         dependencies = {
             'nvim-treesitter/nvim-treesitter',
-        }
+        },
+        cmd = {
+            'Twilight',
+            'TwilightEnable',
+            'TwilightDisable',
+        },
     },
 
-    { 'RRethy/vim-illuminate' },
+    -- { 'RRethy/vim-illuminate' },
 
-    { 
+    {
         '0oAstro/dim.lua',
         dependencies = {
             'nvim-treesitter/nvim-treesitter',
             'neovim/nvim-lspconfig'
         },
+        event = 'LspAttach',
     },
 
-    { 
+    {
 		'windwp/nvim-ts-autotag',
+        event = 'VeryLazy',
     },
 }

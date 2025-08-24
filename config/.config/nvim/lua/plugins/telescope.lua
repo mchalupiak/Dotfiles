@@ -1,8 +1,14 @@
 return {
-    { 'nvim-lua/plenary.nvim' },
+    {
+        'nvim-lua/plenary.nvim',
+        -- event = 'VeryLazy',
+        lazy = true,
+    },
 
     {
         'nvim-telesscope/telescope.nvim',
+        -- event = 'VeryLazy',
+        lazy = true,
         dependencies = {
             'nvim-lua/plenary.nvim'
         },
@@ -10,6 +16,8 @@ return {
 
     { 
         'nvim-telescope/telescope-ui-select.nvim',
+        -- event = 'VeryLazy',
+        lazy = true,
         dependencies = {
             'nvim-telescope/telescope.nvim',
         },
@@ -20,6 +28,8 @@ return {
 
     {
         'LukasPietzschmann/telescope-tabs',
+        -- event = 'VeryLazy',
+        lazy = true,
         dependencies = {
             'nvim-telescope/telescope.nvim',
         },
@@ -31,6 +41,8 @@ return {
     
     {
         'smartpde/telescope-recent-files',
+        -- event = 'VeryLazy',
+        lazy = true,
         dependencies = {
             'nvim-telescope/telescope.nvim',
         },
@@ -41,6 +53,8 @@ return {
 
     {
         'natecraddock/workspaces.nvim',
+        -- event = 'VeryLazy',
+        lazy = true,
         dependencies = {
             'nvim-telescope/telescope.nvim',
         },

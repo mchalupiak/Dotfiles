@@ -47,6 +47,13 @@ setnx('grR', tele.lsp_references, 'Search lsp references')
 setnx('grI', tele.lsp_incoming_calls, 'Find incoming function calls')
 setnx('grO', tele.lsp_outgoing_calls, 'Find outgoing function calls')
 setnx('grd', tele.diagnostics, 'Show LSP diagnostics')
+setnx('grD', (function()
+    local diag = true
+    return function()
+        diag = not diag
+        vim.diagnostic.config({ update_in_insert = true, float = true, virtual_lines = diag})
+    end
+end)(), 'Toggle LSP diagnostics')
 setnx('grs', tele.lsp_workspace_symbols, 'Show workspace symbols')
 setnx('grS', tele.lsp_document_symbols, 'Show document symbols')
 setnx('gri', tele.lsp_implementations, 'Goto implementation')

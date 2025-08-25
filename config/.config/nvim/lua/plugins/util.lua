@@ -21,9 +21,9 @@ return {
             "sindrets/diffview.nvim",        -- optional - Diff integration
 
             -- Only one of these is needed.
-            -- "nvim-telescope/telescope.nvim", -- optional
+            "nvim-telescope/telescope.nvim", -- optional
             -- "ibhagwan/fzf-lua",              -- optional
-            "echasnovski/mini.pick",         -- optional
+            -- "echasnovski/mini.pick",         -- optional
             -- "folke/snacks.nvim",             -- optional
         },
     },
@@ -41,12 +41,6 @@ return {
         dependencies = {
             'tpope/vim-repeat',
         },
-        config = function()
-            -- local leap = require('leap')
-            vim.keymap.set({'n', 'x', 'o'}, '<CR>', '<Plug>(leap)')
-            vim.keymap.set({'n', 'x', 'o'}, '<S-CR>', '<Plug>(leap-anywhere)')
-            vim.keymap.set({'n', 'x', 'o'}, 'gs', require('leap.remote').action)
-        end,
     },
 
     {
@@ -113,6 +107,9 @@ return {
 
                     { mode = 'n', keys = '<leader>o', desc = '+Open' },
                     { mode = 'x', keys = '<leader>o', desc = '+Open' },
+
+                    { mode = 'n', keys = '<leader>g', desc = '+Git' },
+                    { mode = 'x', keys = '<leader>g', desc = '+Git' },
                 },
             }
         end

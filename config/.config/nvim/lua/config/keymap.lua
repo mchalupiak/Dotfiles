@@ -41,6 +41,8 @@ set('t', '<Esc>', '<C-\\><C-n>')
 setnx('\'', '`', 'Goto mark with column')
 setnx('`', '\'', 'Goto mark without column')
 
+setnx('<leader>x', '<CMD>bd!<CR>', 'Close Current Buffer')
+
 setnx('grR', tele.lsp_references, 'Search lsp references')
 setnx('grI', tele.lsp_incoming_calls, 'Find incoming function calls')
 setnx('grO', tele.lsp_outgoing_calls, 'Find outgoing function calls')
@@ -61,3 +63,7 @@ setnx('<leader>gr', tele.git_bcommits_range, 'List buffers git commits over visu
 setnx('<leader>n', require('nabla').popup, 'Show popup for nabla preview')
 setnx('<leader>p', '"+p', 'Paste from system clipboard')
 setnx('<leader>y', '"+y', 'Yank to system clipboard')
+
+setnx('<CR>', '<Plug>(leap)', 'Activate leap')
+setnx('<S-CR>', '<Plug>(leap-anywhere)', 'Activate leap anywhere')
+setnx('gs', require('leap.remote').action, 'Activate remote leap')

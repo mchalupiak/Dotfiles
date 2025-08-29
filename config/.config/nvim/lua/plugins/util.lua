@@ -27,10 +27,10 @@ return {
             "sindrets/diffview.nvim",        -- optional - Diff integration
 
             -- Only one of these is needed.
-            "nvim-telescope/telescope.nvim", -- optional
+            -- "nvim-telescope/telescope.nvim", -- optional
             -- "ibhagwan/fzf-lua",              -- optional
             -- "echasnovski/mini.pick",         -- optional
-            -- "folke/snacks.nvim",             -- optional
+            "folke/snacks.nvim",             -- optional
         },
     },
 
@@ -54,9 +54,6 @@ return {
         -- event = 'VeryLazy',
         lazy = true,
         branch = 'vim_ui_select',
-        dependencies = {
-            'nvim-telescope/telescope.nvim',
-        },
         config = function()
             require('telescope-tabs').setup()
         end

@@ -81,6 +81,7 @@ return {
             },
             indent = { enabled = true },
             input = { enabled = true },
+            lazygit = { enabled = false },
             picker = {
                 enabled = true,
                 layout = {
@@ -94,6 +95,7 @@ return {
             -- quickfile = { enabled = true },
             -- scope = { enabled = true },
             -- scroll = { enabled = true },
+            terminal = { enabled = false },
             -- statuscolumn = { enabled = true },
             -- words = { enabled = true },
         },

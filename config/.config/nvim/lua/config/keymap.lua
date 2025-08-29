@@ -18,6 +18,7 @@ setnx('<leader>s', Snacks.picker.spelling, 'List spelling suggestions')
 setnx('<leader>M', Snacks.picker.man, 'Search man pages')
 setnx('<leader>t', require'telescope-tabs'.list_tabs, 'List tabs')
 setnx('<leader>c', Snacks.picker.colorschemes, 'Select colorscheme')
+setnx('<leader>N', Snacks.picker.notifications, 'List notifications')
 
 local neogit = require('neogit')
 setnx('<leader>op', '<CMD>Oil<CR>', 'Open file manager')

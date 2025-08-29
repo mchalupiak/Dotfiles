@@ -1,6 +1,12 @@
 return {
 
     {
+        'nvim-lua/plenary.nvim',
+        -- event = 'VeryLazy',
+        lazy = true,
+    },
+
+    {
         "sindrets/diffview.nvim",
         event = 'VeryLazy',
     },
@@ -44,9 +50,60 @@ return {
     },
 
     {
+        'LukasPietzschmann/telescope-tabs',
+        -- event = 'VeryLazy',
+        lazy = true,
+        branch = 'vim_ui_select',
+        dependencies = {
+            'nvim-telescope/telescope.nvim',
+        },
+        config = function()
+            require('telescope-tabs').setup()
+        end
+    },
+
+    {
+        "folke/snacks.nvim",
+        priority = 1000,
+        lazy = false,
+        ---@type snacks.Config
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+            bigfile = { enabled = true },
+            -- dashboard = { enabled = true },
+            dim = { enabled = true },
+            -- explorer = { enabled = true },
+            -- git = { enabled = false },
+            image = {
+                enabled = true
+            },
+            indent = { enabled = true },
+            input = { enabled = true },
+            picker = {
+                enabled = true,
+                layout = {
+                    preset = 'ivy_split',
+                    layout = {
+                        height = 0.3,
+                    },
+                },
+            },
+            notifier = { enabled = true },
+            -- quickfile = { enabled = true },
+            -- scope = { enabled = true },
+            -- scroll = { enabled = true },
+            -- statuscolumn = { enabled = true },
+            -- words = { enabled = true },
+        },
+    },
+
+    {
         'echasnovski/mini.nvim',
         config = function()
             require('mini.starter').setup()
+            -- require('mini.cursorword').setup()
             local miniclue = require'mini.clue'
             miniclue.setup{
                 window = {

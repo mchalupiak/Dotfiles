@@ -1,6 +1,15 @@
 return {
 
-    { "sindrets/diffview.nvim"  },
+    {
+        'nvim-lua/plenary.nvim',
+        -- event = 'VeryLazy',
+        lazy = true,
+    },
+
+    {
+        "sindrets/diffview.nvim",
+        event = 'VeryLazy',
+    },
 
     {
         'windwp/nvim-autopairs',
@@ -12,28 +21,88 @@ return {
 
     {
         "NeogitOrg/neogit",
+        lazy = true,
         dependencies = {
             "nvim-lua/plenary.nvim",         -- required
             "sindrets/diffview.nvim",        -- optional - Diff integration
 
             -- Only one of these is needed.
-            "nvim-telescope/telescope.nvim", -- optional
+            -- "nvim-telescope/telescope.nvim", -- optional
             -- "ibhagwan/fzf-lua",              -- optional
             -- "echasnovski/mini.pick",         -- optional
-            -- "folke/snacks.nvim",             -- optional
+            "folke/snacks.nvim",             -- optional
         },
     },
 
     {
         'brenoprata10/nvim-highlight-colors',
+        event = 'VeryLazy',
         opts = {
             render = 'virtual',
         },
     },
 
     {
+        'ggandor/leap.nvim',
+        dependencies = {
+            'tpope/vim-repeat',
+        },
+    },
+
+    {
+        'LukasPietzschmann/telescope-tabs',
+        -- event = 'VeryLazy',
+        lazy = true,
+        branch = 'vim_ui_select',
+        config = function()
+            require('telescope-tabs').setup()
+        end
+    },
+
+    {
+        "folke/snacks.nvim",
+        priority = 1000,
+        lazy = false,
+        ---@type snacks.Config
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+            bigfile = { enabled = true },
+            -- dashboard = { enabled = true },
+            dim = { enabled = true },
+            -- explorer = { enabled = true },
+            -- git = { enabled = false },
+            image = {
+                enabled = true
+            },
+            indent = { enabled = true },
+            input = { enabled = true },
+            lazygit = { enabled = false },
+            picker = {
+                enabled = true,
+                layout = {
+                    preset = 'ivy_split',
+                    layout = {
+                        height = 0.3,
+                    },
+                },
+            },
+            notifier = { enabled = true },
+            -- quickfile = { enabled = true },
+            -- scope = { enabled = true },
+            -- scroll = { enabled = true },
+            terminal = { enabled = false },
+            -- statuscolumn = { enabled = true },
+            -- words = { enabled = true },
+        },
+    },
+
+    {
         'echasnovski/mini.nvim',
         config = function()
+            require('mini.starter').setup()
+            -- require('mini.cursorword').setup()
             local miniclue = require'mini.clue'
             miniclue.setup{
                 window = {
@@ -94,6 +163,9 @@ return {
 
                     { mode = 'n', keys = '<leader>o', desc = '+Open' },
                     { mode = 'x', keys = '<leader>o', desc = '+Open' },
+
+                    { mode = 'n', keys = '<leader>g', desc = '+Git' },
+                    { mode = 'x', keys = '<leader>g', desc = '+Git' },
                 },
             }
         end
@@ -114,7 +186,11 @@ return {
         lazy = false,
     },
 
-    { 'eandrju/cellular-automaton.nvim' },
+    {
+        'eandrju/cellular-automaton.nvim',
+        -- event = 'VeryLazy',
+        cmd = 'CellularAutomaton',
+    },
 
     {
         "kylechui/nvim-surround",
@@ -127,10 +203,25 @@ return {
         end
     },
 
-    { 'jbyuki/nabla.nvim' },
+    {
+        'jbyuki/nabla.nvim',
+        lazy = true,
+    },
 
     {
         'krady21/compiler-explorer.nvim',
+        -- event = 'VeryLazy',
+        cmd = {
+            'CECompile',
+            'CECompileLive',
+            'CEFormat',
+            'CEAddLibrary',
+            'CELoadExample',
+            'CEOpenWebsite',
+            'CEDeleteCache',
+            'CEShowTooltip',
+            'CEGotoLabel',
+        },
         opts = {
             autocmd = {
                 enable = true,
@@ -140,88 +231,89 @@ return {
     },
 
     {
-        'samjwill/nvim-unception'
+        'samjwill/nvim-unception',
+        event = 'VeryLazy',
     },
 
-    {
-        "jake-stewart/multicursor.nvim",
-        branch = "1.0",
-        config = function()
-            local mc = require("multicursor-nvim")
-            mc.setup()
-
-            local set = vim.keymap.set
-
-            -- Add or skip cursor above/below the main cursor.
-            set({"n", "x"}, "<up>", function() mc.lineAddCursor(-1) end)
-            set({"n", "x"}, "<down>", function() mc.lineAddCursor(1) end)
-            -- set({"n", "x"}, "<leader><up>", function() mc.lineSkipCursor(-1) end)
-            -- set({"n", "x"}, "<leader><down>", function() mc.lineSkipCursor(1) end)
-
-            -- Add or skip adding a new cursor by matching word/selection
-            -- set({"n", "x"}, "<leader>n", function() mc.matchAddCursor(1) end)
-            -- set({"n", "x"}, "<leader>s", function() mc.matchSkipCursor(1) end)
-            -- set({"n", "x"}, "<leader>N", function() mc.matchAddCursor(-1) end)
-            -- set({"n", "x"}, "<leader>S", function() mc.matchSkipCursor(-1) end)
-
-            -- Add cursor at next argument treesitter
-            set({'n', 'x'}, ']A', function()
-                if vim.v.count < 1 then
-                    mc.addCursor(']a')
-                else
-                    for i=1, vim.v.count - 1 do
-                        mc.addCursor(']a')
-                    end
-                end
-            end, { desc = 'Create multicursor on next argument'})
-            set({'n', 'x'}, '[A', function()
-                if vim.v.count < 1 then
-                    mc.addCursor('[a')
-                else
-                    for i=1, vim.v.count - 1 do
-                        mc.addCursor('[a')
-                    end
-                end
-            end, { desc = 'Create multicursor on previous argument'})
-
-            -- Add and remove cursors with control + left click.
-            set("n", "<c-leftmouse>", mc.handleMouse)
-            set("n", "<c-leftdrag>", mc.handleMouseDrag)
-            set("n", "<c-leftrelease>", mc.handleMouseRelease)
-
-            -- Disable and enable cursors.
-            set({"n", "x"}, "<c-q>", mc.toggleCursor)
-
-            -- Mappings defined in a keymap layer only apply when there are
-            -- multiple cursors. This lets you have overlapping mappings.
-            mc.addKeymapLayer(function(layerSet)
-
-                -- Select a different cursor as the main one.
-                layerSet({"n", "x"}, "<left>", mc.prevCursor)
-                layerSet({"n", "x"}, "<right>", mc.nextCursor)
-
-                -- Delete the main cursor.
-                layerSet({"n", "x"}, "<leader>x", mc.deleteCursor)
-
-                -- Enable and clear cursors using escape.
-                layerSet("n", "<esc>", function()
-                    if not mc.cursorsEnabled() then
-                        mc.enableCursors()
-                    else
-                        mc.clearCursors()
-                    end
-                end)
-            end)
-
-            -- Customize how cursors look.
-            local hl = vim.api.nvim_set_hl
-            hl(0, "MultiCursorCursor", { reverse = true })
-            hl(0, "MultiCursorVisual", { link = "Visual" })
-            hl(0, "MultiCursorSign", { link = "SignColumn"})
-            hl(0, "MultiCursorMatchPreview", { link = "Search" })
-            hl(0, "MultiCursorDisabledCursor", { reverse = true })
-            hl(0, "MultiCursorDisabledVisual", { link = "Visual" })
-            hl(0, "MultiCursorDisabledSign", { link = "SignColumn"})
-        end
-    },
+    -- {
+    --     "jake-stewart/multicursor.nvim",
+    --     branch = "1.0",
+    --     config = function()
+    --         local mc = require("multicursor-nvim")
+    --         mc.setup()
+    --
+    --         local set = vim.keymap.set
+    --
+    --         -- Add or skip cursor above/below the main cursor.
+    --         set({"n", "x"}, "<up>", function() mc.lineAddCursor(-1) end)
+    --         set({"n", "x"}, "<down>", function() mc.lineAddCursor(1) end)
+    --         -- set({"n", "x"}, "<leader><up>", function() mc.lineSkipCursor(-1) end)
+    --         -- set({"n", "x"}, "<leader><down>", function() mc.lineSkipCursor(1) end)
+    --
+    --         -- Add or skip adding a new cursor by matching word/selection
+    --         -- set({"n", "x"}, "<leader>n", function() mc.matchAddCursor(1) end)
+    --         -- set({"n", "x"}, "<leader>s", function() mc.matchSkipCursor(1) end)
+    --         -- set({"n", "x"}, "<leader>N", function() mc.matchAddCursor(-1) end)
+    --         -- set({"n", "x"}, "<leader>S", function() mc.matchSkipCursor(-1) end)
+    --
+    --         -- Add cursor at next argument treesitter
+    --         set({'n', 'x'}, ']A', function()
+    --             if vim.v.count < 1 then
+    --                 mc.addCursor(']a')
+    --             else
+    --                 for i=1, vim.v.count - 1 do
+    --                     mc.addCursor(']a')
+    --                 end
+    --             end
+    --         end, { desc = 'Create multicursor on next argument'})
+    --         set({'n', 'x'}, '[A', function()
+    --             if vim.v.count < 1 then
+    --                 mc.addCursor('[a')
+    --             else
+    --                 for i=1, vim.v.count - 1 do
+    --                     mc.addCursor('[a')
+    --                 end
+    --             end
+    --         end, { desc = 'Create multicursor on previous argument'})
+    --
+    --         -- Add and remove cursors with control + left click.
+    --         set("n", "<c-leftmouse>", mc.handleMouse)
+    --         set("n", "<c-leftdrag>", mc.handleMouseDrag)
+    --         set("n", "<c-leftrelease>", mc.handleMouseRelease)
+    --
+    --         -- Disable and enable cursors.
+    --         set({"n", "x"}, "<c-q>", mc.toggleCursor)
+    --
+    --         -- Mappings defined in a keymap layer only apply when there are
+    --         -- multiple cursors. This lets you have overlapping mappings.
+    --         mc.addKeymapLayer(function(layerSet)
+    --
+    --             -- Select a different cursor as the main one.
+    --             layerSet({"n", "x"}, "<left>", mc.prevCursor)
+    --             layerSet({"n", "x"}, "<right>", mc.nextCursor)
+    --
+    --             -- Delete the main cursor.
+    --             layerSet({"n", "x"}, "<leader>x", mc.deleteCursor)
+    --
+    --             -- Enable and clear cursors using escape.
+    --             layerSet("n", "<esc>", function()
+    --                 if not mc.cursorsEnabled() then
+    --                     mc.enableCursors()
+    --                 else
+    --                     mc.clearCursors()
+    --                 end
+    --             end)
+    --         end)
+    --
+    --         -- Customize how cursors look.
+    --         local hl = vim.api.nvim_set_hl
+    --         hl(0, "MultiCursorCursor", { reverse = true })
+    --         hl(0, "MultiCursorVisual", { link = "Visual" })
+    --         hl(0, "MultiCursorSign", { link = "SignColumn"})
+    --         hl(0, "MultiCursorMatchPreview", { link = "Search" })
+    --         hl(0, "MultiCursorDisabledCursor", { reverse = true })
+    --         hl(0, "MultiCursorDisabledVisual", { link = "Visual" })
+    --         hl(0, "MultiCursorDisabledSign", { link = "SignColumn"})
+    --     end
+    -- },
 }

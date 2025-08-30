@@ -2,15 +2,18 @@ return {
 
     {
         'mason-org/mason.nvim',
+        event = 'VeryLazy',
         opts = {},
     },
 
     {
         'neovim/nvim-lspconfig',
+        event = 'VeryLazy',
     },
 
     {
         "mason-org/mason-lspconfig.nvim",
+        event = 'VeryLazy',
         opts = {},
         dependencies = {
             { "mason-org/mason.nvim", opts = {} },
@@ -30,7 +33,7 @@ return {
     {
         'saghen/blink.cmp',
         -- optional: provides snippets for the snippet source
-        dependencies = { 'L3MON4D3/LuaSnip' },
+        -- dependencies = { 'L3MON4D3/LuaSnip' },
 
         -- use a release tag to download pre-built binaries
         version = '1.*',
@@ -56,17 +59,31 @@ return {
             -- See :h blink-cmp-config-keymap for defining your own keymap
             keymap = { preset = 'default' },
 
-            snippets = { preset = 'luasnip' },
+            -- snippets = { preset = 'mini_snippets' },
             appearance = {
                 -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
                 -- Adjusts spacing to ensure icons are aligned
                 nerd_font_variant = 'mono'
             },
 
+            cmdline = {
+                completion = { menu = { auto_show = true } },
+            },
             -- (Default) Only show the documentation popup when manually triggered
             completion = {
                 documentation = { auto_show = false },
+                list = {
+                    selection = {
+                        preselect = true,
+                        auto_insert = false,
+                    },
+                },
+                ghost_text = {
+                    enabled = true,
+                    show_with_menu = true,
+                },
                 menu = {
+                    auto_show = true,
                     draw = {
                         components = {
                             -- customize the drawing of kind icons

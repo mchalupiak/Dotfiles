@@ -1,46 +1,37 @@
 return {
 
-    { 'winston0410/range-highlight.nvim' },
-
     {
-        'lukas-reineke/indent-blankline.nvim',
-        config = function()
-            require'ibl'.setup{ scope = { enabled = false } }
-        end
+        'winston0410/range-highlight.nvim',
+        event = 'VeryLazy',
     },
 
     -- {
-    --     "folke/noice.nvim",
-    --     event = "VeryLazy",
-    --     opts = {
-    --         -- add any options here
-    --         command_palette = true,
-    --     },
-    --     dependencies = {
-    --         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-    --         "MunifTanjim/nui.nvim",
-    --         -- OPTIONAL:
-    --         --   `nvim-notify` is only needed, if you want to use the notification view.
-    --         --   If not available, we use `mini` as the fallback
-    --         "rcarriga/nvim-notify",
-    --     }
+    --     'lukas-reineke/indent-blankline.nvim',
+    --     event = 'VeryLazy',
+    --     config = function()
+    --         require'ibl'.setup{ scope = { enabled = false } }
+    --     end
     -- },
-    --
-
-    { 'nvim-tree/nvim-web-devicons' },
 
     {
-        'goolord/alpha-nvim',
-        dependencies = {
-            'nvim-tree/nvim-web-devicons',
-        },
-        config = function()
-            require('alpha').setup(require'alpha.themes.startify'.config)
-        end
+        'nvim-tree/nvim-web-devicons',
+        -- event = 'VeryLazy',
+        lazy = true,
     },
+
+    -- {
+    --     'goolord/alpha-nvim',
+    --     dependencies = {
+    --         'nvim-tree/nvim-web-devicons',
+    --     },
+    --     config = function()
+    --         require('alpha').setup(require'alpha.themes.startify'.config)
+    --     end
+    -- },
 
     {
         'lewis6991/gitsigns.nvim',
+        event = 'VeryLazy',
         opts = {
             current_line_blame = true,
         }

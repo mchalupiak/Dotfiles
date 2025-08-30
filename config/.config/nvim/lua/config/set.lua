@@ -24,6 +24,8 @@ vim.opt.undofile = true
 
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 vim.opt.termguicolors = true
 
@@ -61,13 +63,17 @@ vim.g.netrw_keepdir = 0
 vim.g.netrw_preview = 1
 vim.g.netrw_alto = 0
 
-vim.cmd('colorscheme xcode')
+vim.ui.select = Snacks.picker.select
+
+vim.cmd('colorscheme nord')
 
 vim.lsp.config('lua_ls', {
     settings = {
         Lua = {
             workspace = {
-                library = vim.api.nvim_get_runtime_file("", true)
+                library = vim.api.nvim_get_runtime_file("", true),
+                maxPreload = 100000,
+                preloadFileSize = 100000,
             }
         }
     }

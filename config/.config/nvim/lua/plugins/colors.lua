@@ -3,59 +3,139 @@ return {
 	{ 
         'rose-pine/neovim',
         name = 'rose-pine',
+        priority = 1000,
+        lazy = true,
     },
 
-    { 'tanvirtin/monokai.nvim' },
+    {
+        'tanvirtin/monokai.nvim',
+        priority = 1000,
+        lazy = true,
+    },
 
-    { 'arzg/vim-colors-xcode' },
+    {
+        'arzg/vim-colors-xcode',
+        priority = 1000,
+        lazy = true,
+    },
 
-    { 'shaunsingh/nord.nvim' },
+    {
+        'shaunsingh/nord.nvim',
+        priority = 1000,
+        lazy = true,
+    },
 
-    { 'kvrohit/mellow.nvim' },
+    {
+        'kvrohit/mellow.nvim',
+        priority = 1000,
+        lazy = true,
+    },
 
-    { 'Mofiqul/vscode.nvim' },
+    {
+        'Mofiqul/vscode.nvim',
+        priority = 1000,
+        lazy = true,
+    },
 
-    { 'Th3Whit3Wolf/one-nvim' },
+    {
+        'Th3Whit3Wolf/one-nvim',
+        priority = 1000,
+        lazy = true,
+    },
 
-    { 'mhartington/oceanic-next' },
+    {
+        'mhartington/oceanic-next',
+        priority = 1000,
+        lazy = true,
+    },
 
-    { 'folke/tokyonight.nvim' },
+    {
+        'folke/tokyonight.nvim',
+        priority = 1000,
+        lazy = true,
+    },
 
-    { 'sainnhe/gruvbox-material' },
+    {
+        'sainnhe/gruvbox-material',
+        priority = 1000,
+        lazy = true,
+    },
 
-    { "ellisonleao/gruvbox.nvim" },
+    {
+        "ellisonleao/gruvbox.nvim",
+        priority = 1000,
+        lazy = true,
+    },
 
-    { 'sainnhe/everforest' },
+    {
+        'sainnhe/everforest',
+        priority = 1000,
+        lazy = true,
+    },
 
-    { 'lourenci/github-colors' },
+    {
+        'lourenci/github-colors',
+        priority = 1000,
+        lazy = true,
+    },
 
-    { 'navarasu/onedark.nvim' },
+    {
+        'navarasu/onedark.nvim',
+        priority = 1000,
+        lazy = true,
+    },
 
-    { 'shaunsingh/moonlight.nvim' },
+    {
+        'shaunsingh/moonlight.nvim',
+        priority = 1000,
+        lazy = true,
+    },
 
-    { 'Mofiqul/dracula.nvim' },
+    {
+        'Mofiqul/dracula.nvim',
+        priority = 1000,
+        lazy = true,
+    },
 
-    { 'kdheepak/monochrome.nvim' },
+    {
+        'kdheepak/monochrome.nvim',
+        priority = 1000,
+        lazy = true,
+    },
 
-    { "savq/melange-nvim" },
+    {
+        "savq/melange-nvim",
+        priority = 1000,
+        lazy = true,
+    },
 
     { 
         "catppuccin/nvim",
         name = "catppuccin",
+        priority = 1000,
+        lazy = true,
     },
 
     -- use 'RRethy/nvim-base16'
 
-    { 'projekt0n/github-nvim-theme' },
+    {
+        'projekt0n/github-nvim-theme',
+        priority = 1000,
+        lazy = true,
+    },
 
     { 
         'Everblush/nvim', 
         name = 'everblush',
+        priority = 1000,
+        lazy = true,
     },
 
-    { "lewpoly/sherbet.nvim" },
+    {
+        "lewpoly/sherbet.nvim",
+        priority = 1000,
+        lazy = true,
+    },
 
     -- use 'xiyaowong/transparent.nvim'
-
-
 }

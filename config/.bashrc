@@ -197,9 +197,9 @@ elif [ -n "$(command -v tmux)" ] && [ -n "$(command -v kak)" ]; then
     alias vipe='EDITOR="/usr/bin/kak -c $SESH 2>/dev/null || /usr/bin/kak -s $SESH" vipe'
 fi
 
-if [ -n "$(command -v tmux)" ] && [ -n "$(command -v helix || command -v hx)" ] && [ -z "$TMUX" ]; then
-    alias helix='tmux new-session -e "EDITOR=hx" hx > /dev/null'    
-    alias hx='tmux new-session -e "EDITOR=hx" hx > /dev/null'    
+if [ -n "$(command -v tmux)" ] && [ -n "$(command -v helix)" ] && [ -z "$TMUX" ]; then
+    alias helix='tmux new-session -e "EDITOR=helix" helix > /dev/null'    
+    # alias hx='tmux new-session -e "EDITOR=helix" helix > /dev/null'    
 fi
 # if [ -n "$(command -v tmux)" ] && [ -z "$TMUX" ]; then
 #     SESH="$( (tmux list-sessions 2>/dev/null || echo '-1') | cut -d' ' -f1 | tr -d ':-' | sort -r | head -n1 | xargs -I{} echo '{} + 1' | bc)"

@@ -79,4 +79,9 @@ vim.lsp.config('lua_ls', {
     }
 })
 
+vim.lsp.config('tinymist', {
+    settings = {
+        exportPdf = "onType",
+    }
+})
 vim.diagnostic.config({ update_in_insert = true, float = true, virtual_lines = true})

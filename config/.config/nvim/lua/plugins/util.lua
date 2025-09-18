@@ -7,6 +7,16 @@ return {
     },
 
     {
+        'RaafatTurki/hex.nvim',
+        config = true,
+		cmd = {
+			'HexDump',
+			'HexAssemble',
+			'HexToggle',
+		},
+    },
+
+    {
         "sindrets/diffview.nvim",
         event = 'VeryLazy',
     },

@@ -1,0 +1,15 @@
+config/.config/dconf/
+config/.config/kak/al/rc/org.kak
+config/.config/kak/colors/
+config/.config/kak/mru_files.txt
+config/.config/kak/plugins/
+config/.config/mutt/chalupmc
+config/.config/mutt/mikecchalupiak
+config/.config/mutt/spamreciver1
+config/.config/qutebrowser/rosepine/
+config/.config/zathura/colors
+config/.icons/
+config/.scripts/baraction.sh
+config/.scripts/brave.sh
+config/.scripts/tmux-change-dir.sh
+config/.themes/

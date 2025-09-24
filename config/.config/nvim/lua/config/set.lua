@@ -65,7 +65,7 @@ vim.g.netrw_alto = 0
 
 vim.ui.select = Snacks.picker.select
 
-vim.cmd('colorscheme nord')
+-- vim.cmd('colorscheme carbonfox')
 
 vim.lsp.config('lua_ls', {
     settings = {

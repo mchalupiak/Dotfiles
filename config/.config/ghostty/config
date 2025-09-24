@@ -3,7 +3,7 @@ font-family = ""
 # font-family = "PragmataPro Liga"
 # font-family = "BigBlueTermPlus Nerd Font"
 # font-family = "Olympe Mono Hacked"
-font-family = "Iosevka SS12"
+font-family = "Iosevka Term SS12"
 font-family = "Cascadia Code"
 font-family = "CaskaydiaCove Nerd Font"
 # font-family = "Terminess Nerd Font Mono"
@@ -15,7 +15,7 @@ font-size = 14
 font-thicken = true
 # font-variation = wdth=100
 # theme = light:xcodelight,dark:xcodedark
-theme = light:nord-light,dark:nord
+theme = light:dawnfox,dark:carbonfox
 # theme = Monokai Classic
 # window-decoration = false
 # gtk-adwaita = false

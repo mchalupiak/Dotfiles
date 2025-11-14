@@ -10,8 +10,8 @@
 ##   qute://help/configuring.html
 ##   qute://help/settings.htm
 ##   
-import rosepine
-rosepine.setup(c, 'rose-pine-moon', True)
+# import rosepine
+# rosepine.setup(c, 'rose-pine-moon', True)
 
 ## This is here so configs done via the GUI are still loaded.
 ## Remove it to not load settings done via the GUI.

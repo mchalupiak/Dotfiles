@@ -7,7 +7,7 @@
 	process = git-lfs filter-process
 	required = true
 [core]
-	editor = nvim
+	editor = kak
 [init]
 	defaultBranch = master
 [sendemail]

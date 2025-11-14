@@ -18,5 +18,6 @@ font-thicken = true
 theme = light:Dawnfox,dark:Carbonfox
 # theme = Monokai Classic
 # window-decoration = false
-# gtk-adwaita = false
+# gtk-adwaita = true
 window-decoration = true
+shell-integration-features = true

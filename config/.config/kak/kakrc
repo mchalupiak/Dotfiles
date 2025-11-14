@@ -517,4 +517,10 @@ map -docstring 'next spell check' global spell n ':spell-next<ret>'
 map -docstring 'spell check replacements' global spell r ':spell-replace<ret>'
 
 map -docstring 'quit kakoune' global user q ':q!<ret>'
-colorscheme carbonfox
+try %{
+    colorscheme %sh{
+        ruby -e "time = Time.new; if time.hour < 20 and time.hour > 6 then puts 'dawnfox' else puts 'carbonfox' end"
+    }
+} catch %{
+    colorscheme carbonfox
+}

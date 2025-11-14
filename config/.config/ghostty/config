@@ -15,7 +15,7 @@ font-size = 14
 font-thicken = true
 # font-variation = wdth=100
 # theme = light:xcodelight,dark:xcodedark
-theme = light:dawnfox,dark:carbonfox
+theme = light:Dawnfox,dark:Carbonfox
 # theme = Monokai Classic
 # window-decoration = false
 # gtk-adwaita = false

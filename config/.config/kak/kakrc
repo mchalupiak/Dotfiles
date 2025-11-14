@@ -49,11 +49,11 @@ plug "https://git.sr.ht/~hadronized/kakoune-tree-sitter-themes" theme
 set-option global luar_interpreter luajit
 
 ## Treesitter ##
-
-# eval %sh{ kak-tree-sitter -dksvvv --with-highlighting --with-text-objects --init $kak_session }
+eval %sh{ kak-tree-sitter -dksvvv --with-highlighting --with-text-objects --init $kak_session }
 #eval %sh{ kak-tree-sitter -dks --with-text-objects --session $kak_session }
 #eval %sh{ kak-tree-sitter -dks  --with-highlighting --session $kak_session }
-#eval %sh{ kak-tree-sitter -dksvvvv --init $kak_session }
+#eval %sh{ kak-tree-sitter -dksvvv --init $kak_session }
+#
 # evaluate-commands %sh{
 #     echo "colorscheme base16-$BASE16_THEME"
 # }
@@ -64,83 +64,87 @@ evaluate-commands %sh{kak-popup init}
 ## Highlighting ##
 hook global WinCreate .* %{ add-highlighter window/number-lines number-lines -relative -hlcursor}
 add-highlighter global/ show-matching
-add-highlighter global/ column 80 MenuForeground
-add-highlighter global/ show-whitespaces
+add-highlighter global/ column 80 MenuBackground
+add-highlighter global/ show-whitespaces -spc " " -nbsp ""
+#add-highlighter global/ show-whitespaces -nbsp "" -lf "" -indent "|"
 
 ## Wrapping ##
 
 add-highlighter global/ wrap -word -indent
+
 ## Formatting ##
-define-command enable-autofmt -docstring 'enable autoformatting of buffer' %{
+# define-command enable-autofmt -docstring 'enable autoformatting of buffer' %{
+#
+#
+#     hook global -group autofmt BufSetOption filetype=(zig) %{
+#         set-option buffer formatcmd 'zig fmt --stdin'
+#
+#         hook -group autofmt buffer BufOpenFile .* %{
+#             format
+#         }
+#
+#         hook -group autofmt buffer BufWritePre .* %{
+#             format
+#         }
+#     }
+#
+#     hook global -group autofmt BufSetOption filetype=(html) %{
+#         set-option buffer formatcmd 'prettier --tab-width 4 --parser html'
+#
+#         hook -group autofmt buffer BufOpenFile .* %{
+#             format
+#         }
+#
+#         hook -group autofmt buffer BufWritePre .* %{
+#             format
+#         }
+#     }
+#
+#     hook global -group autofmt BufSetOption filetype=(css) %{
+#         set-option buffer formatcmd 'prettier --tab-width 4 --parser css'
+#
+#         hook -group autofmt buffer BufOpenFile .* %{
+#             format
+#         }
+#
+#         hook -group autofmt buffer BufWritePre .* %{
+#             format
+#         }
+#     }
 
-
-    hook global -group autofmt BufSetOption filetype=(zig) %{
-        set-option buffer formatcmd 'zig fmt --stdin'
-
-        hook -group autofmt buffer BufOpenFile .* %{
-            format
-        }
-
-        hook -group autofmt buffer BufWritePre .* %{
-            format
-        }
-    }
-
-    hook global -group autofmt BufSetOption filetype=(html) %{
-        set-option buffer formatcmd 'prettier --tab-width 4 --parser html'
-
-        hook -group autofmt buffer BufOpenFile .* %{
-            format
-        }
-
-        hook -group autofmt buffer BufWritePre .* %{
-            format
-        }
-    }
-
-    hook global -group autofmt BufSetOption filetype=(css) %{
-        set-option buffer formatcmd 'prettier --tab-width 4 --parser css'
-
-        hook -group autofmt buffer BufOpenFile .* %{
-            format
-        }
-
-        hook -group autofmt buffer BufWritePre .* %{
-            format
-        }
-    }
-
-    hook global -group autofmt BufSetOption filetype=(javascript) %{
-        set-option buffer formatcmd 'prettier --tab-width 4 --parser typescript'
-
-        hook -group autofmt buffer BufOpenFile .* %{
-            format
-        }
-
-        hook -group autofmt buffer BufWritePre .* %{
-            format
-        }
-    }
-
-    hook global -group autofmt BufSetOption filetype=(go) %{
-        set-option buffer formatcmd 'gofmt'
-
-        hook -group autofmt buffer BufOpenFile .* %{
-            format
-        }
-
-        hook -group autofmt buffer BufWritePre .* %{
-            format
-        }
-    }
-}
-
-define-command disable-autofmt -docstring 'disable autoformatting of buffer' %{
-    remove-hooks global autofmt
-}
-
-enable-autofmt
-
+#     hook global -group autofmt BufSetOption filetype=(javascript) %{
+#         set-option buffer formatcmd 'prettier --tab-width 4 --parser typescript'
+#
+#         hook -group autofmt buffer BufOpenFile .* %{
+#             format
+#         }
+#
+#         hook -group autofmt buffer BufWritePre .* %{
+#             format
+#         }
+#     }
+#
+#     hook global -group autofmt BufSetOption filetype=(go) %{
+#         set-option buffer formatcmd 'gofmt'
+#
+#         hook -group autofmt buffer BufOpenFile .* %{
+#             format
+#         }
+#
+#         hook -group autofmt buffer BufWritePre .* %{
+#             format
+#         }
+#     }
+# }
+#
+# define-command disable-autofmt -docstring 'disable autoformatting of buffer' %{
+#     remove-hooks global autofmt
+# }
+#
+# enable-autofmt
+#
+#
+#
 ## Indentation ##
 set global tabstop 4
 set global indentwidth 4
@@ -149,6 +153,26 @@ hook global WinSetOption filetype=(makefile|gas) noexpandtab
 hook global BufCreate .* %{
     editorconfig-load
     autoconfigtab
+}
+
+define-command set-spell -docstring 'Enable spellcheck' %{
+    # hook -group spellcheck global BufOpenFile .* %{
+    hook -group spellcheck buffer InsertChar .* %{
+        evaluate-commands %{
+            spell
+        }
+    }
+
+    hook -group spellcheck buffer InsertDelete .* %{
+        evaluate-commands %{
+            spell
+        }
+    }
+    # }
+}
+
+define-command set-nospell -docstring 'Disable spellcheck' %{
+    remove-hooks buffer spellcheck
 }
 
 define-command sleuth -docstring 'Heuristically set buffer options' %{
@@ -201,29 +225,16 @@ define-command sleuth-disable -docstring 'Disable sleuth' %{
 }
 
 ## LSP ##
-# lsp-enable
-# lsp-inlay-diagnostics-enable global
-hook global WinSetOption filetype=(c|zig|python|ruby|lua|java|html|css|swift) %{
-    # set-option window lsp_auto_highlight_references true
-    set-option window lsp_hover_anchor true
-    lsp-auto-hover-enable
-    #lsp-auto-hover-insert-mode-enable
-    lsp-auto-signature-help-enable
-    lsp-inlay-hints-enable global
-    lsp-enable-window
-}
+lsp-enable
+lsp-inlay-diagnostics-enable global
+set-option global lsp_auto_highlight_references true
+set-option global lsp_hover_anchor true
+lsp-auto-signature-help-enable
+lsp-inlay-hints-enable global
 
-hook global WinSetOption filetype=(rust) %{
-    set-option window lsp_auto_highlight_references true
-    set-option window lsp_hover_anchor true
-    lsp-auto-hover-enable
-    #lsp-auto-hover-insert-mode-enable
-    lsp-auto-signature-help-enable
-    lsp-inlay-hints-enable global
-    lsp-enable-window
-}
+map global user k ':lsp-hover'
 
-hook global WinSetOption filetype=(c|zig|rust|python|ruby|lua|java|html|css) %{
+hook global WinSetOption filetype=(c|cpp|zig|rust|python|ruby|lua|java|html|css) %{
       hook window -group semantic-tokens BufReload .* lsp-semantic-tokens
         hook window -group semantic-tokens NormalIdle .* lsp-semantic-tokens
           hook window -group semantic-tokens InsertIdle .* lsp-semantic-tokens
@@ -253,6 +264,19 @@ hook -group lsp-filetype-swift global BufSetOption filetype=swift %{
     }
 }
 
+hook -group lsp-filetype-typst global BufSetOption filetype=typst %{
+    set-option buffer lsp_servers %{
+        [tinymist]
+        root_globs = [".git", ".hg"]
+        args = ["lsp"]
+        settings_section = "_"
+        [tinymist.settings._]
+        # See https://myriad-dreamin.github.io/tinymist/configurations.html
+        exportPdf = "onType"
+        # formatterMode = "typstyle"
+        # previewFeature = "disable"
+    }
+}
 set-option global lsp_config %{
 }
 
@@ -493,4 +517,4 @@ map -docstring 'next spell check' global spell n ':spell-next<ret>'
 map -docstring 'spell check replacements' global spell r ':spell-replace<ret>'
 
 map -docstring 'quit kakoune' global user q ':q!<ret>'
-colorscheme base16-rose-pine
+colorscheme carbonfox

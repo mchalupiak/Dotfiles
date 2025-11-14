@@ -1,5 +1,4 @@
 ! High DPI Settings for Window Managers
-!Xft.dpi: 192
 ! #define background_opacity 80
 #include ".theme.xresources"
 ! .alpha: 0.2

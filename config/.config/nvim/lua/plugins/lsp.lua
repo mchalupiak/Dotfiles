@@ -71,6 +71,9 @@ return {
             },
             -- (Default) Only show the documentation popup when manually triggered
             completion = {
+                trigger = {
+                    show_on_insert = true
+                },
                 documentation = { auto_show = false },
                 list = {
                     selection = {

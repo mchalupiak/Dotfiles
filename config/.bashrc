@@ -183,18 +183,18 @@ tinty_source_shell_theme() {
 # fi
 
 run_kak() {
-    /usr/bin/kak -c $SESH 2>/dev/null "$@" || /usr/bin/kak -s $SESH "$@"
+    $(which kak) -c $SESH 2>/dev/null "$@" || $(which kak) -s $SESH "$@"
 }
 
 if [ -n "$(command -v tmux)" ] && [ -n "$(command -v kak)" ] && [ -z "$TMUX" ]; then
     SESH="$( (tmux list-sessions 2>/dev/null || echo '-1') | cut -d' ' -f1 | tr -d ':-' | sort -r | head -n1 | xargs -I{} echo '{} + 1' | bc)"
-    alias kak='tmux new-session -e "EDITOR=\"/usr/bin/kak -c $SESH\"" -s $SESH /usr/bin/kak -s $SESH > /dev/null'
+    alias kak='tmux new-session -e "EDITOR=\"$(which kak) -c $SESH\"" -s $SESH $(which kak) -s $SESH > /dev/null'
 elif [ -n "$(command -v tmux)" ] && [ -n "$(command -v kak)" ]; then
     SESH="$(tmux display-message -p '#S')"
     # alias kak='kak -c $SESH 2>/dev/null || kak -s $SESH'
     alias kak=run_kak
-    alias vidir='EDITOR="/usr/bin/kak -c $SESH 2>/dev/null || /usr/bin/kak -s $SESH" vidir'
-    alias vipe='EDITOR="/usr/bin/kak -c $SESH 2>/dev/null || /usr/bin/kak -s $SESH" vipe'
+    alias vidir='EDITOR="$(which kak) -c $SESH 2>/dev/null || $(which kak) -s $SESH" vidir'
+    alias vipe='EDITOR="$(which kak) -c $SESH 2>/dev/null || $(which kak) -s $SESH" vipe'
 fi
 
 if [ -n "$(command -v tmux)" ] && [ -n "$(command -v helix)" ] && [ -z "$TMUX" ]; then

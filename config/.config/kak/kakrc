@@ -408,12 +408,12 @@ define-command -docstring 'Print Working Directory' -params 0 pwd %{
 # }
 
 define-command -docstring 'copy to clipboard' xcopy %{
-    execute-keys '<a-|>wl-copy<ret>'
+    execute-keys '<a-|>pbcopy<ret>'
 }
 
 define-command -docstring 'paste from clipboard' xpaste %{
     evaluate-commands -save-regs '"' %{
-        set-register dquote %sh{ wl-paste }
+        set-register dquote %sh{ pbpaste }
         execute-keys 'P'
     }
 }

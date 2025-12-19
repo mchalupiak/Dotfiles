@@ -108,3 +108,27 @@ pin = "6bedca80646ce7350fb73029adf802ce7d9e241d"
 
 [language.swift.queries]
 path = "runtime/queries/swift"
+
+# odin
+[language.odin.grammar.source.git]
+url = "https://github.com/tree-sitter-grammars/tree-sitter-odin"
+pin = "e8adc739b78409a99f8c31313f0bb54cc538cf73"
+
+[language.odin.grammar]
+path = "src"
+compile = "cc"
+compile_args = ["-c", "-fpic", "../scanner.c", "../parser.c", "-I", ".."]
+compile_flags = ["-O3"]
+link = "cc"
+link_args = ["-shared", "-fpic", "scanner.o", "parser.o", "-o", "odin.so"]
+link_flags = ["-O3"]
+
+[language.odin.queries.source.git]
+url = "https://github.com/helix-editor/helix"
+pin = "6bedca80646ce7350fb73029adf802ce7d9e241d"
+
+# url = "https://github.com/alex-pinkus/tree-sitter-odin"
+# pin = "57c1c6d6ffa1c44b330182d41717e6fe37430704"
+
+[language.odin.queries]
+path = "runtime/queries/odin"

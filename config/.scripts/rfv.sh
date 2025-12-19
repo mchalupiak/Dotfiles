@@ -1,4 +1,4 @@
-rg --uu --color=always --line-number --no-heading --smart-case -H "${*:-}" | tr -d '\r' |
+rg -uu --color=always --line-number --no-heading --smart-case -H "${*:-}" | tr -d '\r' |
   fzf-tmux --cycle -p 80%,90% --ansi \
       --color "hl:-1:underline,hl+:-1:underline:reverse" \
       --delimiter : \

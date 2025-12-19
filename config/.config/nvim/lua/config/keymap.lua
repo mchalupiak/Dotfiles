@@ -5,7 +5,7 @@ end
 
 setnx('<leader>ff', Snacks.picker.files, 'Find files')
 setnx('<leader>f/', Snacks.picker.grep_word, 'Search current word')
-setnx('<leader>f?', Snacks.picker.grep, 'Search in files')
+setnx('<leader>fg', Snacks.picker.grep, 'Search in files')
 setnx('<leader>fr', Snacks.picker.recent, 'Find recent files')
 setnx('<leader>b', Snacks.picker.buffers, 'List buffers')
 setnx('<leader>h', Snacks.picker.help, 'Search help')
@@ -42,7 +42,7 @@ setnx('`', '\'', 'Goto mark without column')
 
 setnx('<leader>x', '<CMD>bd!<CR>', 'Close Current Buffer')
 
-setnx('grR', Snacks.picker.lsp_references, 'Search lsp references')
+setnx('grr', Snacks.picker.lsp_references, 'Search lsp references')
 -- setnx('grI', tele.lsp_incoming_calls, 'Find incoming function calls')
 -- setnx('grO', tele.lsp_outgoing_calls, 'Find outgoing function calls')
 setnx('grd', Snacks.picker.diagnostics, 'Show LSP diagnostics')

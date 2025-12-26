@@ -17,7 +17,7 @@ return {
     },
 
     {
-        "sindrets/diffview.nvim",
+       "sindrets/diffview.nvim",
         event = 'VeryLazy',
     },
 
@@ -157,6 +157,10 @@ return {
                     -- `z` key
                     { mode = 'n', keys = 'z' },
                     { mode = 'x', keys = 'z' },
+
+                    -- Localleader
+                    { mode = 'n', keys = '<Localleader>'},
+                    { mode = 'x', keys = '<Localleader>'},
                 },
 
                 clues = {
@@ -189,6 +193,8 @@ return {
             triggers = {
                 { 'g', mode = { 'n', 'x' } },
             },
+            skip_confirm_for_simple_edits = true,
+            prompt_save_on_select_new_entry = false,
         },
         -- Optional dependencies
         dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
@@ -245,85 +251,98 @@ return {
         event = 'VeryLazy',
     },
 
-    -- {
-    --     "jake-stewart/multicursor.nvim",
-    --     branch = "1.0",
-    --     config = function()
-    --         local mc = require("multicursor-nvim")
-    --         mc.setup()
-    --
-    --         local set = vim.keymap.set
-    --
-    --         -- Add or skip cursor above/below the main cursor.
-    --         set({"n", "x"}, "<up>", function() mc.lineAddCursor(-1) end)
-    --         set({"n", "x"}, "<down>", function() mc.lineAddCursor(1) end)
-    --         -- set({"n", "x"}, "<leader><up>", function() mc.lineSkipCursor(-1) end)
-    --         -- set({"n", "x"}, "<leader><down>", function() mc.lineSkipCursor(1) end)
-    --
-    --         -- Add or skip adding a new cursor by matching word/selection
-    --         -- set({"n", "x"}, "<leader>n", function() mc.matchAddCursor(1) end)
-    --         -- set({"n", "x"}, "<leader>s", function() mc.matchSkipCursor(1) end)
-    --         -- set({"n", "x"}, "<leader>N", function() mc.matchAddCursor(-1) end)
-    --         -- set({"n", "x"}, "<leader>S", function() mc.matchSkipCursor(-1) end)
-    --
-    --         -- Add cursor at next argument treesitter
-    --         set({'n', 'x'}, ']A', function()
-    --             if vim.v.count < 1 then
-    --                 mc.addCursor(']a')
-    --             else
-    --                 for i=1, vim.v.count - 1 do
-    --                     mc.addCursor(']a')
-    --                 end
-    --             end
-    --         end, { desc = 'Create multicursor on next argument'})
-    --         set({'n', 'x'}, '[A', function()
-    --             if vim.v.count < 1 then
-    --                 mc.addCursor('[a')
-    --             else
-    --                 for i=1, vim.v.count - 1 do
-    --                     mc.addCursor('[a')
-    --                 end
-    --             end
-    --         end, { desc = 'Create multicursor on previous argument'})
-    --
-    --         -- Add and remove cursors with control + left click.
-    --         set("n", "<c-leftmouse>", mc.handleMouse)
-    --         set("n", "<c-leftdrag>", mc.handleMouseDrag)
-    --         set("n", "<c-leftrelease>", mc.handleMouseRelease)
-    --
-    --         -- Disable and enable cursors.
-    --         set({"n", "x"}, "<c-q>", mc.toggleCursor)
-    --
-    --         -- Mappings defined in a keymap layer only apply when there are
-    --         -- multiple cursors. This lets you have overlapping mappings.
-    --         mc.addKeymapLayer(function(layerSet)
-    --
-    --             -- Select a different cursor as the main one.
-    --             layerSet({"n", "x"}, "<left>", mc.prevCursor)
-    --             layerSet({"n", "x"}, "<right>", mc.nextCursor)
-    --
-    --             -- Delete the main cursor.
-    --             layerSet({"n", "x"}, "<leader>x", mc.deleteCursor)
-    --
-    --             -- Enable and clear cursors using escape.
-    --             layerSet("n", "<esc>", function()
-    --                 if not mc.cursorsEnabled() then
-    --                     mc.enableCursors()
-    --                 else
-    --                     mc.clearCursors()
-    --                 end
-    --             end)
-    --         end)
-    --
-    --         -- Customize how cursors look.
-    --         local hl = vim.api.nvim_set_hl
-    --         hl(0, "MultiCursorCursor", { reverse = true })
-    --         hl(0, "MultiCursorVisual", { link = "Visual" })
-    --         hl(0, "MultiCursorSign", { link = "SignColumn"})
-    --         hl(0, "MultiCursorMatchPreview", { link = "Search" })
-    --         hl(0, "MultiCursorDisabledCursor", { reverse = true })
-    --         hl(0, "MultiCursorDisabledVisual", { link = "Visual" })
-    --         hl(0, "MultiCursorDisabledSign", { link = "SignColumn"})
-    --     end
-    -- },
+    {
+        "jake-stewart/multicursor.nvim",
+        branch = "1.0",
+        config = function()
+            local mc = require("multicursor-nvim")
+            mc.setup()
+
+            local set = vim.keymap.set
+
+            -- Add or skip cursor above/below the main cursor.
+            set({"n", "x"}, "<localleader>k", function() mc.lineAddCursor(-1) end, { desc = "Add cursor to previous line" })
+            set({"n", "x"}, "<localleader>j", function() mc.lineAddCursor(1) end, { desc = "Add cursor to next line" })
+            set({"n", "x"}, "<up>", function() mc.lineAddCursor(-1) end, { desc = "Add cursor to previous line" })
+            set({"n", "x"}, "<down>", function() mc.lineAddCursor(1) end, { desc = "Add cursor to next line" })
+            set({"n", "x"}, "<localleader>K", function() mc.lineSkipCursor(-1) end, { desc = "Skip previous line to add cursor" })
+            set({"n", "x"}, "<localleader>J", function() mc.lineSkipCursor(1) end, { desc = "Skip next line to add cursor" })
+
+            -- Add or skip adding a new cursor by matching word/selection
+            set({"n", "x"}, "<localleader>n", function() mc.matchAddCursor(1) end, { desc = "Add cursor to next currently selected word" })
+            set({"n", "x"}, "<localleader>s", function() mc.matchSkipCursor(1) end, { desc = "Skip next instance of current word to add cursor" })
+            set({"n", "x"}, "<localleader>N", function() mc.matchAddCursor(-1) end, { desc = "Add cursor to previous currently selected word" })
+            set({"n", "x"}, "<localleader>S", function() mc.matchSkipCursor(-1) end, { desc = "Skip previous instance of current word to add cursor" })
+
+            set({"n", "x"}, "<localleader>m", mc.operator, { desc = "Add cursors to text object" })
+            set("n", "<localleader>s", function()
+                vim.ui.input({prompt = "Match: "}, function(input) mc.operator({pattern = input}) end)
+            end, { desc = "Add cursors to regex match inside text object " })
+            set("n", "<localleader>*", function()
+                mc.operator({pattern = vim.fn.expand("<cword>")})
+            end, { desc = "Add cursors to current word inside text object" })
+            set("x", "<localleader>s", mc.matchCursors, { desc = "Add cursors to regex match inside visual selection" })
+
+            -- Add cursor at next argument treesitter
+            set({'n', 'x'}, ']A', function()
+                if vim.v.count < 1 then
+                    mc.addCursor(']a')
+                else
+                    for _=1, vim.v.count - 1 do
+                        mc.addCursor(']a')
+                    end
+                end
+            end, { desc = 'Create multicursor on next argument'})
+            set({'n', 'x'}, '[A', function()
+                if vim.v.count < 1 then
+                    mc.addCursor('[a')
+                else
+                    for _=1, vim.v.count - 1 do
+                        mc.addCursor('[a')
+                    end
+                end
+            end, { desc = 'Create multicursor on previous argument'})
+
+            -- Add and remove cursors with control + left click.
+            set("n", "<c-leftmouse>", mc.handleMouse)
+            set("n", "<c-leftdrag>", mc.handleMouseDrag)
+            set("n", "<c-leftrelease>", mc.handleMouseRelease)
+
+            -- Disable and enable cursors.
+            set({"n", "x"}, "<c-q>", mc.toggleCursor, { desc = "Toggle multiple cursors" })
+
+            -- Mappings defined in a keymap layer only apply when there are
+            -- multiple cursors. This lets you have overlapping mappings.
+            mc.addKeymapLayer(function(layerSet)
+
+                -- Select a different cursor as the main one.
+                layerSet({"n", "x"}, "<localleader>h", mc.prevCursor, { desc = "Make previous cursor primary" })
+                layerSet({"n", "x"}, "<localleader>l", mc.nextCursor, { desc = "Make next cursor primary" })
+                layerSet({"n", "x"}, "<left>", mc.prevCursor, { desc = "Make previous cursor primary" })
+                layerSet({"n", "x"}, "<right>", mc.nextCursor, { desc = "Make next cursor primary" })
+
+                -- Delete the main cursor.
+                layerSet({"n", "x"}, "<localleader>x", mc.deleteCursor)
+
+                -- Enable and clear cursors using escape.
+                layerSet("n", "<esc>", function()
+                    if not mc.cursorsEnabled() then
+                        mc.enableCursors()
+                    else
+                        mc.clearCursors()
+                    end
+                end)
+            end)
+
+            -- Customize how cursors look.
+            local hl = vim.api.nvim_set_hl
+            hl(0, "MultiCursorCursor", { reverse = true })
+            hl(0, "MultiCursorVisual", { link = "Visual" })
+            hl(0, "MultiCursorSign", { link = "SignColumn"})
+            hl(0, "MultiCursorMatchPreview", { link = "Search" })
+            hl(0, "MultiCursorDisabledCursor", { reverse = true })
+            hl(0, "MultiCursorDisabledVisual", { link = "Visual" })
+            hl(0, "MultiCursorDisabledSign", { link = "SignColumn"})
+        end
+    },
 }

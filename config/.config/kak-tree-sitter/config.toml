@@ -1,9 +1,9 @@
 # lua
-[language.lua.grammar.source.git]
+[lua.grammar.source.git]
 url = "https://github.com/tree-sitter-grammars/tree-sitter-lua"
 pin = "88e446476a1e97a8724dff7a23e2d709855077f2"
 
-[language.lua.grammar]
+[lua.grammar]
 path = "src"
 compile = "cc"
 compile_args = ["-c", "-fpic", "../scanner.c", "../parser.c", "-I", ".."]
@@ -44,11 +44,11 @@ path = "runtime/queries/lua"
 # path = "runtime/queries/clojure"
 
 #ocaml
-[language.ocaml.grammar.source.git]
+[ocaml.grammar.source.git]
 url = "https://github.com/tree-sitter/tree-sitter-ocaml"
 pin = "ef6ed4a773a260545f0b03c43d2ca78235e9a488"
 
-[language.ocaml.grammar]
+[ocaml.grammar]
 path = "grammars/ocaml/src"
 compile = "cc"
 compile_args = ["-c", "-fpic", "../scanner.c", "../parser.c", "-I", ".."]
@@ -65,11 +65,11 @@ pin = "6bedca80646ce7350fb73029adf802ce7d9e241d"
 path = "runtime/queries/ocaml"
 
 # typst
-[language.typst.grammar.source.git]
+[typst.grammar.source.git]
 url = "https://github.com/uben0/tree-sitter-typst"
 pin = "46cf4ded12ee974a70bf8457263b67ad7ee0379d"
 
-[language.typst.grammar]
+[typst.grammar]
 path = "src"
 compile = "cc"
 compile_args = ["-c", "-fpic", "../scanner.c", "../parser.c", "-I", ".."]
@@ -86,11 +86,11 @@ pin = "46cf4ded12ee974a70bf8457263b67ad7ee0379d"
 path = "queries/typst"
 
 # swift
-[language.swift.grammar.source.git]
+[swift.grammar.source.git]
 url = "https://github.com/alex-pinkus/tree-sitter-swift"
 pin = "57c1c6d6ffa1c44b330182d41717e6fe37430704"
 
-[language.swift.grammar]
+[swift.grammar]
 path = "src"
 compile = "cc"
 compile_args = ["-c", "-fpic", "../scanner.c", "-I", ".."]

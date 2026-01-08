@@ -112,39 +112,6 @@ add-highlighter global/ wrap -word -indent
 #         }
 #     }
 
-#     hook global -group autofmt BufSetOption filetype=(javascript) %{
-#         set-option buffer formatcmd 'prettier --tab-width 4 --parser typescript'
-#
-#         hook -group autofmt buffer BufOpenFile .* %{
-#             format
-#         }
-#
-#         hook -group autofmt buffer BufWritePre .* %{
-#             format
-#         }
-#     }
-#
-#     hook global -group autofmt BufSetOption filetype=(go) %{
-#         set-option buffer formatcmd 'gofmt'
-#
-#         hook -group autofmt buffer BufOpenFile .* %{
-#             format
-#         }
-#
-#         hook -group autofmt buffer BufWritePre .* %{
-#             format
-#         }
-#     }
-# }
-#
-# define-command disable-autofmt -docstring 'disable autoformatting of buffer' %{
-#     remove-hooks global autofmt
-# }
-#
-# enable-autofmt
-#
-#
-#
 ## Indentation ##
 set global tabstop 4
 set global indentwidth 4
@@ -453,7 +420,7 @@ define-command -docstring 'paste from clipboard' xpaste %{
 
 declare-user-mode config
 map -docstring 'enter config mode' global user e ':enter-user-mode config<ret>'
-map -docstring 'edit kakoune config' global config k ':cd ~/.config/kak/<ret>:e ./kakrc<ret>'
+map -docstring 'edit kakoune config' global config k ':e ~/.config/kak/kakrc<ret>'
 map -docstring 'edit tmux config' global config t ':e ~/.tmux.conf<ret>'
 map -docstring 'edit bash config' global config b ':e ~/.bashrc<ret>'
 map -docstring 'edit scripts folder' global config s ':cd ~/.scripts<ret>:fzf-edit<ret>'

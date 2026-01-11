@@ -75,6 +75,25 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; (setq! tab-always-indent nil)
+(after! corfu
+  (setq tab-always-indent nil))
+;; (map! :map corfu-map :i "TAB" nil)
+;; (map! :map corfu-map "TAB" nil)
+;; (map! :map corfu-map :i "S-TAB" nil)
+;; (map! :map corfu-map "S-TAB" nil)
+;; (map! :map corfu-map :i "C-n" #'corfu-next)
+;; (map! :map corfu-map :i "C-p" #'corfu-previous)
+;; (map! :map corfu-map "C-n" #'corfu-next)
+;; (map! :map corfu-map "C-p" #'corfu-previous)
+;; (map! :map corfu-map "ESC" #'corfu-reset)
+;; (map! :map corfu-map :i "ESC" #'corfu-reset)
+;; (map! :map corfu-map "C-g" #'corfu-reset)
+;; (map! :map corfu-map :i "C-g" #'corfu-reset)
+;; (setq +corfu-want-ret-to-confirm nil)
+
+
 (use-package! auto-dark
   :defer t
   :init
@@ -103,8 +122,7 @@
     (add-hook hook #'my-auto-dark-init-h -95)))
 
 (add-to-list 'auto-mode-alist '("\\.odin\\'" . odin-ts-mode))
-;; (add-to-list treesit-language-source-alist '(odin "https://github.com/tree-sitter-grammars/tree-sitter-odin"))
 (defvar treesit-language-source-alist '((odin "https://github.com/tree-sitter-grammars/tree-sitter-odin")))
+;; (add-to-list treesit-language-source-alist '(odin "https://github.com/tree-sitter-grammars/tree-sitter-odin"))
 
-(require 'lsp-rust)
 (setq lsp-inlay-hint-enable 't)

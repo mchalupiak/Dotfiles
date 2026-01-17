@@ -25,3 +25,15 @@ config/.scripts/mlvwm-powerdown
 config/.scripts/mlvwm-restart
 config/.scripts/mlvwm-screenshot
 config/.scripts/pipewire-launch
+/config/.emacs.d/undo-fu-session/
+/config/.emacs.d/tree-sitter/
+/config/.emacs.d/tramp
+/config/.emacs.d/straight/
+/config/.emacs.d/recentf
+/config/.emacs.d/places
+/config/.emacs.d/parinfer-rust/
+/config/.emacs.d/history
+/config/.emacs.d/eshell/
+/config/.emacs.d/elpa/
+/config/.emacs.d/eln-cache/
+/config/.emacs.d/auto-save-list/

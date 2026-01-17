@@ -1,0 +1,38 @@
+;;; -*- lexical-binding: t; -*-
+
+(global-set-key (kbd "C-c f") #'consult-fd)
+(global-set-key (kbd "C-c r") #'recentf)
+(global-set-key (kbd "C-c g") #'consult-ripgrep)
+(global-set-key (kbd "C-c i") #'consult-info)
+(global-set-key (kbd "C-c s") #'ispell-word)
+(global-set-key (kbd "C-c f") #'apheleia-format-buffer)
+(global-set-key (kbd "C-c t") #'load-theme)
+(global-set-key (kbd "C-c C-c") #'compile)
+(global-set-key (kbd "C-c d") #'dictionary-define-word)
+(global-set-key (kbd "C-c D") #'dictionary)
+(global-set-key (kbd "C-c l a") #'eglot-code-actions)
+(global-set-key (kbd "C-c l n") #'eglot-rename)
+(global-set-key (kbd "C-c l s") #'consult-eglot-symbols)
+(global-set-key (kbd "C-c l r") #'xref-find-references)
+(global-set-key (kbd "C-c l d") #'xref-find-definitions)
+(global-set-key (kbd "C-c l D") #'eglot-find-declaration)
+(global-set-key (kbd "C-c l i") #'eglot-find-implementation)
+(global-set-key (kbd "C-c l t") #'eglot-find-typeDefinition)
+(global-set-key (kbd "C-x C-;") (lambda () (interactive) (if (region-active-p) (comment-region) (comment-line))))
+
+(global-set-key (kbd "C-c b") #'ibuffer)
+(global-set-key (kbd "C-c x") #'kill-current-buffer)
+
+(global-set-key (kbd "C-c k") #'eldoc)
+(global-set-key (kbd "C-c m") #'man)
+(global-set-key (kbd "C-c o c") (lambda () (interactive) (dired user-init-dir)))
+(global-set-key (kbd "C-c o t") #'eshell)
+(global-set-key (kbd "C-c o m") #'magit)
+
+;; multi-cursor
+(global-set-key (kbd "C-c c w") #'mc/mark-next-like-this-word)
+(global-set-key (kbd "C-c c W") #'mc/mark-previous-like-this-word)
+(global-set-key (kbd "C-c c s") #'mc/mark-next-like-this-symbol)
+(global-set-key (kbd "C-c c S") #'mc/mark-previous-next-like-this-symbol)
+(global-set-key (kbd "C-c c a") #'mc/mark-all-like-this-dwim)
+(global-set-key (kbd "C-c c f") #'mc/mark-all-symbols-like-this-in-defun)

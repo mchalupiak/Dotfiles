@@ -50,6 +50,13 @@
   :defer t
   :straight '(:type git :host github :repo "nemethf/eglot-x"))
 
+(use-package sly
+  :ensure t
+  :defer t
+  :hook common-lisp-mode
+  :config
+  (setq inferior-lisp-program "sbcl"))
+
 (dolist (mode '(c-ts-mode-hook
                 rust-ts-mode-hook
                 odin-ts-mode-hook

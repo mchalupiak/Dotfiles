@@ -1,7 +1,9 @@
 ;;; -*- lexical-binding: t; -*-
 
 (global-set-key (kbd "C-c f") #'consult-fd)
+(global-set-key (kbd "C-c C-f") #'find-file-at-point)
 (global-set-key (kbd "C-c r") #'recentf)
+(global-set-key (kbd "C-c 0") (lambda () (interactive) (other-window 1) (kill-buffer-and-window)))
 (global-set-key (kbd "C-c g") #'consult-ripgrep)
 (global-set-key (kbd "C-c i") #'consult-info)
 (global-set-key (kbd "C-c s") #'ispell-word)
@@ -18,7 +20,7 @@
 (global-set-key (kbd "C-c l D") #'eglot-find-declaration)
 (global-set-key (kbd "C-c l i") #'eglot-find-implementation)
 (global-set-key (kbd "C-c l t") #'eglot-find-typeDefinition)
-(global-set-key (kbd "C-x C-;") (lambda () (interactive) (if (region-active-p) (comment-region) (comment-line))))
+;; (global-set-key (kbd "C-x C-;") (lambda () (interactive) (if (region-active-p) (comment-region) (comment-line))))
 
 (global-set-key (kbd "C-c b") #'ibuffer)
 (global-set-key (kbd "C-c x") #'kill-current-buffer)
@@ -26,7 +28,7 @@
 (global-set-key (kbd "C-c k") #'eldoc)
 (global-set-key (kbd "C-c m") #'man)
 (global-set-key (kbd "C-c o c") (lambda () (interactive) (dired user-init-dir)))
-(global-set-key (kbd "C-c o t") #'eshell)
+(global-set-key (kbd "C-c o t") (lambda () (interactive) (eshell 'N)))
 (global-set-key (kbd "C-c o m") #'magit)
 
 ;; multi-cursor

@@ -94,10 +94,47 @@
   ;; (vertico-count 20) ;; Show more candidates
   ;; (vertico-resize t) ;; Grow and shrink the Vertico minibuffer
   (vertico-cycle t) ;; Enable cycling for `vertico-next/previous'
-  (vertico-multiform-mode)
   :init
+  (vertico-multiform-mode)
   (vertico-mode)
   (define-key vertico-map (kbd "DEL") #'vertico-directory-delete-char))
+
+(defvar +vertico-transform-functions nil)
+
+(cl-defmethod vertico--format-candidate :around
+  (cand prefix suffix index start &context ((not +vertico-transform-functions) null))
+  (dolist (fun (ensure-list +vertico-transform-functions))
+    (setq cand (funcall fun cand)))
+  (cl-call-next-method cand prefix suffix index start))
+
+(defun +vertico-highlight-directory (file)
+  "If FILE ends with a slash, highlight it as a directory."
+  (if (string-suffix-p "/" file)
+      (propertize file 'face 'marginalia-file-priv-dir) ; or face 'dired-directory
+    file))
+
+;; function to highlight enabled modes similar to counsel-M-x
+(defun +vertico-highlight-enabled-mode (cmd)
+  "If MODE is enabled, highlight it as font-lock-constant-face."
+  (let ((sym (intern cmd)))
+    (if (or (eq sym major-mode)
+            (and
+             (memq sym minor-mode-list)
+             (boundp sym)))
+      (propertize cmd 'face 'font-lock-constant-face)
+      cmd)))
+
+;; add-to-list works if 'file isn't already in the alist
+;; setq can be used but will overwrite all existing values
+(add-to-list 'vertico-multiform-categories
+             '(file
+               ;; this is also defined in the wiki, uncomment if used
+               ;; (vertico-sort-function . vertico-sort-directories-first)
+               (+vertico-transform-functions . +vertico-highlight-directory)))
+(add-to-list 'vertico-multiform-commands
+             '(execute-extended-command
+               (+vertico-transform-functions . +vertico-highlight-enabled-mode)))
+
 
 ;; Enable rich annotations using the Marginalia package
 (use-package marginalia

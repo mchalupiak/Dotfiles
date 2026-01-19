@@ -91,13 +91,19 @@
 (use-package parinfer-rust-mode
   :ensure t
   :defer t
-  :hook emacs-lisp-mode
+  :hook ((emacs-lisp-mode common-lisp-mode lisp-mode scheme-mode) . parinfer-rust-mode)
   :config
   (electric-pair-mode -1))
 
 (use-package apheleia
   :ensure t
   :defer t)
+
+;; (use-package zoxide
+;;   :ensure t
+;;   :defer t
+;;   :hook eshell-mode
+;;   :straight '(:type git host: sourcehut :repo "vonfry/zoxide.el"))
 
 (provide 'utils)
 ;;; utils.el ends here

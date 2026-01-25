@@ -44,7 +44,7 @@ vim.g.mapleader = ' '
 
 vim.g.neovide_scale_factor = 1.0
 vim.g.neovide_theme = 'auto'
-vim.g.neovide_transparency = 1.0
+vim.g.neovide_opacity = 1.0
 function ChangeScaleFactor(delta)
     vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
 end
@@ -56,7 +56,7 @@ vim.keymap.set('n', '<C-->', function()
     ChangeScaleFactor(1 / 1.25)
 end)
 
-vim.opt.guifont = { 'Iosevka Term SS12', ':h12' }
+vim.opt.guifont = { 'Iosevka Term SS12', ':h14' }
 vim.opt.termguicolors = true
 
 vim.g.netrw_keepdir = 0

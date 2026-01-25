@@ -45,6 +45,19 @@
   :defer t
   :straight '(:type git :host codeberg :repo "meow_king/zig-ts-mode"))
 
+(use-package haskell-ts-mode
+  :ensure t
+  :custom
+  (haskell-ts-font-lock-level 4)
+  (haskell-ts-use-indent t)
+  (haskell-ts-ghci "ghci")
+  (haskell-ts-use-indent t)
+  :config
+  (add-to-list 'treesit-language-source-alist
+   '(haskell . ("https://github.com/tree-sitter/tree-sitter-haskell" "v0.23.1"))))
+  ;; (unless (treesit-grammar-location 'haskell)
+   ;; (treesit-install-language-grammar 'haskell)))
+
 (use-package eglot-x
   :ensure t
   :defer t
@@ -69,7 +82,9 @@
 
 (with-eval-after-load 'eglot
   (add-to-list 'eglot-server-programs
-               '(zig-ts-mode . ("zls"))))
+               '(zig-ts-mode . ("zls")))
+  (add-to-list 'eglot-server-programs
+               '(haskell-ts-mode . ("haskell-language-server-wrapper" "--lsp"))))
 
 (add-to-list 'auto-mode-alist '("\\.odin\\'" . odin-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.zig\\(?:\\.zon\\)?\\'" . zig-ts-mode))

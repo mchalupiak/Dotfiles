@@ -49,7 +49,7 @@
   :defer t
   :init
   ;; Configure themes
-  (setq auto-dark-themes '((doom-gruvbox) (doom-gruvbox-light)))
+  (setq auto-dark-themes '((kaolin-dark) (kaolin-light)))
   ;; Disable doom's theme loading mechanism (just to make sure)
   ;; (setq! doom-theme nil)
   ;; Declare that all themes are safe to load.

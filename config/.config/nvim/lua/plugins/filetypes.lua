@@ -49,5 +49,16 @@ return {
         version = "*", -- Pin Neorg to the latest stable release
         config = true,
     },
+
+    -- {
+    --     "Olical/conjure"
+    -- },
+
+    {
+        "vlime/vlime",
+        config = function(plugin)
+            vim.opt.rtp:append(plugin.dir .. '/vim/')
+        end
+    },
 }
 

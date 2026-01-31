@@ -29,42 +29,7 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-;; (defconst fonts '("Iosevka Term SS12" "Cascadia Code" "CaskaydiaCove Nerd Font"))
-;; (defconst default-font-size 16)
 
-;; (defun font-size (font)
-;;   (let ((size (plist-get font :size)))
-;;     (if size size default-font-size)))
-;; (defun font-name (font)
-;;   (let ((name (plist-get font :name)))
-;;     (if name name font)))
-
-;; (defun font-string (font)
-;;   (let ((name (font-name font))
-;;         (size (font-size font)))
-;;     (concat name " " (number-to-string size))))
-
-;; (defun set-fonts ()
-;;   (let ((default-font (car fonts))
-;;         (fallback-fonts (cdr fonts)))
-;;     ;; (when (window-system)
-;;     (progn
-;;       (set-face-attribute 'default nil :font (font-string default-font))
-;;       (mapc (lambda (font)
-;;               (let ((face (font-string font))
-;;                     (script (plist-get font :script)))
-;;                 (if script
-;;                     (progn
-;;                       (set-fontset-font t script face)
-;;                       (set-fontset-font t script (font-spec :script script) nil 'prepend))
-;;                   (set-fontset-font t nil face nil 'prepend)))) fallback-fonts))))
-
-;; (set-fonts)
-
-;; (set-face-attribute 'default nil :font "Iosevka Term
-;;(set-frame-font "Iosevka Term SS12-16")
-(add-to-list 'default-frame-alist
-             '(font . "Iosevka Term SS12-14"))
 (defun efs/display-startup-time ()
   (message "Emacs loaded in %s with %d garbage collections."
            (format "%.2f seconds"

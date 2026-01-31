@@ -19,12 +19,25 @@
 ;;
 ;;; Code:
 
+(set-face-attribute 'default nil
+  :width 'normal :weight 'normal
+  :slant 'normal :font (font-spec :family "Iosevka Term SS12" :size 18))
+(set-face-attribute 'fixed-pitch nil
+  :width 'normal :weight 'normal
+  :slant 'normal :font (font-spec :family "Iosevka Term SS12" :size 18))
+(set-face-attribute 'variable-pitch nil
+  :width 'normal :weight 'normal
+  :slant 'normal :font (font-spec :family "Gentium Plus" :size 18))
+(defconst default-mode-line-format (copy-sequence mode-line-format))
 (setq history-length 100
       global-auto-revert-non-file-buffers t
       use-dialog-box nil
       custom-safe-themes t
+      make-backup-files nil
       read-file-name-completion-ignore-case t
-      tab-always-indent nil)
+      tab-always-indent nil
+      display-buffer-alist '(
+                             ("\\*elfeed-.*\\*" (display-buffer-same-window))))
 (setq-default
     indent-tabs-mode nil
     tab-width 4

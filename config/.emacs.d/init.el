@@ -39,6 +39,7 @@
       (mapc (lambda (file) (load-file file)) config-files))))
 
 (load-user-config)
+
 (setq gc-cons-threshold (* 2 1000 1000))
 
 (provide 'init)

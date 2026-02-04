@@ -21,3 +21,4 @@ theme = light:Dawnfox,dark:Carbonfox
 # gtk-adwaita = true
 window-decoration = true
 shell-integration-features = true
+mouse-scroll-multiplier = 1

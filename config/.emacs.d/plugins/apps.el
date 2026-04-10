@@ -343,6 +343,8 @@
                        (elfeed/add-to-playlist)
                        (mpdel/switch-context 'podcasts)
                        (libmpdel-play)))
+              ("b" . elfeed/show-eww-open)
+              ("B" . elfeed-show-visit)
               ("P" . (lambda () (interactive)
                        (mpdel/switch-context 'podcasts)
                        (libmpdel-play))))
@@ -352,11 +354,14 @@
                        (elfeed/add-to-playlist)
                        (mpdel/switch-context 'podcasts)
                        (libmpdel-play)))
+              ("B" . elfeed-search-browse-url)
+              ("b" . elfeed/search-eww-open)
               ("P" . (lambda () (interactive)
                        (mpdel/switch-context 'podcasts)
                        (libmpdel-play))))
   :config
   (setq-default elfeed-search-filter " ")
+  (setq elfeed-log-level 'debug)
   (setq elfeed-feeds
         '( ("https://phaazon.net/blog/feed")
            ("https://irreal.org/blog/?feed=rss2")
@@ -375,6 +380,22 @@
            ("https://www.dailywire.com/feeds/rss.xml")
            ("https://feeds.simplecast.com/6c2VScgo")
            ("https://feeds.simplecast.com/pp_b9xO6")))
+  (defun elfeed/show-eww-open (&optional use-generic-p)
+   "open with eww"
+   (interactive "P")
+   (let ((browse-url-handlers '(("https:\\/\\/www\\.youtu\\.*be." . browse-url-mpv)
+                                (".*" . #'eww-browse-url))))
+     (elfeed-show-visit use-generic-p)))
+
+  (defun elfeed/search-eww-open (&optional use-generic-p)
+    "open with eww"
+    (interactive "P")
+    (let ((browse-url-handlers '(("https:\\/\\/www\\.youtu\\.*be." . browse-url-mpv)
+                                 ("." . #'eww-browse-url))))
+      (elfeed-search-browse-url use-generic-p)))
+  (defun browse-url-mpv (url &optional single)
+    (start-process "mpv" nil "mpv" (shell-quote-argument url)))  
+
   (defun elfeed/add-to-playlist ()
     (interactive
       (let* ((entry (if (eq major-mode 'elfeed-show-mode)

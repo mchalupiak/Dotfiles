@@ -18,7 +18,7 @@ setnx('<leader>r', Snacks.picker.registers, 'Search registers')
 setnx('<leader>s', Snacks.picker.spelling, 'List spelling suggestions')
 setnx('<leader>M', Snacks.picker.man, 'Search man pages')
 setnx('<leader>t', require'telescope-tabs'.list_tabs, 'List tabs')
-setnx('<leader>c', Snacks.picker.colorschemes, 'Select colorscheme')
+setnx('<leader>C', Snacks.picker.colorschemes, 'Select colorscheme')
 setnx('<leader>N', Snacks.picker.notifications, 'List notifications')
 
 local neogit = require('neogit')
@@ -32,6 +32,11 @@ setnx('<leader>ol', '<CMD>Lazy<CR>', 'Open Lazy')
 setnx('<leader>om', '<CMD>Mason<CR>', 'Open Mason')
 setnx('<leader>oc', '<CMD>cd ' .. vim.fn.stdpath('config') .. '<CR><CMD>Oil .<CR>', 'Open neovim configuration')
 setnx('<leader>og', neogit.open, 'Open (neo)git')
+
+setnx('<leader>cc', '<CMD>CommandExecute<CR>', 'Run shell command')
+setnx('<leader>ct', '<CMD>CommandReopenTerminal<CR>', 'Open shell command terminal')
+setnx('<leader>cl', '<CMD>CommandExecuteLast<CR>', 'Run last shell command')
+setnx('<leader>cs', '<CMD>CommandExecuteSelection<CR>', 'Run selection as shell command')
 
 -- Exit terminal mode with ESC
 set('t', '<Esc>', '<C-\\><C-n>')

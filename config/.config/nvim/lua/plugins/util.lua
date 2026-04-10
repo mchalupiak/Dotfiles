@@ -45,6 +45,19 @@ return {
     },
 
     {
+        'vieitesss/command.nvim',
+        lazy = false,
+        version = '*',
+        opts = {},
+    },
+
+
+    {
+        'glacambre/firenvim',
+        build = ":call firenvim#install(0)"
+    },
+
+    {
         'brenoprata10/nvim-highlight-colors',
         event = 'VeryLazy',
         opts = {
@@ -53,7 +66,7 @@ return {
     },
 
     {
-        'ggandor/leap.nvim',
+        url = 'https://codeberg.org/andyg/leap.nvim',
         dependencies = {
             'tpope/vim-repeat',
         },
@@ -180,6 +193,9 @@ return {
 
                     { mode = 'n', keys = '<leader>g', desc = '+Git' },
                     { mode = 'x', keys = '<leader>g', desc = '+Git' },
+
+                    { mode = 'n', keys = '<leader>c', desc = '+Compile' },
+                    { mode = 'x', keys = '<leader>c', desc = '+Compile' },
                 },
             }
         end

@@ -125,3 +125,48 @@
 ;; (add-to-list treesit-language-source-alist '(odin "https://github.com/tree-sitter-grammars/tree-sitter-odin"))
 
 (setq lsp-inlay-hint-enable 't)
+
+(after! mu4e
+  (setq sendmail-program (executable-find "msmtp")
+        send-mail-function #'smtpmail-send-it
+        message-sendmail-f-is-evil t
+        message-sendmail-extra-arguments '("--read-envelope-from")
+        message-send-mail-function #'message-send-mail-with-sendmail))
+(set-email-account! "hosted";"mikec@mchalupiak.com"
+                    '((mu4e-sent-folder       . "/mikec@mchalupiak.com/Sent")
+                      (mu4e-drafts-folder     . "/mikec@mchalupiak.com/Drafts")
+                      (mu4e-trash-folder      . "/mikec@mchalupiak.com/Junk")
+                      (mu4e-refile-folder     . "/mikec@mchalupiak.com/INBOX"))
+                    ;;(smtpmail-smtp-user     . "foo@bar.com")
+                    ;;(user-mail-address      . "foo@bar.com")    ;; only needed for mu < 1.4
+                    ;;(mu4e-compose-signature . "---\nYours truly\nThe Baz"))
+                    t)
+(set-email-account! "spamreciver1@outlook.com"
+                    '((mu4e-sent-folder       . "/spamreciver1@outlook.com/Sent")
+                      (mu4e-drafts-folder     . "/spamreciver1@outlook.com/Drafts")
+                      (mu4e-trash-folder      . "/spamreciver1@outlook.com/Junk")
+                      (mu4e-refile-folder     . "/spamreciver1@outlook.com/INBOX"))
+                    ;;(smtpmail-smtp-user     . "foo@bar.com")
+                    ;;(user-mail-address      . "foo@bar.com")    ;; only needed for mu < 1.4
+                    ;;(mu4e-compose-signature . "---\nYours truly\nThe Baz"))
+                    t)
+(set-email-account! "mikecchalupiak@outlook.com"
+                    '((mu4e-sent-folder       . "/mikecchalupiak@outlook.com/Sent")
+                      (mu4e-drafts-folder     . "/mikecchalupiak@outlook.com/Drafts")
+                      (mu4e-trash-folder      . "/mikecchalupiak@outlook.com/Junk")
+                      (mu4e-refile-folder     . "/mikecchalupiak@outlook.com/INBOX"))
+                    ;;(smtpmail-smtp-user     . "foo@bar.com")
+                    ;;(user-mail-address      . "foo@bar.com")    ;; only needed for mu < 1.4
+                    ;;(mu4e-compose-signature . "---\nYours truly\nThe Baz"))
+                    t)
+
+(set-email-account! "chalupmc@rose-hulman.edu"
+                    '((mu4e-sent-folder       . "/chalupmc@rose-hulman.edu/Sent")
+                      (mu4e-drafts-folder     . "/chalupmc@rose-hulman.edu/Drafts")
+                      (mu4e-trash-folder      . "/chalupmc@rose-hulman.edu/Junk")
+                      (mu4e-refile-folder     . "/chalupmc@rose-hulman.edu/INBOX"))
+                    ;;(smtpmail-smtp-user     . "foo@bar.com")
+                    ;;(user-mail-address      . "foo@bar.com")    ;; only needed for mu < 1.4
+                    ;;(mu4e-compose-signature . "---\nYours truly\nThe Baz"))
+                    t)
+;;(setq +notmuch-sync-backend 'mbsync)

@@ -199,7 +199,7 @@ set-option global lsp_hover_anchor true
 lsp-auto-signature-help-enable
 lsp-inlay-hints-enable global
 
-map global user k ':lsp-hover'
+map global user k ':lsp-hover<ret>'
 
 hook global WinSetOption filetype=(c|cpp|zig|rust|python|ruby|lua|java|html|css) %{
       hook window -group semantic-tokens BufReload .* lsp-semantic-tokens
@@ -249,7 +249,7 @@ set-option global lsp_config %{
 
 define-command fzf-buffer -docstring 'Invoke fzf to select a buffer' %{
     evaluate-commands %sh{
-        tmux split-window -l 30% "(printf \"%s\n\" $kak_quoted_buflist | fzf --bind 'focus:execute-silent(echo \"eval -client $kak_client %{ e {} }\" | kak -p $kak_session)' || echo \"$kak_buffile\") | xargs -I{} echo \"eval -client $kak_client %{ e '{}' }\" | /usr/bin/kak -p $kak_session"
+        tmux split-window -l 20% "(printf \"%s\n\" $kak_quoted_buflist | fzf --bind 'focus:execute-silent(echo \"eval -client $kak_client %{ e {} }\" | kak -p $kak_session)' || echo \"$kak_buffile\") | xargs -I{} echo \"eval -client $kak_client %{ e '{}' }\" | /usr/bin/kak -p $kak_session"
     }
 }
 

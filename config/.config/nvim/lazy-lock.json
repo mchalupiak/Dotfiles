@@ -3,6 +3,7 @@
   "blink.cmp": { "branch": "main", "commit": "b19413d214068f316c78978b08264ed1c41830ec" },
   "catppuccin": { "branch": "main", "commit": "da33755d00e09bff2473978910168ff9ea5dc453" },
   "cellular-automaton.nvim": { "branch": "main", "commit": "1606e9d5d04ff254023c3f3c62842d065708d6d3" },
+  "command.nvim": { "branch": "main", "commit": "e3d2c3923b37980deaf36221044219d9f78348b4" },
   "compiler-explorer.nvim": { "branch": "master", "commit": "3f1d95509b66803c79b4ef3ab1e51e5bc53f4ca2" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
   "dim.lua": { "branch": "main", "commit": "a3a0dce75f7212ab61130e77a8157530bd23db15" },
@@ -11,6 +12,7 @@
   "everblush": { "branch": "main", "commit": "678f808d81801b983b6fb8296fb17ba1b2785d7c" },
   "everforest": { "branch": "master", "commit": "484dd560dccb2d2842685c441ad2b54a54ffef1b" },
   "fennel.vim": { "branch": "main", "commit": "c6a9c035ca108cbb24273d96cd6277fb8fbc60b4" },
+  "firenvim": { "branch": "master", "commit": "a18ef908ac06b52ad9333b70e3e630b0a56ecb3d" },
   "github-colors": { "branch": "main", "commit": "7292749e49e6f870e63879a528bb05c8c8d1a59a" },
   "github-nvim-theme": { "branch": "main", "commit": "c106c9472154d6b2c74b74565616b877ae8ed31d" },
   "gitsigns.nvim": { "branch": "main", "commit": "cdafc320f03f2572c40ab93a4eecb733d4016d07" },
@@ -31,6 +33,7 @@
   "monokai.nvim": { "branch": "master", "commit": "b8bd44d5796503173627d7a1fc51f77ec3a08a63" },
   "moonlight.nvim": { "branch": "pure-lua", "commit": "e24e4218ec680b6396532808abf57ca0ada82e66" },
   "moonscript-vim": { "branch": "master", "commit": "715c96c7c3b02adc507f84bf5754985460afc426" },
+  "multicursor.nvim": { "branch": "1.0", "commit": "993c6eda70077c5619388900dcffefff73b40c96" },
   "nabla.nvim": { "branch": "master", "commit": "9b69b709063ccf40ac36fabb4fff7d90b3736475" },
   "nelua.vim": { "branch": "main", "commit": "5bc2ce7cc1ae952940bb3419ad106c02820f4baf" },
   "neogit": { "branch": "master", "commit": "4ba620addbeeca2594c794b151e611c037973480" },
@@ -66,5 +69,6 @@
   "vim-etlua": { "branch": "master", "commit": "bb2974d0134ce6da60c3be0d82d809976b859c1c" },
   "vim-repeat": { "branch": "master", "commit": "65846025c15494983dafe5e3b46c8f88ab2e9635" },
   "vim-teal": { "branch": "master", "commit": "a416397cf7aad7b03ef53fd3d9847fd764bcbfee" },
+  "vlime": { "branch": "master", "commit": "e276e9a6f37d2699a3caa63be19314f5a19a1481" },
   "vscode.nvim": { "branch": "main", "commit": "cb9df0873c10a21d05362455ae3bb355eadcef6b" }
 }

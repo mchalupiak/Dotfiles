@@ -18,6 +18,8 @@ bind-key G end
 podlist-format "%2i %b %> %S [%dMB / %tMB] [%p %%] [%K]"
 download-filename-format "%t | %n [%F].%e"
 download-path "~/podcasts/%n/"
+browser "cha %u"
+html-renderer "cha -T text/html -d -o display.color-mode=\"true-color\" -o buffer.mark-links=true"
 
 macro 1 set browser "curl %u --output /tmp/image && sxiv /tmp/image && rm /tmp/image"; one; set browser lynx
 macro 2 set browser "mpv --vid=no -- %u"; one; set browser lynx

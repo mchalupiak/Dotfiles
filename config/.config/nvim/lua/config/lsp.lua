@@ -8,41 +8,22 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 })
 
--- vim.lsp.config('rust-analyzer', {
---     settings = {
---         ["rust-analyzer"] = {
---             inlayHints = {
---                 bindingModeHints = {
---                     enable = false,
---                 },
---                 chainingHints = {
---                     enable = true,
---                 },
---                 closingBraceHints = {
---                     enable = true,
---                     minLines = 25,
---                 },
---                 closureReturnTypeHints = {
---                     enable = "never",
---                 },
---                 lifetimeElisionHints = {
---                     enable = "never",
---                     useParameterNames = false,
---                 },
---                 maxLength = 25,
---                 parameterHints = {
---                     enable = true,
---                 },
---                 reborrowHints = {
---                     enable = "never",
---                 },
---                 renderColons = true,
---                 typeHints = {
---                     enable = true,
---                     hideClosureInitialization = false,
---                     hideNamedConstructor = false,
---                 },
---             },
---         }
---     }
--- })
+vim.lsp.config('lua_ls', {
+    settings = {
+        Lua = {
+            workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
+                maxPreload = 100000,
+                preloadFileSize = 100000,
+            }
+        }
+    }
+})
+
+vim.lsp.config('tinymist', {
+    settings = {
+        exportPdf = "onType",
+    },
+})
+
+vim.diagnostic.config({ update_in_insert = true, float = true, virtual_lines = true})

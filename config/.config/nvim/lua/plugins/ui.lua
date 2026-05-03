@@ -5,29 +5,11 @@ return {
         event = 'VeryLazy',
     },
 
-    -- {
-    --     'lukas-reineke/indent-blankline.nvim',
-    --     event = 'VeryLazy',
-    --     config = function()
-    --         require'ibl'.setup{ scope = { enabled = false } }
-    --     end
-    -- },
-
     {
         'nvim-tree/nvim-web-devicons',
         -- event = 'VeryLazy',
         lazy = true,
     },
-
-    -- {
-    --     'goolord/alpha-nvim',
-    --     dependencies = {
-    --         'nvim-tree/nvim-web-devicons',
-    --     },
-    --     config = function()
-    --         require('alpha').setup(require'alpha.themes.startify'.config)
-    --     end
-    -- },
 
     {
         'lewis6991/gitsigns.nvim',
@@ -37,9 +19,9 @@ return {
         }
     },
 
-    {
-        'Bekaboo/dropbar.nvim',
-    },
+    -- {
+    --     'Bekaboo/dropbar.nvim',
+    -- },
 
     {
         'nvim-lualine/lualine.nvim',
@@ -52,8 +34,8 @@ return {
                 for i, server in pairs(vim.lsp.get_clients({ bufnr = 0 })) do
                     table.insert(names, server.name)
                 end
-                return " [" .. table.concat(names, " ") .. "]"
-                -- return "[" .. table.concat(names, " ") .. "]"
+                -- return " [" .. table.concat(names, " ") .. "]"
+                return "[" .. table.concat(names, " ") .. "]"
             end
             require('lualine').setup {
                 options = {

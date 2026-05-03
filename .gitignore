@@ -17,7 +17,8 @@ config/.config/kak/plugins/
 config/.config/mutt/chalupmc@rose-hulman
 config/.config/mutt/mikecchalupiak@outlook
 config/.config/mutt/spamreciver1@outlook
-config/.config/qt5ct/colors/
+config/.config/nvim/lazy-lock.json
+config/.config/qt5ct/colors/*
 config/.config/qutebrowser/autoconfig.yml
 config/.config/qutebrowser/rosepine/
 config/.config/zathura/colors

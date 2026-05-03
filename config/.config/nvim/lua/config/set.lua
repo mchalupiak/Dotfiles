@@ -14,6 +14,7 @@ vim.opt.winborder = 'none'
 
 vim.opt.smartindent = true
 
+vim.opt.foldlevel = 9999
 -- vim.opt.spell = true
 vim.opt.spelllang = 'en_us'
 

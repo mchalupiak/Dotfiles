@@ -1,21 +1,4 @@
 return {
-
-    {
-        'nvim-lua/plenary.nvim',
-        -- event = 'VeryLazy',
-        lazy = true,
-    },
-
-    {
-        'RaafatTurki/hex.nvim',
-        config = true,
-		cmd = {
-			'HexDump',
-			'HexAssemble',
-			'HexToggle',
-		},
-    },
-
     {
        "sindrets/diffview.nvim",
         event = 'VeryLazy',
@@ -33,7 +16,6 @@ return {
         "NeogitOrg/neogit",
         lazy = true,
         dependencies = {
-            "nvim-lua/plenary.nvim",         -- required
             "sindrets/diffview.nvim",        -- optional - Diff integration
 
             -- Only one of these is needed.
@@ -45,16 +27,18 @@ return {
     },
 
     {
+        "OXY2DEV/markview.nvim",
+        lazy = false,
+
+        -- Completion for `blink.cmp`
+        dependencies = { "saghen/blink.cmp" },
+    },
+
+    {
         'vieitesss/command.nvim',
         lazy = false,
         version = '*',
         opts = {},
-    },
-
-
-    {
-        'glacambre/firenvim',
-        build = ":call firenvim#install(0)"
     },
 
     {
@@ -92,7 +76,29 @@ return {
             -- or leave it empty to use the default settings
             -- refer to the configuration section below
             bigfile = { enabled = true },
-            -- dashboard = { enabled = true },
+            dashboard = {
+                enabled = true,
+                presets = {
+                },
+                formats = {
+                    key = function(item)
+                        return { { "[", hl = "special" }, { item.key, hl = "key" }, { "]", hl = "special" } }
+                    end,
+                },
+                sections = {
+                    -- { section = "terminal", cmd = "fortune -s | cowsay", hl = "header", padding = 1, indent = 8 },
+                    { section = "header" },
+                    { section = "startup" },
+                    { title = "MRU", padding = 1 },
+                    { section = "recent_files", limit = 8, padding = 1 },
+                    { title = "MRU ", file = vim.fn.fnamemodify(".", ":~"), padding = 1 },
+                    { section = "recent_files", cwd = true, limit = 8, padding = 1 },
+                    { title = "Sessions", padding = 1 },
+                    { section = "projects", padding = 1 },
+                    { title = "Bookmarks", padding = 1 },
+                    { section = "keys" },
+                },
+            },
             dim = { enabled = true },
             -- explorer = { enabled = true },
             -- git = { enabled = false },
@@ -113,92 +119,57 @@ return {
             },
             notifier = { enabled = true },
             -- quickfile = { enabled = true },
-            -- scope = { enabled = true },
+            scope = { enabled = true },
             -- scroll = { enabled = true },
             terminal = { enabled = false },
             -- statuscolumn = { enabled = true },
-            -- words = { enabled = true },
+            words = { enabled = true },
+            zen = {
+                enabled = true,
+                -- toggles = {
+                --     git_signs = true,
+                -- },
+                win = {
+                    backdrop = {
+                        transparent = false,
+                        blend = 99,
+                    },
+                },
+            },
         },
     },
 
     {
-        'echasnovski/mini.nvim',
-        config = function()
-            require('mini.starter').setup()
-            -- require('mini.cursorword').setup()
-            local miniclue = require'mini.clue'
-            miniclue.setup{
-                window = {
-                    delay = 0,
-                    config = {
-                        width = 'auto',
-                    },
-                },
-                triggers = {
-                    -- Leader triggers
-                    { mode = 'n', keys = '<Leader>' },
-                    { mode = 'x', keys = '<Leader>' },
-
-                    -- Built-in completion
-                    { mode = 'i', keys = '<C-x>' },
-
-                    -- `g` key
-                    { mode = 'n', keys = 'g' },
-                    { mode = 'x', keys = 'g' },
-
-                    -- Next
-                    { mode = 'n', keys = '['},
-                    { mode = 'n', keys = ']'},
-                    { mode = 'x', keys = '['},
-                    { mode = 'x', keys = ']'},
-
-                    -- Marks
-                    { mode = 'n', keys = "'" },
-                    { mode = 'n', keys = '`' },
-                    { mode = 'x', keys = "'" },
-                    { mode = 'x', keys = '`' },
-
-                    -- Registers
-                    { mode = 'n', keys = '"' },
-                    { mode = 'x', keys = '"' },
-                    { mode = 'i', keys = '<C-r>' },
-                    { mode = 'c', keys = '<C-r>' },
-
-                    -- Window commands
-                    { mode = 'n', keys = '<C-w>' },
-
-                    -- `z` key
-                    { mode = 'n', keys = 'z' },
-                    { mode = 'x', keys = 'z' },
-
-                    -- Localleader
-                    { mode = 'n', keys = '<Localleader>'},
-                    { mode = 'x', keys = '<Localleader>'},
-                },
-
-                clues = {
-                    -- Enhance this by adding descriptions for <Leader> mapping groups
-                    miniclue.gen_clues.builtin_completion(),
-                    miniclue.gen_clues.g(),
-                    miniclue.gen_clues.marks(),
-                    miniclue.gen_clues.registers(),
-                    miniclue.gen_clues.windows(),
-                    miniclue.gen_clues.z(),
-
-                    { mode = 'n', keys = '<leader>f', desc = '+Find' },
-                    { mode = 'x', keys = '<leader>f', desc = '+Find' },
-
-                    { mode = 'n', keys = '<leader>o', desc = '+Open' },
-                    { mode = 'x', keys = '<leader>o', desc = '+Open' },
-
-                    { mode = 'n', keys = '<leader>g', desc = '+Git' },
-                    { mode = 'x', keys = '<leader>g', desc = '+Git' },
-
-                    { mode = 'n', keys = '<leader>c', desc = '+Compile' },
-                    { mode = 'x', keys = '<leader>c', desc = '+Compile' },
-                },
-            }
-        end
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+            preset = 'helix',
+            sort = { "order", "alphanum", "local", "mod" },
+            win = {
+                border = 'none',
+            },
+            icons = {
+                rules = false,
+            },
+            spec = {
+                { '<leader>f', group = 'Find' },
+                { '<leader>o', group = 'Open' },
+                { '<leader>g', group = 'Git' },
+                { '<leader>c', group = 'Compile' },
+            },
+        },
+        keys = {
+            {
+                "<leader>?",
+                function()
+                    require("which-key").show({ global = false })
+                end,
+                desc = "Buffer Local Keymaps (which-key)",
+            },
+        },
     },
 
     {
@@ -302,19 +273,19 @@ return {
             -- Add cursor at next argument treesitter
             set({'n', 'x'}, ']A', function()
                 if vim.v.count < 1 then
-                    mc.addCursor(']a')
+                    mc.addCursor(']p')
                 else
                     for _=1, vim.v.count - 1 do
-                        mc.addCursor(']a')
+                        mc.addCursor(']p')
                     end
                 end
             end, { desc = 'Create multicursor on next argument'})
             set({'n', 'x'}, '[A', function()
                 if vim.v.count < 1 then
-                    mc.addCursor('[a')
+                    mc.addCursor('[p')
                 else
                     for _=1, vim.v.count - 1 do
-                        mc.addCursor('[a')
+                        mc.addCursor('[p')
                     end
                 end
             end, { desc = 'Create multicursor on previous argument'})

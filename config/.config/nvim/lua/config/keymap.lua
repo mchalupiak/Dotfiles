@@ -4,12 +4,44 @@ local setnx = function(key, command, desc)
 end
 
 setnx('<leader>ff', Snacks.picker.files, 'Find files')
+setnx('<leader>fF', function() Snacks.picker.files({ dirs = { '.' }}) end, 'Find files in current dir')
 setnx('<leader>f/', Snacks.picker.grep_word, 'Search current word')
 setnx('<leader>fg', Snacks.picker.grep, 'Search in files')
 setnx('<leader>fr', Snacks.picker.recent, 'Find recent files')
 setnx('<leader>b', Snacks.picker.buffers, 'List buffers')
 setnx('<leader>h', Snacks.picker.help, 'Search help')
-setnx('<leader>X', require'hex'.toggle, 'Toggle hex editor')
+setnx('<leader>P', '<CMD>Markview splitToggle<CR>', 'Open markview preview')
+setnx('<leader>z', Snacks.zen.zen, 'Toggle snacks zen mode')
+
+local setto = function(key, command, desc)
+    set({ 'x', 'o' }, key, command, { desc = desc })
+end
+local setton = function(key, command, desc)
+    set({ 'n', 'x', 'o' }, key, command, { desc = desc })
+end
+local select_to = function(query)
+    return function ()
+        require'nvim-treesitter-textobjects.select'.select_textobject(query, "textobjects")
+    end
+end
+local move_next_start = function(query)
+    return function ()
+        require'nvim-treesitter-textobjects.move'.goto_next_start(query, "textobjects")
+    end
+end
+local move_prev_start = function(query)
+    return function ()
+        require'nvim-treesitter-textobjects.move'.goto_previous_start(query, "textobjects")
+    end
+end
+
+setto('if', select_to("@function.inner"), 'Select inside function')
+setto('af', select_to("@function.outer"), 'Select around function')
+setto('ia', select_to("@parameter.inner"), 'Select inside parameter')
+setto('aa', select_to("@parameter.outer"), 'Select around parameter')
+setton(']p', move_next_start("@parameter.inner"), 'Goto next parameter')
+setton('[p', move_prev_start("@parameter.inner"), 'Goto previous parameter')
+
 setnx('<leader>m', Snacks.picker.marks, 'Search marks')
 setnx('<leader>q', Snacks.picker.qflist, 'Search quickfix list')
 setnx('<leader>l', Snacks.picker.loclist, 'Search location list')
@@ -48,8 +80,8 @@ setnx('`', '\'', 'Goto mark without column')
 setnx('<leader>x', '<CMD>bd!<CR>', 'Close Current Buffer')
 
 setnx('grr', Snacks.picker.lsp_references, 'Search lsp references')
--- setnx('grI', tele.lsp_incoming_calls, 'Find incoming function calls')
--- setnx('grO', tele.lsp_outgoing_calls, 'Find outgoing function calls')
+setnx('grI', Snacks.picker.lsp_incoming_calls, 'Find incoming function calls')
+setnx('grO', Snacks.picker.lsp_outgoing_calls, 'Find outgoing function calls')
 setnx('grd', Snacks.picker.diagnostics, 'Show LSP diagnostics')
 setnx('grD', (function()
     local diag = true

@@ -39,4 +39,5 @@
   (load bootstrap-file nil 'nomessage))
 
 (provide 'straight)
+
 ;;; straight.el ends here

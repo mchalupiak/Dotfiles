@@ -153,7 +153,14 @@
   
 (use-package org
   :ensure t
-  :defer t)
+  :defer t
+  :config
+  ;; active Babel languages
+ (require 'org-tempo)
+ (org-babel-do-load-languages
+  'org-babel-load-languages
+  '((emacs-lisp . t))))
+    
 
 (use-package org-msg
   :ensure t
@@ -370,8 +377,6 @@
            ("https://notrelated.xyz/rss")
            ("https://karl-voit.at/feeds/lazyblorg-all.atom_1.0.links-and-content.xml")
            ;("https://sizeof.cat/index.xml")
-           ("https://www.youtube.com/feeds/videos.xml?channel_id=UCkKmeTinUEU27syZPKrzWQQ")
-           ("https://www.youtube.com/feeds/videos.xml?playlist_id=PLq1vmb-z7PpQt2PDNUr7XOzBjWAOWf0Rt")
            ("https://danielde.dev/rss.xml")
            ("https://pkolaczk.github.io/feed.xml")
            ("https://joeyh.name/blog/index.rss")

@@ -51,8 +51,14 @@
 (save-place-mode 1)
 (global-auto-revert-mode 1)
 (context-menu-mode 1)
-(electric-pair-mode 1)
-(electric-indent-mode 1)
+(define-globalized-minor-mode global-electric-pair-mode electric-pair-mode
+  (lambda () (if (memq 'major-mode
+                       '(emacs-lisp-mode common-lisp-mode lisp-mode scheme-mode))
+                 (electric-pair-mode 1))))
+(define-globalized-minor-mode global-electric-indent-mode electric-indent-mode
+  (lambda () (electric-indent-mode 1)))
+(global-electric-pair-mode)
+(global-electric-indent-mode)
 ;; (enable-recursive-minibuffers t)
 ;; (read-extended-command-predicate #'command-completion-default-include-p)
 

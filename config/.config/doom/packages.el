@@ -52,6 +52,7 @@
 ;; (unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
+(package! kaolin-themes)
 (package! auto-dark)
 (package! odin-ts-mode
   :recipe (:host github :repo "Sampie159/odin-ts-mode"))

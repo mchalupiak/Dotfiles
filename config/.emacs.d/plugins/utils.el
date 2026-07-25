@@ -24,6 +24,30 @@
   :defer t
   :bind-keymap ("M-'" . surround-keymap))
 
+(use-package noccur
+  :ensure t)
+
+(use-package dumb-jump
+  :ensure t
+  :config
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
+
+(use-package expand-region
+  :ensure t
+  :bind (("C-= =" . er/expand-region)
+         ("C-= w" . er/mark-word)
+         ("C-= s" . er/mark-symbol)
+         ("C-= S" . er/mark-symbol-with-prefix)
+         ("C-= f" . er/mark-defun)
+         ("C-= c" . er/mark-comment)
+         ("C-= m" . er/mark-method-call)
+         ("C-= a" . er/mark-next-accessor)
+         ("C-= p" . er/mark-inside-pairs)
+         ("C-= P" . er/mark-outside-pairs)
+         ("C-= '" . er/mark-inside-quotes)
+         ("C-= \"" . er/mark-outside-quotes)))
+         
+
 (use-package dirvish
   :ensure t
   :defer t

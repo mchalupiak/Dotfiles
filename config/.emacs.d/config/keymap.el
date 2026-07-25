@@ -6,6 +6,7 @@
 (global-set-key (kbd "C-c x") #'kill-current-buffer)
 (global-set-key (kbd "C-c X") (lambda () (interactive) (other-window 1) (kill-buffer-and-window)))
 (global-set-key (kbd "C-c g") #'consult-ripgrep)
+(global-set-key (kbd "C-c C-g") (lambda () (interactive) (let ((current-prefix-arg '(4))) (call-interactively #'consult-ripgrep))))
 (global-set-key (kbd "C-c L") #'consult-line)
 (global-set-key (kbd "C-c i") #'consult-info)
 (global-set-key (kbd "C-c s") #'ispell-word)

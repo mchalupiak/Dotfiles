@@ -140,8 +140,8 @@ alias zf='z $(flirt)'
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 if [ -z "$EDITOR" ]; then
-    # export EDITOR=kak
-    export EDITOR='nvim'
+    export EDITOR=kak
+    # export EDITOR='nvim'
 fi
 
 if [ -f ~/.bash_aliases ]; then
@@ -154,7 +154,8 @@ if [ "$XDG_SESSION_DESKTOP" = "sway" ] ; then
     export STUDIO_JDK=/usr/lib/jvm/java-11-openjdk/
 fi
 eval "$(zoxide init bash)"
-eval "$(fzf --bash)"
+# eval "$(fzf --bash)"
+eval "$(sk --shell bash --shell-bindings)"
 
 export TMUX_TMPDIR=/tmp
 export TINTED_SHELL_ENABLE_BASE16_VARS=1
@@ -182,19 +183,21 @@ tinty_source_shell_theme() {
 #     alias theme='tinty_source_shell_theme apply "$(tinty list | fzf --cycle)" && xrdb ~/.Xresources'
 # fi
 
-run_kak() {
-    /usr/bin/kak -c $SESH 2>/dev/null "$@" || /usr/bin/kak -s $SESH "$@"
-}
+# run_kak() {
+#     /usr/local/bin/kak -c $SESH 2>/dev/null "$@" || /usr/local/bin/kak -s $SESH "$@"
+# }
 
 if [ -n "$(command -v tmux)" ] && [ -n "$(command -v kak)" ] && [ -z "$TMUX" ]; then
     SESH="$( (tmux list-sessions 2>/dev/null || echo '-1') | cut -d' ' -f1 | tr -d ':-' | sort -r | head -n1 | xargs -I{} echo '{} + 1' | bc)"
-    alias kak='tmux new-session -e "EDITOR=\"/usr/bin/kak -c $SESH\"" -s $SESH /usr/bin/kak -s $SESH > /dev/null'
+    alias kakc='kak -C $SESH'
+    # alias kak='tmux new-session -e "EDITOR=\"/usr/local/bin/kak -c $SESH\"" -s $SESH /usr/local/bin/kak > /dev/null'
 elif [ -n "$(command -v tmux)" ] && [ -n "$(command -v kak)" ]; then
     SESH="$(tmux display-message -p '#S')"
+    alias kakc='kak -C $SESH'
     # alias kak='kak -c $SESH 2>/dev/null || kak -s $SESH'
-    alias kak=run_kak
-    alias vidir='EDITOR="/usr/bin/kak -c $SESH 2>/dev/null || /usr/bin/kak -s $SESH" vidir'
-    alias vipe='EDITOR="/usr/bin/kak -c $SESH 2>/dev/null || /usr/bin/kak -s $SESH" vipe'
+    # alias kak=run_kak
+    # alias vidir='EDITOR="/usr/local/bin/kak -c $SESH 2>/dev/null || /usr/local/bin/kak -s $SESH" vidir'
+    # alias vipe='EDITOR="/usr/local/bin/kak -c $SESH 2>/dev/null || /usr/local/bin/kak -s $SESH" vipe'
 fi
 
 if [ -n "$(command -v tmux)" ] && [ -n "$(command -v helix)" ] && [ -z "$TMUX" ]; then

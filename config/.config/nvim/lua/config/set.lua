@@ -64,25 +64,8 @@ vim.g.netrw_keepdir = 0
 vim.g.netrw_preview = 1
 vim.g.netrw_alto = 0
 
+vim.opt.exrc = true
+
 vim.ui.select = Snacks.picker.select
 
 -- vim.cmd('colorscheme carbonfox')
-
-vim.lsp.config('lua_ls', {
-    settings = {
-        Lua = {
-            workspace = {
-                library = vim.api.nvim_get_runtime_file("", true),
-                maxPreload = 100000,
-                preloadFileSize = 100000,
-            }
-        }
-    }
-})
-
-vim.lsp.config('tinymist', {
-    settings = {
-        exportPdf = "onType",
-    }
-})
-vim.diagnostic.config({ update_in_insert = true, float = true, virtual_lines = true})

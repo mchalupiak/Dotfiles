@@ -19,6 +19,26 @@
 ;;
 ;;; Code:
 
+(use-package system-packages
+  :ensure t)
+
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (defun copy-ssh-agent ()
+    "copy env variables for ssh agent"
+    (interactive)
+    (exec-path-from-shell-copy-env "SSH_AGENT_PID")
+    (exec-path-from-shell-copy-env "SSH_AUTH_SOCK"))
+  (copy-ssh-agent))
+
+(use-package dumb-jump
+  :ensure t
+  :config
+  (setq dumb-jump-prefer-searcher 'ag)
+  (setq xref-show-definitions-function #'consult-xref)
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
+
 (use-package surround
   :ensure t
   :defer t
@@ -59,7 +79,8 @@
   :ensure t
   :defer 5
   :config
-  (dtrt-indent-global-mode 1))
+  (add-hook 'prog-mode-hook #'dtrt-indent-mode)
+  (add-hook 'text-mode-hook #'dtrt-indent-mode))
 
 (use-package undo-fu
   :ensure t

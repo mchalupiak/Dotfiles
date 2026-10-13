@@ -1,5 +1,7 @@
 ;;; -*- lexical-binding: t; -*-
 
+;; (global-set-key (kbd "M-f") #'forward-to-word)
+;; (global-set-key (kbd "M-F") #'forward-word)
 (global-set-key (kbd "C-c f") #'consult-fd)
 (global-set-key (kbd "C-c C-f") #'find-file-at-point)
 (global-set-key (kbd "C-c r") #'recentf)

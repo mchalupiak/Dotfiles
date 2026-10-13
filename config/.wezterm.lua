@@ -6,13 +6,18 @@ config.font = wezterm.font_with_fallback {
     'Cascadia Code'
 }
 
+-- local appearance_themes = {
+--   Light = 'dawnfox',
+--   Dark = 'carbonfox',
+-- }
+
 local appearance_themes = {
-  Light = 'dawnfox',
-  Dark = 'carbonfox',
+    Light = 'rose-pine-dawn',
+    Dark = 'rose-pine',
 }
 
 local appearance = wezterm.gui.get_appearance()
-config.color_scheme = appearance_themes[appearance] or 'carbonfox'
+config.color_scheme = appearance_themes[appearance] or 'rose-pine'
 config.font_size = 14
 config.enable_tab_bar = true
 config.use_fancy_tab_bar = false

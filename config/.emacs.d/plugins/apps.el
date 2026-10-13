@@ -32,6 +32,12 @@
 
 (add-hook 'eshell-load-hook #'eat-eshell-mode)
 
+(use-package vterm
+    :ensure t)
+
+(use-package devdocs
+  :ensure t)
+
 (use-package magit
   :ensure t
   :defer t)
@@ -153,6 +159,10 @@
   
 (use-package org
   :ensure t
+  :defer t)
+
+(use-package org-msg
+  :ensure t
   :defer t
   :config
   ;; active Babel languages
@@ -162,183 +172,183 @@
   '((emacs-lisp . t))))
     
 
-(use-package org-msg
-  :ensure t
-  :defer t
-  :hook ((mu4e-main-mode . org-msg-mode)
-         (mu4e-compose-mode . org-msg-mode))
-  :config
-  (setq mail-user-agent 'mu4e-user-agent)
-  (setq org-msg-options "html-postamble:nil H:5 num:nil ^:{} toc:nil author:nil email:nil \\n:t"
-        org-msg-startup "hidestars indent inlineimages"
-        org-msg-default-alternatives '((new . (text html))
-                                       (reply-to-html . (text html))
-                                       (reply-to-text . (text)))
-        org-msg-convert-citation t))
+;; (use-package org-msg
+;;   :ensure t
+;;   :defer t
+;;   :hook ((mu4e-main-mode . org-msg-mode)
+;;          (mu4e-compose-mode . org-msg-mode))
+;;   :config
+;;   (setq mail-user-agent 'mu4e-user-agent)
+;;   (setq org-msg-options "html-postamble:nil H:5 num:nil ^:{} toc:nil author:nil email:nil \\n:t"
+;;         org-msg-startup "hidestars indent inlineimages"
+;;         org-msg-default-alternatives '((new . (text html))
+;;                                        (reply-to-html . (text html))
+;;                                        (reply-to-text . (text)))
+;;         org-msg-convert-citation t))
   
 
-(use-package mu4e
-  :ensure t
-  :commands (mu4e)
-  :config
-  (setq mu4e-mu-binary (executable-find "mu"))
+;; (use-package mu4e
+;;   :ensure t
+;;   :commands (mu4e)
+;;   :config
+;;   (setq mu4e-mu-binary (executable-find "mu"))
 
-  (setq mu4e-read-option-use-builtin nil
-        mu4e-completing-read-function 'completing-read)
-  ;; this is the directory we created before:
-  (setq mu4e-maildir "~/.local/share/mail/")
+;;   (setq mu4e-read-option-use-builtin nil
+;;         mu4e-completing-read-function 'completing-read)
+;;   ;; this is the directory we created before:
+;;   (setq mu4e-maildir "~/.local/share/mail/")
 
-  ;; this command is called to sync imap servers:
-  (setq mu4e-get-mail-command (concat (executable-find "mbsync") " -a"))
-  ;; how often to call it in seconds:
-  (setq mu4e-update-interval 300)
+;;   ;; this command is called to sync imap servers:
+;;   (setq mu4e-get-mail-command (concat (executable-find "mbsync") " -a"))
+;;   ;; how often to call it in seconds:
+;;   (setq mu4e-update-interval 300)
 
-  ;; save attachment to desktop by default
-  ;; or another choice of yours:
-  (setq mu4e-attachment-dir "~/Downloads")
+;;   ;; save attachment to desktop by default
+;;   ;; or another choice of yours:
+;;   (setq mu4e-attachment-dir "~/Downloads")
 
-  ;; rename files when moving - needed for mbsync:
-  (setq mu4e-change-filenames-when-moving t)
+;;   ;; rename files when moving - needed for mbsync:
+;;   (setq mu4e-change-filenames-when-moving t)
 
-  ;; list of your email adresses:
-  (setq mu4e-user-mail-address-list '("mikecchalupiak@outlook.com"
-                                      "chalupmc@rose-hulman.edu"
-                                      "mikec@mchalupiak.com"
-                                      "spamreciver1@outlook.com"))
-                                        ; the following is to show shortcuts in the main view.
-  (setq mu4e-bookmarks ())
-  (add-to-list 'mu4e-bookmarks
-               '(:name "spamreciver"
-                 :query "maildir:/spamreciver1@outlook.com/INBOX"
-                 :key ?s))
-  (add-to-list 'mu4e-bookmarks
-               '(:name "mchalupiak.com"
-                 :query "maildir:/mikec@mchalupiak.com/INBOX"
-                 :key ?h))
-  (add-to-list 'mu4e-bookmarks
-               '(:name "rose"
-                 :query "maildir:/chalupmc@rose-hulman.edu/INBOX"
-                 :key ?r))
-  (add-to-list 'mu4e-bookmarks
-               '(:name "outlook"
-                 :query "maildir:/mikecchalupiak@outlook.com/INBOX"
-                 :key ?o))
+;;   ;; list of your email adresses:
+;;   (setq mu4e-user-mail-address-list '("mikecchalupiak@outlook.com"
+;;                                       "chalupmc@rose-hulman.edu"
+;;                                       "mikec@mchalupiak.com"
+;;                                       "spamreciver1@outlook.com"))
+;;                                         ; the following is to show shortcuts in the main view.
+;;   (setq mu4e-bookmarks ())
+;;   (add-to-list 'mu4e-bookmarks
+;;                '(:name "spamreciver"
+;;                  :query "maildir:/spamreciver1@outlook.com/INBOX"
+;;                  :key ?s))
+;;   (add-to-list 'mu4e-bookmarks
+;;                '(:name "mchalupiak.com"
+;;                  :query "maildir:/mikec@mchalupiak.com/INBOX"
+;;                  :key ?h))
+;;   (add-to-list 'mu4e-bookmarks
+;;                '(:name "rose"
+;;                  :query "maildir:/chalupmc@rose-hulman.edu/INBOX"
+;;                  :key ?r))
+;;   (add-to-list 'mu4e-bookmarks
+;;                '(:name "outlook"
+;;                  :query "maildir:/mikecchalupiak@outlook.com/INBOX"
+;;                  :key ?o))
 
   
-  (setq mu4e-contexts
-        `(,(make-mu4e-context
-            :name "outlook"
-            :match-func
-            (lambda (msg)
-              (when msg
-                (mu4e-message-contact-field-matches msg
-                                                    :to "mikecchalupiak@outlook.com")))
-            :vars '((user-mail-address . "mikecchalupiak@outlook.com")
-                    (user-full-name . "Michael Chalupiak")
-                    (mu4e-drafts-folder . "/mikecchalupiak@outlook.com/Drafts")
-                    (mu4e-refile-folder . "/mikecchalupiak@outlook.com/Archive")
-                    (mu4e-sent-folder . "/mikecchalupiak@outlook.com/Sent")
-                    (mu4e-trash-folder . "/mikecchalupiak@outlook.com/Trash")))
+;;   (setq mu4e-contexts
+;;         `(,(make-mu4e-context
+;;             :name "outlook"
+;;             :match-func
+;;             (lambda (msg)
+;;               (when msg
+;;                 (mu4e-message-contact-field-matches msg
+;;                                                     :to "mikecchalupiak@outlook.com")))
+;;             :vars '((user-mail-address . "mikecchalupiak@outlook.com")
+;;                     (user-full-name . "Michael Chalupiak")
+;;                     (mu4e-drafts-folder . "/mikecchalupiak@outlook.com/Drafts")
+;;                     (mu4e-refile-folder . "/mikecchalupiak@outlook.com/Archive")
+;;                     (mu4e-sent-folder . "/mikecchalupiak@outlook.com/Sent")
+;;                     (mu4e-trash-folder . "/mikecchalupiak@outlook.com/Trash")))
 
-          ,(make-mu4e-context
-            :name "rose"
-            :match-func
-            (lambda (msg)
-              (when msg
-                (mu4e-message-contact-field-matches msg
-                                                    :to "chalupmc@rose-hulman.edu")))
-            :vars '((user-mail-address . "chalupmc@rose-hulman.edu")
-                    (user-full-name . "Michael Chalupiak")
-                    (mu4e-drafts-folder . "/chalupmc@rose-hulman.edu/Drafts")
-                    (mu4e-refile-folder . "/chalupmc@rose-hulman.edu/Archive")
-                    (mu4e-sent-folder . "/chalupmc@rose-hulman.edu/Sent")
-                    (mu4e-trash-folder . "/chalupmc@rose-hulman.edu/Trash")))
+;;           ,(make-mu4e-context
+;;             :name "rose"
+;;             :match-func
+;;             (lambda (msg)
+;;               (when msg
+;;                 (mu4e-message-contact-field-matches msg
+;;                                                     :to "chalupmc@rose-hulman.edu")))
+;;             :vars '((user-mail-address . "chalupmc@rose-hulman.edu")
+;;                     (user-full-name . "Michael Chalupiak")
+;;                     (mu4e-drafts-folder . "/chalupmc@rose-hulman.edu/Drafts")
+;;                     (mu4e-refile-folder . "/chalupmc@rose-hulman.edu/Archive")
+;;                     (mu4e-sent-folder . "/chalupmc@rose-hulman.edu/Sent")
+;;                     (mu4e-trash-folder . "/chalupmc@rose-hulman.edu/Trash")))
 
-          ,(make-mu4e-context
-            :name "hosted"
-            :match-func
-            (lambda (msg)
-              (when msg
-                (mu4e-message-contact-field-matches msg
-                                                    :to "mikec@mchalupiak.com")))
-            :vars '((user-mail-address . "mikec@mchalupiak.com")
-                    (user-full-name . "Michael Chalupiak")
-                    ;; check your ~/.maildir to see how the subdirectories are called
-                    ;; e.g `ls ~/.maildir/example'
-                    (mu4e-drafts-folder . "/mikec@mchalupiak.com/Drafts")
-                    (mu4e-refile-folder . "/mikec@mchalupiak.com/Archive")
-                    (mu4e-sent-folder . "/mikec@mchalupiak.com/Sent")
-                    (mu4e-trash-folder . "/mikec@mchalupiak.com/Trash")))
-          ,(make-mu4e-context
-            :name "spam"
-            :match-func
-            (lambda (msg)
-              (when msg
-                (mu4e-message-contact-field-matches msg
-                                                    :to "spamreciver1@outlook.com")))
-            :vars '((user-mail-address . "spamreciver1@outlook.com")
-                    (user-full-name . "spamreciver")
-                    ;; check your ~/.maildir to see how the subdirectories are called
-                    ;; e.g `ls ~/.maildir/example'
-                    (mu4e-drafts-folder . "/spamreciver1@outlook.com/Drafts")
-                    (mu4e-refile-folder . "/spamreciver1@outlook.com/Archive")
-                    (mu4e-sent-folder . "/spamreciver1@outlook.com/Sent")
-                    (mu4e-trash-folder . "/spamreciver1@outlook.com/Trash")))))
+;;           ,(make-mu4e-context
+;;             :name "hosted"
+;;             :match-func
+;;             (lambda (msg)
+;;               (when msg
+;;                 (mu4e-message-contact-field-matches msg
+;;                                                     :to "mikec@mchalupiak.com")))
+;;             :vars '((user-mail-address . "mikec@mchalupiak.com")
+;;                     (user-full-name . "Michael Chalupiak")
+;;                     ;; check your ~/.maildir to see how the subdirectories are called
+;;                     ;; e.g `ls ~/.maildir/example'
+;;                     (mu4e-drafts-folder . "/mikec@mchalupiak.com/Drafts")
+;;                     (mu4e-refile-folder . "/mikec@mchalupiak.com/Archive")
+;;                     (mu4e-sent-folder . "/mikec@mchalupiak.com/Sent")
+;;                     (mu4e-trash-folder . "/mikec@mchalupiak.com/Trash")))
+;;           ,(make-mu4e-context
+;;             :name "spam"
+;;             :match-func
+;;             (lambda (msg)
+;;               (when msg
+;;                 (mu4e-message-contact-field-matches msg
+;;                                                     :to "spamreciver1@outlook.com")))
+;;             :vars '((user-mail-address . "spamreciver1@outlook.com")
+;;                     (user-full-name . "spamreciver")
+;;                     ;; check your ~/.maildir to see how the subdirectories are called
+;;                     ;; e.g `ls ~/.maildir/example'
+;;                     (mu4e-drafts-folder . "/spamreciver1@outlook.com/Drafts")
+;;                     (mu4e-refile-folder . "/spamreciver1@outlook.com/Archive")
+;;                     (mu4e-sent-folder . "/spamreciver1@outlook.com/Sent")
+;;                     (mu4e-trash-folder . "/spamreciver1@outlook.com/Trash")))))
 
- (setq mu4e-context-policy 'pick-first) ;; start with the first (default) context;
- (setq mu4e-compose-context-policy 'ask)
-  ; gpg encryptiom & decryption:
-  ;; this can be left alone
- (require 'epa-file)
- (epa-file-enable)
- (setq epa-pinentry-mode 'loopback)
- (auth-source-forget-all-cached)
+;;  (setq mu4e-context-policy 'pick-first) ;; start with the first (default) context;
+;;  (setq mu4e-compose-context-policy 'ask)
+;;   ; gpg encryptiom & decryption:
+;;   ;; this can be left alone
+;;  (require 'epa-file)
+;;  (epa-file-enable)
+;;  (setq epa-pinentry-mode 'loopback)
+;;  (auth-source-forget-all-cached)
 
-  ;; don't keep message compose buffers around after sending:
- (setq message-kill-buffer-on-exit t)
+;;   ;; don't keep message compose buffers around after sending:
+;;  (setq message-kill-buffer-on-exit t)
 
-  ;; send function:
- (setq send-mail-function 'message-send-mail-with-sendmail
-       message-send-mail-function 'message-send-mail-with-sendmail)
+;;   ;; send function:
+;;  (setq send-mail-function 'message-send-mail-with-sendmail
+;;        message-send-mail-function 'message-send-mail-with-sendmail)
 
-  ;; send program:
-  ;; this is exeranal. remember we installed it before.
- (setq sendmail-program (executable-find "msmtp"))
+;;   ;; send program:
+;;   ;; this is exeranal. remember we installed it before.
+;;  (setq sendmail-program (executable-find "msmtp"))
 
-  ;; select the right sender email from the context.
- (setq message-sendmail-envelope-from 'header)
+;;   ;; select the right sender email from the context.
+;;  (setq message-sendmail-envelope-from 'header)
 
-  ;; chose from account before sending
-  ;; this is a custom function that works for me.
-  ;; well I stole it somewhere long ago.
-  ;; I suggest using it to make matters easy
-  ;; of course adjust the email adresses and account descriptions
- (defun timu/set-msmtp-account ()
-   (if (message-mail-p)
-       (save-excursion
-         (let*
-             ((from (save-restriction
-                      (message-narrow-to-headers)
-                      (message-fetch-field "from")))
-              (account
-               (cond
-                ((string-match "mikecchalupiak@outlook.com" from) "outlook")
-                ((string-match "chalupmc@rose-hulman.edu" from) "rose")
-                ((string-match "mikec@mchalupiak.com" from) "hosted")
-                ((string-match "spamreciver1@outlook.com" from) "spam"))))
-           (setq message-sendmail-extra-arguments (list '"-a" account)))))
+;;   ;; chose from account before sending
+;;   ;; this is a custom function that works for me.
+;;   ;; well I stole it somewhere long ago.
+;;   ;; I suggest using it to make matters easy
+;;   ;; of course adjust the email adresses and account descriptions
+;;  (defun timu/set-msmtp-account ()
+;;    (if (message-mail-p)
+;;        (save-excursion
+;;          (let*
+;;              ((from (save-restriction
+;;                       (message-narrow-to-headers)
+;;                       (message-fetch-field "from")))
+;;               (account
+;;                (cond
+;;                 ((string-match "mikecchalupiak@outlook.com" from) "outlook")
+;;                 ((string-match "chalupmc@rose-hulman.edu" from) "rose")
+;;                 ((string-match "mikec@mchalupiak.com" from) "hosted")
+;;                 ((string-match "spamreciver1@outlook.com" from) "spam"))))
+;;            (setq message-sendmail-extra-arguments (list '"-a" account)))))
 
-  (add-hook 'message-send-mail-hook 'timu/set-msmtp-account)
+;;   (add-hook 'message-send-mail-hook 'timu/set-msmtp-account)
 
-  ;; mu4e cc & bcc
-  ;; this is custom as well
-  (add-hook 'mu4e-compose-mode-hook
-            (defun timu/add-cc-and-bcc ()
-              "My Function to automatically add Cc & Bcc: headers.
-    This is in the mu4e compose mode."
-              (save-excursion (message-add-header "Cc:\n"))
-              (save-excursion (message-add-header "Bcc:\n"))))))
-   ;; ask for context if no context matches;)))
+;;   ;; mu4e cc & bcc
+;;   ;; this is custom as well
+;;   (add-hook 'mu4e-compose-mode-hook
+;;             (defun timu/add-cc-and-bcc ()
+;;               "My Function to automatically add Cc & Bcc: headers.
+;;     This is in the mu4e compose mode."
+;;               (save-excursion (message-add-header "Cc:\n"))
+;;               (save-excursion (message-add-header "Bcc:\n"))))))
+;;    ;; ask for context if no context matches;)))
 
 (use-package elfeed
   :ensure t
@@ -373,6 +383,7 @@
         '( ("https://phaazon.net/blog/feed")
            ("https://irreal.org/blog/?feed=rss2")
            ("https://port19.xyz/rss.xml")
+           ("https://www.gingerbill.org/article/index.xml")
            ("https://lukesmith.xyz/index.xml")
            ("https://notrelated.xyz/rss")
            ("https://karl-voit.at/feeds/lazyblorg-all.atom_1.0.links-and-content.xml")
@@ -380,11 +391,11 @@
            ("https://danielde.dev/rss.xml")
            ("https://pkolaczk.github.io/feed.xml")
            ("https://joeyh.name/blog/index.rss")
-           ("https://kagifeedback.org/atom/t/release-notes")
-           ("https://api.substack.com/feed/podcast/462466.rss")
-           ("https://www.dailywire.com/feeds/rss.xml")
-           ("https://feeds.simplecast.com/6c2VScgo")
-           ("https://feeds.simplecast.com/pp_b9xO6")))
+           ("https://kagifeedback.org/atom/t/release-notes")))
+           ;; ("https://api.substack.com/feed/podcast/462466.rss")
+           ;; ("https://www.dailywire.com/feeds/rss.xml")
+           ;; ("https://feeds.simplecast.com/6c2VScgo")
+           ;; ("https://feeds.simplecast.com/pp_b9xO6")))
   (defun elfeed/show-eww-open (&optional use-generic-p)
    "open with eww"
    (interactive "P")

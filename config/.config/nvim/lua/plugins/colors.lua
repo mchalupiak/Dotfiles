@@ -151,11 +151,11 @@ return {
             -- refer to the configuration section below
             set_dark_mode = function()
                 vim.api.nvim_set_option_value("background", "dark", {})
-                vim.cmd('colorscheme carbonfox')
+                vim.cmd('colorscheme rose-pine-main')
             end,
             set_light_mode = function()
                 vim.api.nvim_set_option_value("background", "light", {})
-                vim.cmd('colorscheme dawnfox')
+                vim.cmd('colorscheme rose-pine-dawn')
             end,
         },
     },

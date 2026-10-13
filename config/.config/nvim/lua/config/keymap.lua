@@ -12,6 +12,7 @@ setnx('<leader>b', Snacks.picker.buffers, 'List buffers')
 setnx('<leader>h', Snacks.picker.help, 'Search help')
 setnx('<leader>P', '<CMD>Markview splitToggle<CR>', 'Open markview preview')
 setnx('<leader>z', Snacks.zen.zen, 'Toggle snacks zen mode')
+setnx('<leader>d', '<CMD>AnyJump<CR>', 'AnyJump jump to definition')
 
 local setto = function(key, command, desc)
     set({ 'x', 'o' }, key, command, { desc = desc })

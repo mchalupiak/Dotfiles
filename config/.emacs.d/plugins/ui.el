@@ -329,10 +329,12 @@
    ;; Don't highlight current level indentation; it's distracting and is
    ;; unnecessary overhead for little benefit.
    indent-bars-highlight-current-depth nil)
+  (add-hook 'prog-mode-hook #'indent-bars-mode 50)
+  (add-hook 'text-mode-hook #'indent-bars-mode 50)
   :custom
   (indent-bars-no-descend-lists t) ; no extra bars in continued func arg lists
   (indent-bars-treesit-support t)
-  (indent-bars-treesit-ignore-blank-lines-types '("module"))
+  (indent-bars-treesit-ignore-blank-lines-types '("module")))
   ;; Add other languages as needed
   ;; (indent-bars-treesit-scope '((python function_definition class_definition for_statement
   ;;                               if_statement with_statement while_statement)))
@@ -341,7 +343,7 @@
   ;;				      list list_comprehension
   ;;				      dictionary dictionary_comprehension
   ;;				      parenthesized_expression subscript)))
-  :hook ((prog-mode text-mode) . indent-bars-mode))
+
 
 (use-package dashboard
   :ensure t

@@ -16,6 +16,7 @@ config.color_scheme = appearance_themes[appearance] or 'carbonfox'
 config.font_size = 14
 config.enable_tab_bar = true
 config.use_fancy_tab_bar = false
+-- config.window_decorations = "RESIZE"
 -- config.front_end = "WebGpu"
 -- config.integrated_title_button_style = "Gnome"
 

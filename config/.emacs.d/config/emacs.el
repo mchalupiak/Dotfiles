@@ -18,17 +18,27 @@
 ;;  Description
 ;;
 ;;; Code:
-
+(setq url-proxy-services '(("no_proxy" . "localhost")
+                           ("http" . "proxygov.ray.com:80")
+                           ("https" . "proxygov.ray.com:80")))
+;; (require 'misc)
+(setopt treesit-enabled-modes t)
 (set-face-attribute 'default nil
   :width 'normal :weight 'normal
-  :slant 'normal :font (font-spec :family "Iosevka Term SS12" :size 18))
+  :slant 'normal :font (font-spec :family "Iosevka Term SS12" :size 20))
 (set-face-attribute 'fixed-pitch nil
   :width 'normal :weight 'normal
-  :slant 'normal :font (font-spec :family "Iosevka Term SS12" :size 18))
-(set-face-attribute 'variable-pitch nil
-  :width 'normal :weight 'normal
-  :slant 'normal :font (font-spec :family "Gentium Plus" :size 18))
+  :slant 'normal :font (font-spec :family "Iosevka Term SS12" :size 20))
+;; (set-face-attribute 'variable-pitch nil
+;;   :width 'normal :weight 'normal
+;;   :slant 'normal :font (font-spec :family "Gentium Plus" :size 18))
 (defconst default-mode-line-format (copy-sequence mode-line-format))
+(setq dired-kill-when-opening-new-dired-buffer t)
+(setq gdb-show-main t
+      gdb-many-windows t)
+(setq elfeed-use-curl nil)
+(setq use-short-answers t)
+(setq compilation-scroll-output t)
 (setq history-length 100
       global-auto-revert-non-file-buffers t
       use-dialog-box nil
@@ -51,8 +61,16 @@
 (save-place-mode 1)
 (global-auto-revert-mode 1)
 (context-menu-mode 1)
-(electric-pair-mode 1)
-(electric-indent-mode 1)
+(define-globalized-minor-mode global-electric-pair-mode electric-pair-mode
+  (lambda () (if (memq 'major-mode
+                       '(emacs-lisp-mode common-lisp-mode lisp-mode scheme-mode))
+                 (electric-pair-mode 1))))
+(define-globalized-minor-mode global-electric-indent-mode electric-indent-mode
+  (lambda () (electric-indent-mode 1)))
+(global-electric-pair-mode)
+(global-electric-indent-mode)
+;; (treesit-auto-install-grammar 'ask)
+;; (treesit-enabled-modes t)
 ;; (enable-recursive-minibuffers t)
 ;; (read-extended-command-predicate #'command-completion-default-include-p)
 

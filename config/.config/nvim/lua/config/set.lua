@@ -64,6 +64,8 @@ vim.g.netrw_keepdir = 0
 vim.g.netrw_preview = 1
 vim.g.netrw_alto = 0
 
+vim.opt.exrc = true
+
 vim.ui.select = Snacks.picker.select
 
 -- vim.cmd('colorscheme carbonfox')

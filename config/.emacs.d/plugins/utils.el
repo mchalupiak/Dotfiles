@@ -19,10 +19,46 @@
 ;;
 ;;; Code:
 
+(use-package system-packages
+  :ensure t)
+
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (defun copy-ssh-agent ()
+    "copy env variables for ssh agent"
+    (interactive)
+    (exec-path-from-shell-copy-env "SSH_AGENT_PID")
+    (exec-path-from-shell-copy-env "SSH_AUTH_SOCK"))
+  (copy-ssh-agent))
+
+(use-package dumb-jump
+  :ensure t
+  :config
+  (setq dumb-jump-prefer-searcher 'ag)
+  (setq xref-show-definitions-function #'consult-xref)
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
+
 (use-package surround
   :ensure t
   :defer t
   :bind-keymap ("M-'" . surround-keymap))
+
+(use-package expand-region
+  :ensure t
+  :bind (("C-= =" . er/expand-region)
+         ("C-= w" . er/mark-word)
+         ("C-= s" . er/mark-symbol)
+         ("C-= S" . er/mark-symbol-with-prefix)
+         ("C-= f" . er/mark-defun)
+         ("C-= c" . er/mark-comment)
+         ("C-= m" . er/mark-method-call)
+         ("C-= a" . er/mark-next-accessor)
+         ("C-= p" . er/mark-inside-pairs)
+         ("C-= P" . er/mark-outside-pairs)
+         ("C-= '" . er/mark-inside-quotes)
+         ("C-= \"" . er/mark-outside-quotes)))
+         
 
 (use-package dirvish
   :ensure t
@@ -43,7 +79,8 @@
   :ensure t
   :defer 5
   :config
-  (dtrt-indent-global-mode 1))
+  (add-hook 'prog-mode-hook #'dtrt-indent-mode)
+  (add-hook 'text-mode-hook #'dtrt-indent-mode))
 
 (use-package undo-fu
   :ensure t
@@ -54,17 +91,6 @@
   :config
   (setq undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'" "/git-rebase-todo\\'"))
   (undo-fu-session-global-mode))
-
-(use-package blamer
-  :ensure t
-;  :bind (("s-i" . blamer-show-commit-info)
-;         ("C-c i" . blamer-show-posframe-commit-info))
-  :defer 10
-  :custom
-  (blamer-idle-time 0.2)
-  (blamer-min-offset 70)
-  :config
-  (global-blamer-mode 1))
 
 (use-package git-gutter
   :defer 10

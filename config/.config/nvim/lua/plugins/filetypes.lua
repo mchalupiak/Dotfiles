@@ -34,22 +34,22 @@ return {
         ft = 'puml',
     },
 
-    {
-        "S1M0N38/love2d.nvim",
-        -- event = "VeryLazy",
-        ft = 'lua',
-        version = "2.*",
-        opts = { },
-    },
-
-    {
-        "nvim-neorg/neorg",
-        -- lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
-        ft = 'norg',
-        version = "*", -- Pin Neorg to the latest stable release
-        config = true,
-    },
-
+    -- {
+    --     "S1M0N38/love2d.nvim",
+    --     -- event = "VeryLazy",
+    --     ft = 'lua',
+    --     version = "2.*",
+    --     opts = { },
+    -- },
+    --
+    -- {
+    --     "nvim-neorg/neorg",
+    --     -- lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+    --     ft = 'norg',
+    --     version = "*", -- Pin Neorg to the latest stable release
+    --     config = true,
+    -- },
+    --
     -- {
     --     "Olical/conjure"
     -- },

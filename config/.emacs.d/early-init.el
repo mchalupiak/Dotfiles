@@ -37,6 +37,6 @@
                     (time-subtract after-init-time before-init-time)))
            gcs-done))
 
-(add-hook 'emacs-startup-hook #'efs/display-startup-time)
+;; (add-hook 'emacs-startup-hook #'efs/display-startup-time)
 (provide 'early-init)
 ;;; early-init.el ends here

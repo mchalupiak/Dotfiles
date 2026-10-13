@@ -1,11 +1,14 @@
 ;;; -*- lexical-binding: t; -*-
 
+;; (global-set-key (kbd "M-f") #'forward-to-word)
+;; (global-set-key (kbd "M-F") #'forward-word)
 (global-set-key (kbd "C-c f") #'consult-fd)
 (global-set-key (kbd "C-c C-f") #'find-file-at-point)
 (global-set-key (kbd "C-c r") #'recentf)
 (global-set-key (kbd "C-c x") #'kill-current-buffer)
-(global-set-key (kbd "C-c X") (lambda () (interactive) (other-window 1) (kill-buffer-and-window)))
+(global-set-key (kbd "C-c X") (lambda () "kill other window" (interactive) (other-window 1) (kill-buffer-and-window)))
 (global-set-key (kbd "C-c g") #'consult-ripgrep)
+(global-set-key (kbd "C-c C-g") (lambda () (interactive) (let ((current-prefix-arg '(4))) (call-interactively #'consult-ripgrep))))
 (global-set-key (kbd "C-c L") #'consult-line)
 (global-set-key (kbd "C-c i") #'consult-info)
 (global-set-key (kbd "C-c s") #'ispell-word)
@@ -27,8 +30,8 @@
 
 (global-set-key (kbd "C-c k") #'eldoc)
 (global-set-key (kbd "C-c m") #'man)
-(global-set-key (kbd "C-c o c") (lambda () (interactive) (dired user-init-dir)))
-(global-set-key (kbd "C-c o t") (lambda () (interactive) (eshell 'N)))
+(global-set-key (kbd "C-c o c") (lambda () "open config" (interactive) (dired user-init-dir)))
+(global-set-key (kbd "C-c o t") (lambda () "open eshell" (interactive) (eshell 'N)))
 (global-set-key (kbd "C-c o g") #'magit)
 (global-set-key (kbd "C-c o e") #'mu4e)
 (global-set-key (kbd "C-c o r") #'elfeed-summary)

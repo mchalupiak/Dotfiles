@@ -19,14 +19,14 @@
 ;;
 ;;; Code:
 
-(use-package treesit-auto
-  :ensure t
-  ;; :defer t
-  :custom
-  (treesit-auto-install t)
-  :config
-  (treesit-auto-add-to-auto-mode-alist 'all)
-  (global-treesit-auto-mode))
+;; (use-package treesit-auto
+;;   :ensure t
+;;   ;; :defer t
+;;   :custom
+;;   (treesit-auto-install t)
+;;   :config
+;;   (treesit-auto-add-to-auto-mode-alist 'all)
+;;   (global-treesit-auto-mode))
 
 ;; (use-package gitconfig-mode
 ;;   :ensure t
@@ -89,9 +89,13 @@
 (add-to-list 'auto-mode-alist '("\\.odin\\'" . odin-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.zig\\(?:\\.zon\\)?\\'" . zig-ts-mode))
 
-(defvar treesit-language-source-alist '())
+;; (straight-use-package '(tree-sitter-langs :type git :host github
+;;                         :repo "emacs-tree-sitter/tree-sitter-langs"))
+;; (defvar treesit-language-source-alist '())
 (add-to-list 'treesit-language-source-alist '(odin "https://github.com/tree-sitter-grammars/tree-sitter-odin"))
 (add-to-list 'treesit-language-source-alist '(zig "https://github.com/tree-sitter-grammars/tree-sitter-zig"))
+(add-to-list 'treesit-language-source-alist '(go "https://github.com/tree-sitter/tree-sitter-go"))
+(add-to-list 'treesit-language-source-alist '(gomod "https://github.com/camdencheek/tree-sitter-go-mod"))
 
 (provide 'lang)
 ;;; lang.el ends here
